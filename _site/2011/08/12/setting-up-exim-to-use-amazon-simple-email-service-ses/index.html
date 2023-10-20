@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Setting up Exim to Use Amazon Simple Email Service (SES)</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Setting up Exim to Use Amazon Simple Email Service (SES) | recluze - Nauman (recluze) on Computing, Philosophy and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Setting up Exim to Use Amazon Simple Email Service (SES)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Amazon Simple Email Service (SES) is a Email Marketer’s dream come true. It allows you to send bulk emails to customers without fear of having your email land in their spam/junk folder – unless of course you’re sending spam and a huge majority of your “customers” start marking it as such." />
+<meta property="og:description" content="Amazon Simple Email Service (SES) is a Email Marketer’s dream come true. It allows you to send bulk emails to customers without fear of having your email land in their spam/junk folder – unless of course you’re sending spam and a huge majority of your “customers” start marking it as such." />
+<meta property="og:site_name" content="recluze - Nauman (recluze) on Computing, Philosophy and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-08-12T13:42:12+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Setting up Exim to Use Amazon Simple Email Service (SES)" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Setting up Exim to Use Amazon Simple Email Service (SES)","dateModified":"2011-08-12T13:42:12+05:00","datePublished":"2011-08-12T13:42:12+05:00","description":"Amazon Simple Email Service (SES) is a Email Marketer’s dream come true. It allows you to send bulk emails to customers without fear of having your email land in their spam/junk folder – unless of course you’re sending spam and a huge majority of your “customers” start marking it as such.","url":"/2011/08/12/setting-up-exim-to-use-amazon-simple-email-service-ses/","mainEntityOfPage":{"@type":"WebPage","@id":"/2011/08/12/setting-up-exim-to-use-amazon-simple-email-service-ses/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Courses</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Setting up Exim to Use Amazon Simple Email Service (SES)</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Aug 12, 2011
+	</div>
+	<ul class="post-tags"><li>Tutorials</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>Amazon Simple Email Service (SES) is a Email Marketer’s dream come true. It allows you to send bulk emails to customers without fear of having your email land in their spam/junk folder – unless of course you’re sending spam and a huge majority of your “customers” start marking it as such.</p>
+
+<p>More to the point, it’s very easy to setup SES with <a href="http://docs.amazonwebservices.com/ses/latest/DeveloperGuide/index.html?IntegratingWithServer.Sendmail.html">sendmail</a> and <a href="http://docs.amazonwebservices.com/ses/latest/DeveloperGuide/index.html?IntegratingWithServer.Postfix.html">postfix</a>. However, if you’re like most small/medium businesses, you’re using cPanel to host your site and that comes with Exim as the mail server. Of course, Amazon forgot to add instructions for Exim and so, here you are. Let’s begin.<!--more--></p>
+
+<p>First, I assume you’re using the standard cPanel Exim configuration which is a combined file. If you’re using a split config, you should take a look at <a href="http://www.debian-administration.org/users/lee/weblog/42">this page</a> (which is where I learned this stuff in the first place).</p>
+
+<p>So, the first thing you want to do is sign up with AWS and then SES and get your <em>AWS Access Key</em> and <em>Secret</em> (try <a href="http://www.sdbexplorer.com/documentation/simpledb--what-is-my-aws-access-and-secret-key-simpledb.html">this link</a> if you don’t know what that is). Once you have that, it’s time to download the basic official perl scripts that interact with SES.</p>
+
+<p>[sourcecode lang=”bash”]<br />
+cd /usr/local/<br />
+wget http://aws-catalog-download-files.s3.amazonaws.com/AmazonSES-2011-03-03.zip<br />
+unzip AmazonSES-2011-03-03.zip<br />
+cd bin/<br />
+vi aws-credentials<br />
+[/sourcecode]</p>
+
+<p>Add the following two lines to it:</p>
+
+<p>[sourcecode]<br />
+AWSAccessKeyId=your+access+key+id<br />
+AWSSecretKey=secret<br />
+[/sourcecode]</p>
+
+<p>Then run:</p>
+
+<p>[sourcecode lang=”bash”]<br />
+./ses-get-stats.pl -k aws-credentials -s<br />
+./ses-verify-email-address.pl -k aws-credentials –verbose -v new_email@here.com<br />
+[/sourcecode]</p>
+
+<p>Receive an email on the address you provided, click on the link. Access to that email inbox is all you need to verify. After that, you can use this email address to send emails from SES. This is important. When you first sign up, you are in “sandbox” mode. You can only send emails from verified emails and to verified emails. After you’re done testing, you can <a href="http://aws.amazon.com/ses/fullaccessrequest">request production access</a> and you will be able to send emails to unverified emails. From addresses always need to be verified – which is a good thing.</p>
+
+<p>After the verification, you can send an email like so:</p>
+
+<p>[sourcecode lang=”bash”]<br />
+root@ec2-50-19-42-220:~/ses-script/bin# ./ses-send-email.pl -k /usr/local/bin/aws-credentials -s Test -f verified@email.com another_verified@email.com &lt; test.txt<br />
+root@ec2-50-19-42-220:~/ses-script/bin# ./ses-send-email.pl -k /usr/local/bin/aws-credentials -s Test -f verified@email.com unverified@email.com &lt; test.txt<br />
+Email address is not verified.<br />
+[/sourcecode]</p>
+
+<p>Finally, copy the SES.pm file to the Perl library and make the credential files readable.</p>
+
+<p>[sourcecode lang=”bash”]<br />
+cp SES.pm /usr/local/lib/perl5/5.8.8/<br />
+chmod 644 /usr/local/bin/aws_credentials<br />
+[/sourcecode]</p>
+
+<p>Or wherever your Perl libraries are. So, that’s all good. Now that we have SES scripts setup, we need to tell Exim how to use it. Open up <code class="language-plaintext highlighter-rouge">/etc/exim.conf</code> (or whereever those config are) and add the following to the top:</p>
+
+<p>[sourcecode]<br />
+AWS_SES_SEND_EMAIL = /usr/local/bin/ses-send-email.pl</p>
+<h2 id="file-must-be-readable-by-the-running-exim-group-eg-debian-exim">File must be readable by the running exim group (e.g. Debian-exim)</h2>
+<p>AWS_CREDENTIALS_FILE = /usr/local/bin/aws-credentials</p>
+<h2 id="the-ses-verified-sender">the SES verified sender</h2>
+<p>AWS_SES_SENDER = lsearch*@;/usr/local/bin/ses_senders</p>
+<h2 id="currently-useless-as-theres-only-one-endpoint-offered-were-not-using-it">currently useless as there’s only one endpoint offered. We’re not using it.</h2>
+<h1 id="aws_ses_endpoint--httpsemailus-east-1amazonawscom">AWS_SES_ENDPOINT = https://email.us-east-1.amazonaws.com/</h1>
+<p>[/sourcecode]</p>
+
+<p>Define a router for the email using the following just after <code class="language-plaintext highlighter-rouge">begin router</code> construct.</p>
+
+<p>[sourcecode]<br />
+begin routers</p>
+
+<p>aws_ses:<br />
+ debug_print = “R: aws_ses for $local_part@$domain”<br />
+ driver = accept<br />
+ senders = AWS_SES_SENDER<br />
+ require_files = AWS_SES_SEND_EMAIL : AWS_CREDENTIALS_FILE<br />
+ transport = aws_ses_pipe<br />
+ no_more<br />
+[/sourcecode]</p>
+
+<p>The most important line there is the <code class="language-plaintext highlighter-rouge">senders</code> command. Notice the variable use. We defined this variable above. Simply put all your verified emails line-separated in the file <code class="language-plaintext highlighter-rouge">/usr/local/bin/ses_senders</code> and make sure Exim can read it. It basically says that this router will be fired/picked if the sender is in the file pointed to by this variable. The effect of this is that you can put all your SES verified email addresses in the ses_senders file and the SES routing will be used only for those emails that come from these verified emails. All other emails will go through the normal route – which is good since Amazon will reject all emails coming from non-verified email addresses. If your usecase is such that you absolutely don’t want any email going out unless the email is verified, you can simply comment out the <code class="language-plaintext highlighter-rouge">senders</code> line. That way, <em>all</em> emails will go through SES and get rejected if they aren’t from verified addresses. Phew! That was long-winded.</p>
+
+<p>Anyway, the final change is to add the following just after <code class="language-plaintext highlighter-rouge">begin transports</code>:</p>
+
+<p>[sourcecode]<br />
+begin transports</p>
+
+<p>aws_ses_pipe:<br />
+ debug_print = “T: aws_ses_pipe for $local_part@$domain”<br />
+ driver = pipe<br />
+ command = AWS_SES_SEND_EMAIL -k AWS_CREDENTIALS_FILE -r<br />
+ “${if !eq{AWS_SES_ENDPOINT}{} {-e}}”<br />
+ “${if !eq{AWS_SES_ENDPOINT}{} {AWS_SES_ENDPOINT}}”<br />
+ -f $h_from: $local_part@$domain<br />
+ freeze_exec_fail = true<br />
+ message_prefix =<br />
+ return_fail_output = true<br />
+[/sourcecode]</p>
+
+<p>The important parameter to the command above is the <code class="language-plaintext highlighter-rouge">-r</code>. Well, they’re all important but this specific one tell the SES script that a raw email will be sent to it instead of just the message body. That’s what Exim sends and that’s what the script should expect. (By the way, if you get an error in your exim_mainlog saying <code class="language-plaintext highlighter-rouge">Child process of aws_ses_pipe transport returned 1 from command: /usr/local/bin/ses-send-email.pl</code>, you might want to try getting rid of the two lines with the <code class="language-plaintext highlighter-rouge">${if...}</code>. They mess up the parameters to the SES script in some cases.</p>
+
+<p>Finally, to test it out, you can create a simple PHP script that sends emails:</p>
+
+<p>[sourcecode lang=”php”]<br />
+&lt;?php<br />
+$headers = ‘From: verified@email.com’;<br />
+mail(‘another_verified@email.com’, ‘Test email from SES’, “Testbody n Some more lines.”, $headers);<br />
+?&gt;<br />
+[/sourcecode]</p>
+
+<p>And <code class="language-plaintext highlighter-rouge">tail -f /var/log/exim_mainlog</code> to see what’s going on with the email.</p>
+
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> recluze | No rights reserved.</span>
+</footer>
+</body>
+</html>

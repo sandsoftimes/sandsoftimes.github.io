@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Flashing Android Dev Phone 1</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Flashing Android Dev Phone 1 | recluze - Nauman (recluze) on Computing, Philosophy and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Flashing Android Dev Phone 1" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This tutorial is about flashing your Android Developer Phone 1 with your own custom build. It will provide a concise description of steps involved along with a special portion on how to port Google’s apps on your custom build. I found that particularly troublesome with little help on the Internet. So, that will be a bonus :)" />
+<meta property="og:description" content="This tutorial is about flashing your Android Developer Phone 1 with your own custom build. It will provide a concise description of steps involved along with a special portion on how to port Google’s apps on your custom build. I found that particularly troublesome with little help on the Internet. So, that will be a bonus :)" />
+<meta property="og:site_name" content="recluze - Nauman (recluze) on Computing, Philosophy and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2009-07-20T04:15:36+06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Flashing Android Dev Phone 1" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Flashing Android Dev Phone 1","dateModified":"2009-07-20T04:15:36+06:00","datePublished":"2009-07-20T04:15:36+06:00","description":"This tutorial is about flashing your Android Developer Phone 1 with your own custom build. It will provide a concise description of steps involved along with a special portion on how to port Google’s apps on your custom build. I found that particularly troublesome with little help on the Internet. So, that will be a bonus :)","url":"/2009/07/20/flashing-android-dev-phone-1/","mainEntityOfPage":{"@type":"WebPage","@id":"/2009/07/20/flashing-android-dev-phone-1/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Courses</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Flashing Android Dev Phone 1</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Jul 20, 2009
+	</div>
+	<ul class="post-tags"><li>Android</li><li>Articles</li><li>Geek stuff</li><li>research</li><li>Tutorials</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>This tutorial is about flashing your Android Developer Phone 1 with your own custom build. It will provide a concise description of steps involved along with a special portion on how to port Google’s apps on your custom build. I found that particularly troublesome with little help on the Internet. So, that will be a bonus :)</p>
+
+<p><strong>First the disclaimer:</strong> This is for your Android Dev Phone 1 (ADP1). If you’re using T-Mobile’s SIM/firmware locked phone, stop. This tutorial is not for you. If you’re using ADP1, proceed at your own risk. You may brick your phone if you do something wrong and I shall not be held responsible for it. Finally, you might want to <a href="http://antonmelser.org/open-source/backup-install-restore-adp1.html">backup your factory-provided image</a>. I don’t think it’s really necessary because you can just flash it again using the <a href="http://www.htc.com/www/support/android/adp.html">HTC provided images</a>.</p>
+
+<p>So, here is how it’s done:</p>
+
+<!--more-->
+
+<ol>
+  <li>First, you need to download the android source code as here: <a href="http://source.android.com/download">http://source.android.com/download</a>. It’s fairly straight forward and doesn’t require much thought. Just follow the instructions but try to see how things are working because you’ll need to understand it for gaining a full appreciation of later steps.</li>
+  <li>After the final ‘repo sync’, do not ‘make’ the source. You need to customize the build for your ADP1. Go <a href="http://source.android.com/documentation/building-for-dream">here</a> and get the local_manifest.xml file. There’s some problem with the manifest file and it didn’t work for me with the master, cupcake or donut branch of android. Here’s what you need to do:
+    <ul>
+      <li>Remove the &lt;remove-project&gt; tag from the manifest file you just downloaded. There’s no such project as kernel in the source!</li>
+      <li>Change the ‘platform/vendor/htc/dream’ project name to ‘platform/vendor/htc/dream-open’</li>
+      <li>Put the manifest file in ‘.reop’ directory in your android source (I’m assuming it’s in ‘/mydroid’)</li>
+    </ul>
+  </li>
+  <li>There are some proprietary binaries that you need to extract from the phone device. Connect the device to your system as described <a href="http://recluze.wordpress.com/2009/07/16/getting-started-with-android-dev-phone-1/">here</a>. Then, go to ‘vendor/htc/dream’  and run ‘./extract-files.sh’.</li>
+  <li>In your android source directory, run ‘echo TARGET_PRODUCT:=htc_dream &gt; buildspec.mk’. This tells the make scripts to build for htc_dream device.</li>
+  <li>Finally, ‘make’.</li>
+  <li>After the making is done, you’ll have the final images in ‘out/target/product/dream’. Go in that directory.</li>
+  <li>Reboot the device while holding down the camera button. You should see a screen that has android bots on skateboards. Connect the device to the PC with a USB and hit the back button on the device. You should see the ‘serial0’ message change to ‘fastboot’. (If it doesn’t, hit back a few more times.)</li>
+  <li>From the PC, issue the following command:
+    <ul>
+      <li>sudo /mydroid/out/host/linux-x86/bin/fastboot flash system system.img</li>
+    </ul>
+  </li>
+</ol>
+
+<ul>
+  <li>
+    <p>sudo /mydroid/out/host/linux-x86/bin/fastboot flash boot boot.img</p>
+  </li>
+  <li>sudo /mydroid/out/host/linux-x86/bin/fastboot flash userdata userdata.img</li>
+  <li>sudo /mydroid/out/host/linux-x86/bin/fastboot reboot
+    <ol>
+      <li>After the machine reboots, you should have your own build running on the device!</li>
+    </ol>
+  </li>
+</ul>
+
+<p>You’ll notice that there are no Google applications on the device – no Market, no Gmail, no Maps, no Talk, no Youtube. Android doesn’t look so good without all those applications and you can’t even go to the Market to get the cool new apps. That simply won’t do, would it. As I promised I’ll show you how to port Google apps on to the phone, here it goes:</p>
+
+<ol>
+  <li>Perform steps 1 - 5 above to get the final images. Then, remove the images! Hold on now. We’ll be making those sweet images in a minute. There are some things that we need to put in the image first. Something we don’t have the source of but we can get hold of the binaries. Go to the <a href="http://www.htc.com/www/support/android/adp.html">HTC page</a> and get their recovery image. Not the system image, mind, but the recovery image.</li>
+  <li>Open the image in the archive manager and navigate to ‘system/app’ directory. Extract the following files from the image to ‘/tmp/system-apps’:
+    <ul>
+      <li>checkin.apk</li>
+      <li>Gmail.apk</li>
+      <li>GmailProvider.apk</li>
+      <li>GoogleApps.apk</li>
+      <li>GoogleContactsProvider.apk</li>
+      <li>GooglePartnerSetup.apk</li>
+      <li>GoogleSearch.apk</li>
+      <li>GoogleSettingsProvider.apk</li>
+      <li>GoogleSubscribedFeedsProvider.apk</li>
+      <li>gtalkservice.apk</li>
+      <li>HtcLog.apk</li>
+      <li>ImProvider.apk</li>
+      <li>Maps.apk</li>
+      <li>NetworkLocation.apk</li>
+      <li>SetupWizard.apk</li>
+      <li>Street.apk</li>
+      <li>Talk.apk</li>
+      <li>Vending.apk (This here is the Market!)</li>
+      <li>VoiceDialer.apk</li>
+      <li>VoiceSearch.apk</li>
+      <li>YouTube.apk</li>
+      <li>(All these applications are hopelessly interlinked and if you miss one, you’re sure you get a host of exceptions thrown at you at runtime. It caused me no small amount of headache when I was trying to get this to work.)</li>
+    </ul>
+  </li>
+  <li>Then, go to ‘system/framework’ in the same archive and extract these files to ‘/tmp/system-framework’:
+    <ul>
+      <li>com.android.im.plugin.jar</li>
+      <li>com.google.android.gtalkservice.jar</li>
+      <li>com.google.android.maps.jar</li>
+      <li>(these are the libraries with which different apps are linked.)</li>
+    </ul>
+  </li>
+  <li>Last, get the files ‘com.google.android.gtalkservice.xml’ and ‘com.google.android.maps.xml’ from ‘/system/etc/permissions’ from the archive and put them in ‘/tmp/system-perms’.</li>
+  <li>Delete the files ‘out/target/product/dream/obj/PACKAGING/systemimage_unopt_intermediates/system.img’ and ‘out/target/product/dream/system.img’</li>
+  <li>Move all the files from ‘/tmp/system-apps/’ to ‘out/target/product/dream/system/app’, from ‘/tmp/system-framework’ to ‘out/target/product/dream/system/framework’ and from ‘/tmp/system-perms’ to ‘out/target/product/dream/system/etc/permissions’. This will add the files to the image when we create it using make again.</li>
+  <li>Now, go back to the android source home and ‘make’. It takes very little time :)</li>
+  <li>Now, flash the images as before (Steps 6-9 above).</li>
+  <li>You should now have all the Google apps working on your custom build.</li>
+</ol>
+
+<p>Let me know if there are any problems. I might not be able to help but I can certainly take wild guesses. :)</p>
+
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> recluze | No rights reserved.</span>
+</footer>
+</body>
+</html>

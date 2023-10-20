@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Arabic/Urdu Typesetting the Easy Way</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Arabic/Urdu Typesetting the Easy Way | recluze - Nauman (recluze) on Computing, Philosophy and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Arabic/Urdu Typesetting the Easy Way" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="As the regular readers might know, I’m a big fan and regular user of the LaTeX typsetting system. Keeping to the tradition of occasionally posting a LaTeX tutorial on the blog, here’s one that will be useful to all those that are trying to get up and running with XeTeX – the unicode support adding big brother to the TeX typesetting system. XeTeX basically allows you to use all the Opentype (and other) fonts installed on your system – and it adds unicode support. That means you can use the latest Adobe fonts you’ve got as well as all the Arabic, Urdu, Chinese and Japanese fonts and typeset them as beautifully as you would any Latin script in LaTeX. It’s a hassle to set it up though and you wouldn’t find many tutorials or how-tos on the Internet." />
+<meta property="og:description" content="As the regular readers might know, I’m a big fan and regular user of the LaTeX typsetting system. Keeping to the tradition of occasionally posting a LaTeX tutorial on the blog, here’s one that will be useful to all those that are trying to get up and running with XeTeX – the unicode support adding big brother to the TeX typesetting system. XeTeX basically allows you to use all the Opentype (and other) fonts installed on your system – and it adds unicode support. That means you can use the latest Adobe fonts you’ve got as well as all the Arabic, Urdu, Chinese and Japanese fonts and typeset them as beautifully as you would any Latin script in LaTeX. It’s a hassle to set it up though and you wouldn’t find many tutorials or how-tos on the Internet." />
+<meta property="og:site_name" content="recluze - Nauman (recluze) on Computing, Philosophy and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-05-15T04:07:03+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Arabic/Urdu Typesetting the Easy Way" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Arabic/Urdu Typesetting the Easy Way","dateModified":"2011-05-15T04:07:03+05:00","datePublished":"2011-05-15T04:07:03+05:00","description":"As the regular readers might know, I’m a big fan and regular user of the LaTeX typsetting system. Keeping to the tradition of occasionally posting a LaTeX tutorial on the blog, here’s one that will be useful to all those that are trying to get up and running with XeTeX – the unicode support adding big brother to the TeX typesetting system. XeTeX basically allows you to use all the Opentype (and other) fonts installed on your system – and it adds unicode support. That means you can use the latest Adobe fonts you’ve got as well as all the Arabic, Urdu, Chinese and Japanese fonts and typeset them as beautifully as you would any Latin script in LaTeX. It’s a hassle to set it up though and you wouldn’t find many tutorials or how-tos on the Internet.","url":"/2011/05/15/arabicurdu-typesetting-the-easy-way/","mainEntityOfPage":{"@type":"WebPage","@id":"/2011/05/15/arabicurdu-typesetting-the-easy-way/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Courses</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Arabic/Urdu Typesetting the Easy Way</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on May 15, 2011
+	</div>
+	<ul class="post-tags"><li>Softwares</li><li>Tutorials</li><li>Typography</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>As the regular readers might know, I’m a <a href="http://www.csrdu.org/nauman/2007/07/15/using-bibtex-for-references/">big fan</a> and <a href="http://www.csrdu.org/nauman/2010/09/25/inserting-source-code-and-latex-in-wordpress/">regular user</a> of the <a href="http://www.csrdu.org/nauman/2007/07/15/using-tables-with-latex/">LaTeX</a> typsetting system. Keeping to the tradition of occasionally posting a LaTeX tutorial on the blog, here’s one that will be useful to all those that are trying to get up and running with <a href="http://scripts.sil.org/xetex">XeTeX</a> – the unicode support adding big brother to the TeX typesetting system. XeTeX basically allows you to use all the Opentype (and other) fonts installed on your system – and it adds unicode support. That means you can use the latest Adobe fonts you’ve got as well as all the Arabic, Urdu, Chinese and Japanese fonts and typeset them as beautifully as you would any Latin script in LaTeX. It’s a hassle to set it up though and you wouldn’t find many tutorials or how-tos on the Internet.</p>
+
+<p>So, here’s one that will allow you to setup and start using XeTeX – especially if you’re trying to find a way to easily typeset Arabic/Urdu. Let’s get started: First, download and install <a href="http://miktex.org/">MikTeX</a> 2.7+ (for Windows or any other LaTeX package for your favourite OS). I use 2.8 but I guess you should download the latex (2.9). Everything after 2.6 t has XeTeX built-in. You should download the basic installer from <a href="http://miktex.org/2.9/setup">here</a>.</p>
+
+<p>Install also the <a href="http://www.xm1math.net/texmaker/">TeXMaker IDE</a>. We’re going to configure that in a little while to use XeTeX instead of LaTeX. Get the Scheherazade font from the <a href="http://scripts.sil.org/cms/scripts/page.php?item_id=ArabicFonts_Download">SIL page</a>. You can just extract the zip file anywhere and copy the <code class="language-plaintext highlighter-rouge">.ttf</code> file into <code class="language-plaintext highlighter-rouge">C:WindowsFonts</code> folder. That installs the font required for Arabic typesetting.</p>
+
+<p>Now, fire up TexMaker, go to Options menu and click on ‘Configure Texmaker’. In the Pdflatex section, replace <code class="language-plaintext highlighter-rouge">pdflatex</code> with <code class="language-plaintext highlighter-rouge">xelatex</code>.</p>
+
+<p>[caption id=”attachment_609” align=”aligncenter” width=”300” caption=”Configure texmaker for XeLaTeX”]<a href="http://recluze.files.wordpress.com/2011/05/configure-texmaker.png"><img src="/assets/images/2011/05/configure-texmaker-300x207.png" alt="" title="Configure texmaker" /></a>[/caption]</p>
+
+<p>Create a new file and insert the following code:</p>
+
+<p>[sourcecode lang=”latex”]<br />
+documentclass{article}<br />
+usepackage{arabxetex}<br />
+begin{document}</p>
+
+<p>begin{arab}[novoc]<br />
+mi_tAl: aemph{45} darajaT<br />
+end{arab}</p>
+
+<p>end{document}<br />
+[/sourcecode]</p>
+
+<p>Before we build, you might need to refresh the font-cache for XeLaTeX (especially if you’ve used it before). For that, go to your MikTeX bin directory and enter the command <code class="language-plaintext highlighter-rouge">fc-cache.exe --force</code>. It might take a while but it should run without any errors.</p>
+
+<p><a href="http://recluze.files.wordpress.com/2011/05/xetex-fc-cache.png"><img src="/assets/images/2011/05/xetex-fc-cache-300x150.png" alt="" title="Clear Cache" /></a></p>
+
+<p>Now, back to Texmaker   and ‘Quick Build’.</p>
+
+<p>[caption id=”attachment_613” align=”aligncenter” width=”300” caption=”Build ArabXeTeX”]<a href="http://www.csrdu.org/nauman/wp-content/uploads/2011/05/build-arabxetex1.png"><img src="/assets/images/2011/05/build-arabxetex1-300x163.png" alt="" title="Build ArabXeTeX" /></a>[/caption]</p>
+
+<p>You should be able to see the output like so:</p>
+
+<p>[caption id=”attachment_615” align=”aligncenter” width=”163” caption=”Arabic Output”]<a href="http://recluze.files.wordpress.com/2011/05/arabxetex-output.png"><img src="/assets/images/2011/05/arabxetex-output.png" alt="" title="arabxetex-output" /></a>[/caption]</p>
+
+<p>During the quick build, you might get a dialog box saying that a certain package is missing and you need to install it. If so, just click ‘Ok’ or ‘Install’ and it will be automatically installed on-the-fly by MikTeX. (You’ll need an internet connection though.) If it simply exits giving some error about a missing .sty file (look at the bottom of the screen for the errors/output messages) – you need to open up the “Package Manager” from the MikTeX folder in the start menu and install that package. For example, if you get the error, “Missing arabxetex.sty”, search for arabxetex package, select it in the list and click on the ‘install button’. Then try to quick build again. Let me know in the comments below if you have any errors and I’ll try to help you out.</p>
+
+<p>[caption id=”attachment_616” align=”aligncenter” width=”300” caption=”Installing MikTeX Packages”]<a href="http://recluze.files.wordpress.com/2011/05/install-arabxetex.png"><img src="/assets/images/2011/05/install-arabxetex-300x175.png" alt="" title="Installing MikTeX Packages" /></a>[/caption]</p>
+
+<p>Finally, you can look at the <a href="http://www.tug.org/texlive/Contents/live/texmf-dist/doc/xelatex/arabxetex/arabxetex.pdf">original documentation for ArabXeTeX</a> for the details of use. I’ll leave you with another output from the examples in that doc.</p>
+
+<p>[caption id=”attachment_617” align=”aligncenter” width=”300” caption=”Another example output from ArabXeTeX”]<a href="http://recluze.files.wordpress.com/2011/05/arabxetex-output2.png"><img src="/assets/images/2011/05/arabxetex-output2-300x60.png" alt="" title="Another example output" /></a>[/caption]</p>
+
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> recluze | No rights reserved.</span>
+</footer>
+</body>
+</html>

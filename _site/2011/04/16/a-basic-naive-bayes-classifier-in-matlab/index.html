@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>A Basic Naive Bayes classifier in Matlab</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>A Basic Naive Bayes classifier in Matlab | recluze - Nauman (recluze) on Computing, Philosophy and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="A Basic Naive Bayes classifier in Matlab" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Update: If you are interested in getting a running start to machine learning and deep learning, I have created a course that I’m offering to my dedicated readers for just $9.99. Access it here on Udemy. If you are only here for Matlab, continue reading =]" />
+<meta property="og:description" content="Update: If you are interested in getting a running start to machine learning and deep learning, I have created a course that I’m offering to my dedicated readers for just $9.99. Access it here on Udemy. If you are only here for Matlab, continue reading =]" />
+<meta property="og:site_name" content="recluze - Nauman (recluze) on Computing, Philosophy and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-04-16T05:33:41+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="A Basic Naive Bayes classifier in Matlab" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"A Basic Naive Bayes classifier in Matlab","dateModified":"2011-04-16T05:33:41+05:00","datePublished":"2011-04-16T05:33:41+05:00","description":"Update: If you are interested in getting a running start to machine learning and deep learning, I have created a course that I’m offering to my dedicated readers for just $9.99. Access it here on Udemy. If you are only here for Matlab, continue reading =]","url":"/2011/04/16/a-basic-naive-bayes-classifier-in-matlab/","mainEntityOfPage":{"@type":"WebPage","@id":"/2011/04/16/a-basic-naive-bayes-classifier-in-matlab/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Courses</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>A Basic Naive Bayes classifier in Matlab</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Apr 16, 2011
+	</div>
+	<ul class="post-tags"><li>Geek stuff</li><li>Machine Learning</li><li>research</li><li>Tutorials</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p><strong>Update:</strong> If you are interested in getting a running start to machine learning and deep learning, I have created a course that I’m offering to my dedicated readers for just $9.99. <a href="https://www.udemy.com/practical-deep-learning-with-keras/?couponCode=RECLYBLOG">Access it here on Udemy</a>. If you are only here for Matlab, continue reading =]</p>
+
+<p>This is the second in my series of implementing low-level machine learning algorithms in Matlab. We first did <a href="http://www.csrdu.org/nauman/2010/06/25/regression-with-gradient-descent-in-low-level-matlab/">linear regression with gradient descent</a> and now we’re working with the more popular naive bayes classifier. As is evident from the name, NB it is a classifier i.e. it sorts data points into classes based on some features. We’ll be writing code for NB using low-level matlab (meaning we won’t use matlab’s implementation of NB). Here’s the example we’ve taken (with a bit of modification) from <a href="http://www.inf.ed.ac.uk/teaching/courses/lfd/lectures/lfd_2005_naive.pdf">here</a>.</p>
+
+<p>Consider the following vector:</p>
+
+<p>(likes shortbread, likes lager, eats porridge, watched England play football, nationality)<sup>T</sup></p>
+
+<p>A vector $latex x = (1, 0, 1, 0, 1)^T $ would describe that a person likes shortbread, does not like lager, eats porridge, has not watched England play football and is a national of Scottland. The final point is the class that we want to predict and takes two values: 1 for Scottish, 0 for English.</p>
+
+<p>Here’s the data we’re given:</p>
+
+<p>`
+X = [ 0 0 1 1 0 ;
+1 0 1 0 0 ;
+1 1 0 1 0 ;
+1 1 0 0 0 ;
+0 1 0 1 0 ;
+0 0 1 0 0 ;
+1 0 1 1 1 ;
+1 1 0 1 1 ;
+1 1 1 0 1 ;
+1 1 1 0 1 ;
+1 1 1 1 1 ;
+1 0 1 0 1 ;
+1 0 0 0 1 ];
+`</p>
+
+<p>Notice that usually when we represent data, we write features in columns, instances in rows. If this is the case, we need to get the data in proper orientation: features in rows, instances in columns. That’s the convention. Also, we need to separate the class from the feature set:</p>
+
+<p>[sourcecode lang=”matlab”]<br />
+Y = X(:,5);<br />
+X = X(:,1:4)’; % X in proper format now.<br />
+[/sourcecode]</p>
+
+<p>Alright. Now, that we have the data, let’s hear some theory. As always, this isn’t a tutorial on statistics. Go read about the theory somewhere else. This is just a refresher:</p>
+
+<p>In order to predict the class from a feature set, we need to find out the probability of Y given X (where</p>
+
+<p>$latex X = ( x_1, x_2, ldots x_n ) $</p>
+
+<p>with n being the number of features. We denote the number of instances given to us as m. In our example, n = 4, m = 13. The probability of Y given X is:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$latex P(Y=1</td>
+      <td>X) = P(X</td>
+      <td>Y=1) * P(Y=1) / P(X) $</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Which is called the Bayes rule. Now, we make the NB assumption: All features in the feature set are independant of each other! Strong assumption but usually works. Given this assumption, we need to find $latex P(X</td>
+      <td>Y=1), P(Y) and P(X)$.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>(The weird braces notation that follows is the indicator notation. $latex 1{ v }$ means use 1 only if condition v holds, 0 otherwise.)</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$latex P(X) = P(X</td>
+      <td>Y=1) + P(X</td>
+      <td>Y=0)$</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$latex P(X</td>
+      <td>Y=1) = prod_j{P(x_i</td>
+      <td>Y=1)} $</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>To find $latex P(X</td>
+      <td>Y=1)$, you just have to find $latex P(x_i</td>
+      <td>Y=1)$ for all features and multiply them together. This is where the assumption comes in. You need the assumption of independence here for this.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>$latex P(x_i</td>
+      <td>Y=1) = sum_j{1{x_i^j = 1, y^j = 1}} / sum_j{1{y^j = 1}}$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This equation basically means count the number of instances for which both x_i and Y are 1 and divide by the count of Y being 1. That’s the probability of x_i appearing with Y. Fairly straight forward if you think about it.</p>
+
+<p>$latex P(Y=1) = sum_j{1{y^j = 1 }} / sum_j{1{y^j = 1, y^j = 0 }}$</p>
+
+<p>Same as above. Count the ratio of Y=1 with the total number of Ys. Notice that we need to calculate all these for both Y=0 and Y=1 because we need both in the first equation. Let’s begin from the bottom up. For all of below, consider E as 0 and S as 1 since we consider being Scottish as being in class 1 (positive example).</p>
+
+<p>P(Y):</p>
+
+<p>[sourcecode lang=”matlab”]<br />
+pS = sum (Y)/size(Y,1); % all rows with Y = 1<br />
+pE = sum(1 - Y)/size(Y,1); % all rows with Y = 0<br />
+[/sourcecode]</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>P(x_i</td>
+      <td>Y):</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>[sourcecode lang=”matlab”]<br />
+phiS = X * Y / sum(Y); % all instances for which attrib phi(i) and Y are both 1<br />
+ % meaning all Scotts with attribute phi(i) = 1<br />
+phiE = X * (1-Y) / sum(1-Y) ; % all instances for which attrib phi(i) = 1 and Y =0<br />
+ % meaning all English with attribute phi(i) = 1<br />
+[/sourcecode]</p>
+
+<p>PhiS and PhiE are vectors that store the probabilities for all attributes. Now that we have the probabilities, we’re ready to make a prediction. Let’s get a test datapoint:</p>
+
+<p>[sourcecode lang=”matlab”]<br />
+x=[1 0 1 0]’; % test point<br />
+[/sourcecode]</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>And calculate the probabilities P(X</td>
+      <td>Y=1) and P(X</td>
+      <td>Y=0)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>[sourcecode lang=”matlab”]<br />
+pxS = prod(phiS.^x.*(1-phiS).^(1-x));<br />
+pxE = prod(phiE.^x.*(1-phiE).^(1-x));<br />
+[/sourcecode]</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>And finally, the probabilities of P(Y=1</td>
+      <td>X) and P(Y=0</td>
+      <td>X)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>[sourcecode lang=”matlab”]<br />
+pxSF = (pxS * pS ) / (pxS + pxE)<br />
+pxEF = (pxE * pS ) / (pxS + pxE)<br />
+[/sourcecode]</p>
+
+<p>They should add upto 1 since there are only two classes. Now you can define a threshold for deciding whether the class should be considered 1 or 0 based on these probabilities. In this case, we can consider this test point to belong to class 1 since the probability pxSF &gt; 0.5.</p>
+
+<p>And there you have it!</p>
+
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> recluze | No rights reserved.</span>
+</footer>
+</body>
+</html>

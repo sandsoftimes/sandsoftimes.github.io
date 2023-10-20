@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Agent Mobility with JADE and JIPMS</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Agent Mobility with JADE and JIPMS | recluze - Nauman (recluze) on Computing, Philosophy and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Agent Mobility with JADE and JIPMS" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A friend and I have been working on Java Agent DEvelopment Framework (JADE) for a while now. The idea is to enhance security mechanisms in the open source agent-deployment platform. The first step we decided to address was the actual mobility of an agent from one platform (in the sense of a dedicated machine running the JADE middleware) to another one. Turned out that it was much harder than one would imagine -- especially given the fact that these agents are supposed to be mobile. Anyway, after around two months of part-time efforts, we got the agent working. Since the whole ordeal involved a lot of missing documentation and bad support, I decided to document the process through this tutorial. So, here it is. Read on to see how you can create an agent on one platform, migrate it to another platform, have it do some computation there and come back to the source.&nbsp; First, you&#39;re going to need two machines running Ubuntu. (We used Ubuntu 11.10 oneric for this.) If you only have one machine, you can install VirtualBox, setup a Ubuntu instance in a VM and connect it to the host through a virtual interface. I prefer using two adapters, first one set to a NAT setting and another one set to Host-only setting. This way, I get Internet connectivity in the guest as well as host-to-guest simple addressing. We&#39;re going to use JADE 3.6 along with the JADE Inter-platform Mobility Service (JIPMS) 1.2 for our needs. Download JADE and JIPMS.&nbsp; I used jade-binary package and extracted it in /home/documents/jade. I also extracted the JIPMS and moved the file migration.jar from its lib folder to the lib folder of jade binary. This makes it easier for us to change the classpath later on. We&#39;ll need these files on both machines. Now we need to setup the machines. Here are the details of the setup on each machine: Host: hostname: slave1 IP: 192.168.56.1 (set by VirtualBox automatically) You can get the IP addresses of each machine through the ifconfig command. Edit /etc/hosts to insert the other machine&#39;s address. My hosts file on slave1 looks like this: [sourcecode language=&quot;bash&quot;] # 127.0.0.1&amp;nbsp;&amp;nbsp; localhost 127.0.0.1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; slave1 192.168.56.101&amp;nbsp;&amp;nbsp;&amp;nbsp; slave2 [/sourcecode] Now, we can run jade using the following command: [sourcecode language=&quot;bash&quot;] java -cp lib/jade.jar:lib/migration.jar:lib/iiop.jar: lib/jadeTools.jar:lib/http.jar: lib/commons-codec/commons-codec-1.3.jar jade.Boot -gui -platform-id slave1 -host slave1 -services jade.core.mobility.AgentMobilityService; jade.core.migration.InterPlatformMobilityService -accept-foreign-agents true [/sourcecode] You will need to use a little common sense about the line breaks and spaces here. I&#39;ve formatted the command for highest readability. (Note the escaped &#39;;&#39; in the services param and the use of full colon instead of the semi-colon in the classpath. This is only required on *nix platforms.) Three switches are important here: platform-id, host and services.&nbsp; First two are self-explanatory. Third tells the IPMS to start the services that take care of the agent migration. We also need to enable the acceptance of foreign agents but I&#39;m sure you already knew that from all the mailing list searches. Guest: hostname: slave2 IP: 192.168.56.101 (set by VirtualBox automatically) The hosts file looks like this: [sourcecode language=&quot;bash&quot;] # 127.0.0.1&amp;nbsp;&amp;nbsp; localhost 127.0.0.1&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; slave2 192.168.56.1&amp;nbsp;&amp;nbsp;&amp;nbsp; slave1 [/sourcecode] Start jade on slave2 using the following command: [sourcecode language=&quot;bash&quot;] java -cp lib/jade.jar:lib/migration.jar:lib/iiop.jar: lib/jadeTools.jar:lib/http.jar: lib/commons-codec/commons-codec-1.3.jar jade.Boot -gui -platform-id slave2 -host slave2 -services jade.core.mobility.AgentMobilityService; jade.core.migration.InterPlatformMobilityService -accept-foreign-agents true [/sourcecode] The Agent: Now, we turn to the actual agent code that does the migration. For this, we can setup eclipse and code from within that. The code for the agent is fairly straight-forward: [sourcecode language=&quot;java&quot;] package org.csrdu.mobility; import jade.core.AID; import jade.core.Agent; import jade.core.PlatformID; import jade.core.behaviours.TickerBehaviour; @SuppressWarnings(&quot;serial&quot;) public class MobileAgent extends Agent { @Override protected void setup() { super.setup(); addBehaviour(new MyTickerBehaviour(this, 1000)); System.out.println(&quot;Hello World. I am an agent!&quot;); System.out.println(&quot;My LocalName: &quot; + getAID().getLocalName()); System.out.println(&quot;My Name: &quot; + getAID().getName()); System.out.println(&quot;My Address: &quot; + getAID().getAddressesArray()[0]); } private class MyTickerBehaviour extends TickerBehaviour { Agent agent; // long interval; int counter; public MyTickerBehaviour(Agent agent, long interval) { super(agent, interval); this.agent = agent; // this.interval = interval; } @Override protected void onTick() { if (counter == 3) { // move out AID remoteAMS = new AID(&quot;ams@slave2&quot;, AID.ISGUID); remoteAMS.addAddresses(&quot;http://slave2:7778/acc&quot;); PlatformID destination = new PlatformID(remoteAMS); agent.doMove(destination); } if (counter == 10) { // move back AID remoteAMS = new AID(&quot;ams@slave1&quot;, AID.ISGUID); remoteAMS.addAddresses(&quot;http://slave1:7778/acc&quot;); PlatformID destination = new PlatformID(remoteAMS); agent.doMove(destination); } if (counter &lt; 15) System.out.println(counter++); else agent.doDelete(); } } } [/sourcecode] For the sake of completion, here&#39;s the arguments that you have to pass when running the agent code from within eclipse. [sourcecode] -container -agents mob:org.csrdu.mobility.MobileAgent -services jade.core.mobility.AgentMobilityService;jade.core.migration.InterPlatformMobilityService [/sourcecode] Also, add all the jade and mobility jars to the build path of the project. I&#39;m not sure which ones are needed here so you will have to figure that out on your own. Caveats: If you get this error: Destination slave2:1099/JADE does not exist or does not support mobility, it most probably means that you (a) you don&#39;t have IPMS running, (b) you didn&#39;t put the -services switch properly (c) there&#39;s a firewall blocking your port 7778 or (d) your hostnames are messed up. In any case, the whole instructions above should work for you. You will most probably need to change your /etc/hosts file and comment out the line that says &#39;127.0.0.1 localhost&#39;. It causes JADE to start the ams@slaveN service as http://localhost:7778/acc instead of http://slaveN:7778/acc and that means a lot of missed ACL messages and a lot of headaches. You usually get the dreaded getContainerID() failed to find agent ams@slave1 error because of this. Do this for both the host and the guest. Make sure your JADE GUI looks like the following: Finally, if you need detailed logging, you can create the logging config file by the name of logging.properties given below and pass the -Djava.util.logging.config.file=logging.properties parameter when starting JADE. This will give much finer-grained logs. This is standard log4j syntax. [sourcecode] handlers=java.util.logging.FileHandler, java.util.logging.ConsoleHandler .level=INFO jade.domain.mobility.level=ALL # --- ConsoleHandler --- java.util.logging.ConsoleHandler.level=ALL java.util.logging.ConsoleHandler.formatter=java.util.logging.SimpleFormatter # --- FileHandler --- java.util.logging.FileHandler.level=ALL" />
+<meta property="og:description" content="A friend and I have been working on Java Agent DEvelopment Framework (JADE) for a while now. The idea is to enhance security mechanisms in the open source agent-deployment platform. The first step we decided to address was the actual mobility of an agent from one platform (in the sense of a dedicated machine running the JADE middleware) to another one. Turned out that it was much harder than one would imagine -- especially given the fact that these agents are supposed to be mobile. Anyway, after around two months of part-time efforts, we got the agent working. Since the whole ordeal involved a lot of missing documentation and bad support, I decided to document the process through this tutorial. So, here it is. Read on to see how you can create an agent on one platform, migrate it to another platform, have it do some computation there and come back to the source.&nbsp; First, you&#39;re going to need two machines running Ubuntu. (We used Ubuntu 11.10 oneric for this.) If you only have one machine, you can install VirtualBox, setup a Ubuntu instance in a VM and connect it to the host through a virtual interface. I prefer using two adapters, first one set to a NAT setting and another one set to Host-only setting. This way, I get Internet connectivity in the guest as well as host-to-guest simple addressing. We&#39;re going to use JADE 3.6 along with the JADE Inter-platform Mobility Service (JIPMS) 1.2 for our needs. Download JADE and JIPMS.&nbsp; I used jade-binary package and extracted it in /home/documents/jade. I also extracted the JIPMS and moved the file migration.jar from its lib folder to the lib folder of jade binary. This makes it easier for us to change the classpath later on. We&#39;ll need these files on both machines. Now we need to setup the machines. Here are the details of the setup on each machine: Host: hostname: slave1 IP: 192.168.56.1 (set by VirtualBox automatically) You can get the IP addresses of each machine through the ifconfig command. Edit /etc/hosts to insert the other machine&#39;s address. My hosts file on slave1 looks like this: [sourcecode language=&quot;bash&quot;] # 127.0.0.1&amp;nbsp;&amp;nbsp; localhost 127.0.0.1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; slave1 192.168.56.101&amp;nbsp;&amp;nbsp;&amp;nbsp; slave2 [/sourcecode] Now, we can run jade using the following command: [sourcecode language=&quot;bash&quot;] java -cp lib/jade.jar:lib/migration.jar:lib/iiop.jar: lib/jadeTools.jar:lib/http.jar: lib/commons-codec/commons-codec-1.3.jar jade.Boot -gui -platform-id slave1 -host slave1 -services jade.core.mobility.AgentMobilityService; jade.core.migration.InterPlatformMobilityService -accept-foreign-agents true [/sourcecode] You will need to use a little common sense about the line breaks and spaces here. I&#39;ve formatted the command for highest readability. (Note the escaped &#39;;&#39; in the services param and the use of full colon instead of the semi-colon in the classpath. This is only required on *nix platforms.) Three switches are important here: platform-id, host and services.&nbsp; First two are self-explanatory. Third tells the IPMS to start the services that take care of the agent migration. We also need to enable the acceptance of foreign agents but I&#39;m sure you already knew that from all the mailing list searches. Guest: hostname: slave2 IP: 192.168.56.101 (set by VirtualBox automatically) The hosts file looks like this: [sourcecode language=&quot;bash&quot;] # 127.0.0.1&amp;nbsp;&amp;nbsp; localhost 127.0.0.1&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; slave2 192.168.56.1&amp;nbsp;&amp;nbsp;&amp;nbsp; slave1 [/sourcecode] Start jade on slave2 using the following command: [sourcecode language=&quot;bash&quot;] java -cp lib/jade.jar:lib/migration.jar:lib/iiop.jar: lib/jadeTools.jar:lib/http.jar: lib/commons-codec/commons-codec-1.3.jar jade.Boot -gui -platform-id slave2 -host slave2 -services jade.core.mobility.AgentMobilityService; jade.core.migration.InterPlatformMobilityService -accept-foreign-agents true [/sourcecode] The Agent: Now, we turn to the actual agent code that does the migration. For this, we can setup eclipse and code from within that. The code for the agent is fairly straight-forward: [sourcecode language=&quot;java&quot;] package org.csrdu.mobility; import jade.core.AID; import jade.core.Agent; import jade.core.PlatformID; import jade.core.behaviours.TickerBehaviour; @SuppressWarnings(&quot;serial&quot;) public class MobileAgent extends Agent { @Override protected void setup() { super.setup(); addBehaviour(new MyTickerBehaviour(this, 1000)); System.out.println(&quot;Hello World. I am an agent!&quot;); System.out.println(&quot;My LocalName: &quot; + getAID().getLocalName()); System.out.println(&quot;My Name: &quot; + getAID().getName()); System.out.println(&quot;My Address: &quot; + getAID().getAddressesArray()[0]); } private class MyTickerBehaviour extends TickerBehaviour { Agent agent; // long interval; int counter; public MyTickerBehaviour(Agent agent, long interval) { super(agent, interval); this.agent = agent; // this.interval = interval; } @Override protected void onTick() { if (counter == 3) { // move out AID remoteAMS = new AID(&quot;ams@slave2&quot;, AID.ISGUID); remoteAMS.addAddresses(&quot;http://slave2:7778/acc&quot;); PlatformID destination = new PlatformID(remoteAMS); agent.doMove(destination); } if (counter == 10) { // move back AID remoteAMS = new AID(&quot;ams@slave1&quot;, AID.ISGUID); remoteAMS.addAddresses(&quot;http://slave1:7778/acc&quot;); PlatformID destination = new PlatformID(remoteAMS); agent.doMove(destination); } if (counter &lt; 15) System.out.println(counter++); else agent.doDelete(); } } } [/sourcecode] For the sake of completion, here&#39;s the arguments that you have to pass when running the agent code from within eclipse. [sourcecode] -container -agents mob:org.csrdu.mobility.MobileAgent -services jade.core.mobility.AgentMobilityService;jade.core.migration.InterPlatformMobilityService [/sourcecode] Also, add all the jade and mobility jars to the build path of the project. I&#39;m not sure which ones are needed here so you will have to figure that out on your own. Caveats: If you get this error: Destination slave2:1099/JADE does not exist or does not support mobility, it most probably means that you (a) you don&#39;t have IPMS running, (b) you didn&#39;t put the -services switch properly (c) there&#39;s a firewall blocking your port 7778 or (d) your hostnames are messed up. In any case, the whole instructions above should work for you. You will most probably need to change your /etc/hosts file and comment out the line that says &#39;127.0.0.1 localhost&#39;. It causes JADE to start the ams@slaveN service as http://localhost:7778/acc instead of http://slaveN:7778/acc and that means a lot of missed ACL messages and a lot of headaches. You usually get the dreaded getContainerID() failed to find agent ams@slave1 error because of this. Do this for both the host and the guest. Make sure your JADE GUI looks like the following: Finally, if you need detailed logging, you can create the logging config file by the name of logging.properties given below and pass the -Djava.util.logging.config.file=logging.properties parameter when starting JADE. This will give much finer-grained logs. This is standard log4j syntax. [sourcecode] handlers=java.util.logging.FileHandler, java.util.logging.ConsoleHandler .level=INFO jade.domain.mobility.level=ALL # --- ConsoleHandler --- java.util.logging.ConsoleHandler.level=ALL java.util.logging.ConsoleHandler.formatter=java.util.logging.SimpleFormatter # --- FileHandler --- java.util.logging.FileHandler.level=ALL" />
+<meta property="og:site_name" content="recluze - Nauman (recluze) on Computing, Philosophy and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2011-12-29T03:50:12+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Agent Mobility with JADE and JIPMS" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Agent Mobility with JADE and JIPMS","dateModified":"2011-12-29T03:50:12+05:00","datePublished":"2011-12-29T03:50:12+05:00","description":"A friend and I have been working on Java Agent DEvelopment Framework (JADE) for a while now. The idea is to enhance security mechanisms in the open source agent-deployment platform. The first step we decided to address was the actual mobility of an agent from one platform (in the sense of a dedicated machine running the JADE middleware) to another one. Turned out that it was much harder than one would imagine -- especially given the fact that these agents are supposed to be mobile. Anyway, after around two months of part-time efforts, we got the agent working. Since the whole ordeal involved a lot of missing documentation and bad support, I decided to document the process through this tutorial. So, here it is. Read on to see how you can create an agent on one platform, migrate it to another platform, have it do some computation there and come back to the source.&nbsp; First, you&#39;re going to need two machines running Ubuntu. (We used Ubuntu 11.10 oneric for this.) If you only have one machine, you can install VirtualBox, setup a Ubuntu instance in a VM and connect it to the host through a virtual interface. I prefer using two adapters, first one set to a NAT setting and another one set to Host-only setting. This way, I get Internet connectivity in the guest as well as host-to-guest simple addressing. We&#39;re going to use JADE 3.6 along with the JADE Inter-platform Mobility Service (JIPMS) 1.2 for our needs. Download JADE and JIPMS.&nbsp; I used jade-binary package and extracted it in /home/documents/jade. I also extracted the JIPMS and moved the file migration.jar from its lib folder to the lib folder of jade binary. This makes it easier for us to change the classpath later on. We&#39;ll need these files on both machines. Now we need to setup the machines. Here are the details of the setup on each machine: Host: hostname: slave1 IP: 192.168.56.1 (set by VirtualBox automatically) You can get the IP addresses of each machine through the ifconfig command. Edit /etc/hosts to insert the other machine&#39;s address. My hosts file on slave1 looks like this: [sourcecode language=&quot;bash&quot;] # 127.0.0.1&amp;nbsp;&amp;nbsp; localhost 127.0.0.1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; slave1 192.168.56.101&amp;nbsp;&amp;nbsp;&amp;nbsp; slave2 [/sourcecode] Now, we can run jade using the following command: [sourcecode language=&quot;bash&quot;] java -cp lib/jade.jar:lib/migration.jar:lib/iiop.jar: lib/jadeTools.jar:lib/http.jar: lib/commons-codec/commons-codec-1.3.jar jade.Boot -gui -platform-id slave1 -host slave1 -services jade.core.mobility.AgentMobilityService; jade.core.migration.InterPlatformMobilityService -accept-foreign-agents true [/sourcecode] You will need to use a little common sense about the line breaks and spaces here. I&#39;ve formatted the command for highest readability. (Note the escaped &#39;;&#39; in the services param and the use of full colon instead of the semi-colon in the classpath. This is only required on *nix platforms.) Three switches are important here: platform-id, host and services.&nbsp; First two are self-explanatory. Third tells the IPMS to start the services that take care of the agent migration. We also need to enable the acceptance of foreign agents but I&#39;m sure you already knew that from all the mailing list searches. Guest: hostname: slave2 IP: 192.168.56.101 (set by VirtualBox automatically) The hosts file looks like this: [sourcecode language=&quot;bash&quot;] # 127.0.0.1&amp;nbsp;&amp;nbsp; localhost 127.0.0.1&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; slave2 192.168.56.1&amp;nbsp;&amp;nbsp;&amp;nbsp; slave1 [/sourcecode] Start jade on slave2 using the following command: [sourcecode language=&quot;bash&quot;] java -cp lib/jade.jar:lib/migration.jar:lib/iiop.jar: lib/jadeTools.jar:lib/http.jar: lib/commons-codec/commons-codec-1.3.jar jade.Boot -gui -platform-id slave2 -host slave2 -services jade.core.mobility.AgentMobilityService; jade.core.migration.InterPlatformMobilityService -accept-foreign-agents true [/sourcecode] The Agent: Now, we turn to the actual agent code that does the migration. For this, we can setup eclipse and code from within that. The code for the agent is fairly straight-forward: [sourcecode language=&quot;java&quot;] package org.csrdu.mobility; import jade.core.AID; import jade.core.Agent; import jade.core.PlatformID; import jade.core.behaviours.TickerBehaviour; @SuppressWarnings(&quot;serial&quot;) public class MobileAgent extends Agent { @Override protected void setup() { super.setup(); addBehaviour(new MyTickerBehaviour(this, 1000)); System.out.println(&quot;Hello World. I am an agent!&quot;); System.out.println(&quot;My LocalName: &quot; + getAID().getLocalName()); System.out.println(&quot;My Name: &quot; + getAID().getName()); System.out.println(&quot;My Address: &quot; + getAID().getAddressesArray()[0]); } private class MyTickerBehaviour extends TickerBehaviour { Agent agent; // long interval; int counter; public MyTickerBehaviour(Agent agent, long interval) { super(agent, interval); this.agent = agent; // this.interval = interval; } @Override protected void onTick() { if (counter == 3) { // move out AID remoteAMS = new AID(&quot;ams@slave2&quot;, AID.ISGUID); remoteAMS.addAddresses(&quot;http://slave2:7778/acc&quot;); PlatformID destination = new PlatformID(remoteAMS); agent.doMove(destination); } if (counter == 10) { // move back AID remoteAMS = new AID(&quot;ams@slave1&quot;, AID.ISGUID); remoteAMS.addAddresses(&quot;http://slave1:7778/acc&quot;); PlatformID destination = new PlatformID(remoteAMS); agent.doMove(destination); } if (counter &lt; 15) System.out.println(counter++); else agent.doDelete(); } } } [/sourcecode] For the sake of completion, here&#39;s the arguments that you have to pass when running the agent code from within eclipse. [sourcecode] -container -agents mob:org.csrdu.mobility.MobileAgent -services jade.core.mobility.AgentMobilityService;jade.core.migration.InterPlatformMobilityService [/sourcecode] Also, add all the jade and mobility jars to the build path of the project. I&#39;m not sure which ones are needed here so you will have to figure that out on your own. Caveats: If you get this error: Destination slave2:1099/JADE does not exist or does not support mobility, it most probably means that you (a) you don&#39;t have IPMS running, (b) you didn&#39;t put the -services switch properly (c) there&#39;s a firewall blocking your port 7778 or (d) your hostnames are messed up. In any case, the whole instructions above should work for you. You will most probably need to change your /etc/hosts file and comment out the line that says &#39;127.0.0.1 localhost&#39;. It causes JADE to start the ams@slaveN service as http://localhost:7778/acc instead of http://slaveN:7778/acc and that means a lot of missed ACL messages and a lot of headaches. You usually get the dreaded getContainerID() failed to find agent ams@slave1 error because of this. Do this for both the host and the guest. Make sure your JADE GUI looks like the following: Finally, if you need detailed logging, you can create the logging config file by the name of logging.properties given below and pass the -Djava.util.logging.config.file=logging.properties parameter when starting JADE. This will give much finer-grained logs. This is standard log4j syntax. [sourcecode] handlers=java.util.logging.FileHandler, java.util.logging.ConsoleHandler .level=INFO jade.domain.mobility.level=ALL # --- ConsoleHandler --- java.util.logging.ConsoleHandler.level=ALL java.util.logging.ConsoleHandler.formatter=java.util.logging.SimpleFormatter # --- FileHandler --- java.util.logging.FileHandler.level=ALL","url":"/2011/12/29/agent-mobility-with-jade-and-jipms/","mainEntityOfPage":{"@type":"WebPage","@id":"/2011/12/29/agent-mobility-with-jade-and-jipms/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Courses</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Agent Mobility with JADE and JIPMS</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Dec 29, 2011
+	</div>
+	<ul class="post-tags"><li>Java</li><li>Tutorials</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>A friend and I have been working on <em>Java Agent DEvelopment Framework (JADE)</em> for a while now. The idea is to enhance security mechanisms in the open source agent-deployment platform. The first step we decided to address was the actual mobility of an agent from one platform (in the sense of a dedicated machine running the JADE middleware) to another one. Turned out that it was much harder than one would imagine -- especially given the fact that these agents are supposed to be <em>mobile</em>. Anyway, after around two months of part-time efforts, we got the agent working. Since the whole ordeal involved a lot of missing documentation and bad support, I decided to document the process through this tutorial. So, here it is. Read on to see how you can create an agent on one platform, migrate it to another platform, have it do some computation there and come back to the source.&nbsp;</p>
+<p><!--more--></p>
+<p>First, you're going to need two machines running Ubuntu. (We used Ubuntu 11.10 oneric for this.) If you only have one machine, you can install VirtualBox, setup a Ubuntu instance in a VM and connect it to the host through a virtual interface. I prefer using two adapters, first one set to a NAT setting and another one set to Host-only setting. This way, I get Internet connectivity in the guest as well as host-to-guest simple addressing.</p>
+<p><!--more--></p>
+<p>We're going to use JADE 3.6 along with the <em>JADE Inter-platform Mobility Service (JIPMS)</em> 1.2 for our needs. Download <a href="http://jade.tilab.com/" target="_blank">JADE</a> and <a href="https://tao.uab.cat/ipmp/" target="_blank">JIPMS</a>.&nbsp; I used jade-binary package and extracted it in /home/documents/jade. I also extracted the JIPMS and moved the file migration.jar from its lib folder to the lib folder of jade binary. This makes it easier for us to change the classpath later on. We'll need these files on both machines.</p>
+<p>Now we need to setup the machines. Here are the details of the setup on each machine:</p>
+<p><strong>Host:</strong></p>
+<p>hostname: slave1<br />
+IP: 192.168.56.1 (set by VirtualBox automatically)</p>
+<p>You can get the IP addresses of each machine through the ifconfig command. Edit /etc/hosts to insert the other machine's address. My hosts file on slave1 looks like this:</p>
+<p>[sourcecode language="bash"]<br />
+# 127.0.0.1&amp;nbsp;&amp;nbsp;     localhost<br />
+127.0.0.1&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;     slave1<br />
+192.168.56.101&amp;nbsp;&amp;nbsp;&amp;nbsp; slave2<br />
+[/sourcecode]</p>
+<p>Now, we can run jade using the following command:</p>
+<p>[sourcecode language="bash"]<br />
+java -cp lib/jade.jar:lib/migration.jar:lib/iiop.jar:<br />
+         lib/jadeTools.jar:lib/http.jar:<br />
+         lib/commons-codec/commons-codec-1.3.jar<br />
+     jade.Boot<br />
+         -gui<br />
+         -platform-id slave1<br />
+         -host slave1<br />
+         -services jade.core.mobility.AgentMobilityService;<br />
+                   jade.core.migration.InterPlatformMobilityService<br />
+         -accept-foreign-agents true<br />
+[/sourcecode]</p>
+<p>You will need to use a little common sense about the line breaks and spaces here. I've formatted the command for highest readability. (Note the escaped ';' in the services param and the use of full colon instead of the semi-colon in the classpath. This is only required on *nix platforms.) Three switches are important here: platform-id, host and services.&nbsp; First two are self-explanatory. Third tells the IPMS to start the services that take care of the agent migration. We also need to enable the acceptance of foreign agents but I'm sure you already knew that from all the mailing list searches.</p>
+<p><strong>Guest:</strong></p>
+<p>hostname: slave2<br />
+IP: 192.168.56.101 (set by VirtualBox automatically)<strong></strong></p>
+<p>The hosts file looks like this:</p>
+<p>[sourcecode language="bash"]<br />
+# 127.0.0.1&amp;nbsp;&amp;nbsp;   localhost<br />
+127.0.0.1&amp;nbsp;&amp;nbsp;  &amp;nbsp;&amp;nbsp; slave2<br />
+192.168.56.1&amp;nbsp;&amp;nbsp;&amp;nbsp; slave1<br />
+[/sourcecode]</p>
+<p>Start jade on slave2 using the following command:</p>
+<p>[sourcecode language="bash"]<br />
+java -cp lib/jade.jar:lib/migration.jar:lib/iiop.jar:<br />
+         lib/jadeTools.jar:lib/http.jar:<br />
+         lib/commons-codec/commons-codec-1.3.jar<br />
+     jade.Boot<br />
+        -gui<br />
+        -platform-id slave2<br />
+        -host slave2<br />
+        -services jade.core.mobility.AgentMobilityService;<br />
+                  jade.core.migration.InterPlatformMobilityService<br />
+        -accept-foreign-agents true<br />
+[/sourcecode]</p>
+<p><strong>The Agent:</strong></p>
+<p>Now, we turn to the actual agent code that does the migration. For this, we can setup eclipse and code from within that. The code for the agent is fairly straight-forward:</p>
+<p>[sourcecode language="java"]<br />
+package org.csrdu.mobility;</p>
+<p>import jade.core.AID;<br />
+import jade.core.Agent;<br />
+import jade.core.PlatformID;<br />
+import jade.core.behaviours.TickerBehaviour;</p>
+<p>@SuppressWarnings(&quot;serial&quot;)<br />
+public class MobileAgent extends Agent {</p>
+<p>    @Override<br />
+    protected void setup() {<br />
+        super.setup();<br />
+        addBehaviour(new MyTickerBehaviour(this, 1000));</p>
+<p>        System.out.println(&quot;Hello World. I am an agent!&quot;);<br />
+        System.out.println(&quot;My LocalName: &quot; + getAID().getLocalName());<br />
+        System.out.println(&quot;My Name: &quot; + getAID().getName());<br />
+        System.out.println(&quot;My Address: &quot; + getAID().getAddressesArray()[0]);<br />
+    }</p>
+<p>    private class MyTickerBehaviour extends TickerBehaviour {<br />
+        Agent agent;<br />
+        // long interval;<br />
+        int counter;</p>
+<p>        public MyTickerBehaviour(Agent agent, long interval) {<br />
+            super(agent, interval);<br />
+            this.agent = agent;<br />
+            // this.interval = interval;<br />
+        }</p>
+<p>        @Override<br />
+        protected void onTick() {<br />
+            if (counter == 3) {<br />
+                // move out<br />
+                AID remoteAMS = new AID(&quot;ams@slave2&quot;, AID.ISGUID);<br />
+                remoteAMS.addAddresses(&quot;http://slave2:7778/acc&quot;);<br />
+                PlatformID destination = new PlatformID(remoteAMS);<br />
+                agent.doMove(destination);<br />
+            }<br />
+            if (counter == 10) {<br />
+                // move back<br />
+                AID remoteAMS = new AID(&quot;ams@slave1&quot;, AID.ISGUID);<br />
+                remoteAMS.addAddresses(&quot;http://slave1:7778/acc&quot;);<br />
+                PlatformID destination = new PlatformID(remoteAMS);<br />
+                agent.doMove(destination);<br />
+            }<br />
+            if (counter &lt; 15)<br />
+                System.out.println(counter++);<br />
+            else<br />
+                agent.doDelete();<br />
+        }</p>
+<p>    }<br />
+}<br />
+[/sourcecode]</p>
+<p>For the sake of completion, here's the arguments that you have to pass when running the agent code from within eclipse.</p>
+<p>[sourcecode]<br />
+-container -agents mob:org.csrdu.mobility.MobileAgent<br />
+  -services jade.core.mobility.AgentMobilityService;jade.core.migration.InterPlatformMobilityService<br />
+[/sourcecode]</p>
+<p>Also, add all the jade and mobility jars to the build path of the project. I'm not sure which ones are needed here so you will have to figure that out on your own. </p>
+<p><strong>Caveats:</strong></p>
+<ol>
+<li>If you get this error:  <code>Destination slave2:1099/JADE does not exist or does not support mobility</code>, it most probably means that you (a) you don't have IPMS running, (b) you didn't put the -services switch properly (c) there's a firewall blocking your port 7778 or (d) your hostnames are messed up. In any case, the whole instructions above should work for you.
+     </li>
+<li>You will most probably need to change your /etc/hosts file and comment out the line that says '127.0.0.1 localhost'. It causes JADE to start the ams@slaveN service as http://localhost:7778/acc instead of http://slaveN:7778/acc and that means a lot of missed ACL messages and a lot of headaches. You usually get the dreaded <code>getContainerID() failed to find agent ams@slave1</code> error because of this. Do this for both the host and the guest. Make sure your JADE GUI looks like the following:<br />
+<a href="http://recluze.files.wordpress.com/2011/12/rma_jade_slave.png"><img src="/assets/images/2011/12/rma_jade_slave.png" alt="" title="JADE GUI for AMS Address" width="586" height="393" class="aligncenter size-full wp-image-784" /></a></li>
+<li>Finally, if you need detailed logging, you can create the logging config file by the name of logging.properties given below and pass the <code>-Djava.util.logging.config.file=logging.properties</code> parameter when starting JADE. This will give much finer-grained logs. This is standard log4j syntax.
+</li>
+</ol>
+<p>[sourcecode]<br />
+handlers=java.util.logging.FileHandler, java.util.logging.ConsoleHandler<br />
+.level=INFO<br />
+jade.domain.mobility.level=ALL</p>
+<p># --- ConsoleHandler ---<br />
+java.util.logging.ConsoleHandler.level=ALL<br />
+java.util.logging.ConsoleHandler.formatter=java.util.logging.SimpleFormatter</p>
+<p># --- FileHandler ---
+  
+java.util.logging.FileHandler.level=ALL
+
+java.util.logging.FileHandler.pattern=%h/java%u.log  
+java.util.logging.FileHandler.limit=50000  
+java.util.logging.FileHandler.count=1  
+java.util.logging.FileHandler.formatter=java.util.logging.SimpleFormatter  
+[/sourcecode]
+
+</p>
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> recluze | No rights reserved.</span>
+</footer>
+</body>
+</html>

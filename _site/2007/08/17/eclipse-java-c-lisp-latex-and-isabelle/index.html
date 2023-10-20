@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Eclipse, Java, C++, Lisp, LaTeX and Isabelle</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Eclipse, Java, C++, Lisp, LaTeX and Isabelle | recluze - Nauman (recluze) on Computing, Philosophy and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Eclipse, Java, C++, Lisp, LaTeX and Isabelle" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I’ve recently re-discovered Eclipse. My first encounter with it was back when I was learning Prolog. I worked with it and while I liked the work-flow, I never got to using it full-time. It’s back and it’s staying." />
+<meta property="og:description" content="I’ve recently re-discovered Eclipse. My first encounter with it was back when I was learning Prolog. I worked with it and while I liked the work-flow, I never got to using it full-time. It’s back and it’s staying." />
+<meta property="og:site_name" content="recluze - Nauman (recluze) on Computing, Philosophy and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2007-08-17T11:07:51+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Eclipse, Java, C++, Lisp, LaTeX and Isabelle" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Eclipse, Java, C++, Lisp, LaTeX and Isabelle","dateModified":"2007-08-17T11:07:51+05:00","datePublished":"2007-08-17T11:07:51+05:00","description":"I’ve recently re-discovered Eclipse. My first encounter with it was back when I was learning Prolog. I worked with it and while I liked the work-flow, I never got to using it full-time. It’s back and it’s staying.","url":"/2007/08/17/eclipse-java-c-lisp-latex-and-isabelle/","mainEntityOfPage":{"@type":"WebPage","@id":"/2007/08/17/eclipse-java-c-lisp-latex-and-isabelle/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Courses</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Eclipse, Java, C++, Lisp, LaTeX and Isabelle</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Aug 17, 2007
+	</div>
+	<ul class="post-tags"><li>C++</li><li>Java</li><li>Lisp</li><li>resources</li><li>Softwares</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>I’ve recently re-discovered Eclipse. My first encounter with it was back when I was learning Prolog. I worked with it and while I liked the work-flow, I never got to using it full-time. It’s back and it’s staying.</p>
+
+<p>Most people may think of Eclipse as simply a Java IDE but there’s a lot more to it that just that. Eclipse is at heart, a plugin framework and is very very extensible. Let me tell you why:</p>
+
+<p>I’ve configured Eclipse to work as my primary C++ IDE, as my primary Lisp IDE, as my thesis word processor using LaTeX and am working on using it for as my Java IDE too. Now, I may be wrong but there’s no other IDE which can do all this.</p>
+
+<p>As an example, see how easy it is to get Lisp working in Eclipse on Linux.</p>
+
+<ul>
+  <li>Download <a href="http://www.paragent.com/lisp/cusp/cusp.htm">CUSP</a> plugin for Eclipse</li>
+  <li>Extract the contents of the archive</li>
+  <li>Copy the folder jasko.tim.lisp to the plugins folder of Eclipse</li>
+  <li>The Lisp distro used is SBCL which sits in the sbcl sub-folder</li>
+  <li>Create a symbolic link to sbcl executable in someplace accessible globallly:</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">ln -s /usr/share/eclipse/plugins/jasko.tim.lisp/sbcl/sbcl /usr/bin/sbcl</code></p>
+
+<ul>
+  <li>assuming you installed Eclipse in /usr/share</li>
+  <li>Start Eclipse and <a href="http://www.sergeykolos.com/cusp/intro/">change perspective</a> to Lisp.</li>
+</ul>
+
+<p>Six easy steps and you have a lovely Lisp IDE. Oh, and if you’re worried about Java being a “slow” language, you haven’t been around the latest JREs. Get the latest JRE and try Eclipse. You’ll love it.</p>
+
+<p>Now, if I can only get my Isabelle to work with Eclipse! Yes, there is a plugin that does this. It’s just too crude right now.</p>
+
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> recluze | No rights reserved.</span>
+</footer>
+</body>
+</html>

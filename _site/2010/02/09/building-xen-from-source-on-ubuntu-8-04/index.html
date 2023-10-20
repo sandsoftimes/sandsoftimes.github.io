@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Building Xen from source on Ubuntu 8.04</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Building Xen from source on Ubuntu 8.04 | recluze - Nauman (recluze) on Computing, Philosophy and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Building Xen from source on Ubuntu 8.04" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="After struggling with XEN’s source for around two weeks, I’ve finally managed to get it working on a Ubuntu 8.04. It was fairly straight forward with a few bits and pieces of trouble. That is mainly due to the problems of incompatibility between different versions of the hypervisor and dom0 kernels." />
+<meta property="og:description" content="After struggling with XEN’s source for around two weeks, I’ve finally managed to get it working on a Ubuntu 8.04. It was fairly straight forward with a few bits and pieces of trouble. That is mainly due to the problems of incompatibility between different versions of the hypervisor and dom0 kernels." />
+<meta property="og:site_name" content="recluze - Nauman (recluze) on Computing, Philosophy and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2010-02-09T10:36:24+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Building Xen from source on Ubuntu 8.04" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Building Xen from source on Ubuntu 8.04","dateModified":"2010-02-09T10:36:24+05:00","datePublished":"2010-02-09T10:36:24+05:00","description":"After struggling with XEN’s source for around two weeks, I’ve finally managed to get it working on a Ubuntu 8.04. It was fairly straight forward with a few bits and pieces of trouble. That is mainly due to the problems of incompatibility between different versions of the hypervisor and dom0 kernels.","url":"/2010/02/09/building-xen-from-source-on-ubuntu-8-04/","mainEntityOfPage":{"@type":"WebPage","@id":"/2010/02/09/building-xen-from-source-on-ubuntu-8-04/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Courses</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Building Xen from source on Ubuntu 8.04</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Feb 9, 2010
+	</div>
+	<ul class="post-tags"></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>After struggling with <a href="http://xen.org/">XEN</a>’s source for around two weeks, I’ve finally managed to get it working on a Ubuntu 8.04. It was fairly straight forward with a few bits and pieces of trouble. That is mainly due to the problems of incompatibility between different versions of the hypervisor and <code class="language-plaintext highlighter-rouge">dom0</code> kernels.</p>
+
+<p>So, here’s how I did it. This is more for archiving purposes than for teaching. So, use whatever you can. Post any queries and I’ll see if I can help.<br />
+<!--more--></p>
+
+<p>First, though, you need to get the prerequisites installed on your system.  I had a lot of trouble with the compilation because xen build scripts don’t check for prereqs before starting. It kept stopping in the middle of the build because of missing packages. So, here’s the complete list of all the packages you need for building this version of xen. Just execute:</p>
+
+<p><code class="language-plaintext highlighter-rouge"># sudo apt-get install build-essential mercurial gawk zlib1g-dev libzzip-dev libcurl4-openssl-dev xorg-dev gettext libncurses5-dev python2.5-dev texinfo texlive-latex-base texlive-latex-recommended texlive-fonts-extra texlive-fonts-recommended transfig bridge-utils uuid-dev
+</code></p>
+
+<p>Xen also requires Dev86. Get that from <a href="http://rdebath.nfshost.com/dev86/">here</a> (You only need the binary, not the source. I got Dev86bin-0.16.17.tar.gz) Copy the .tar.gz file to <code class="language-plaintext highlighter-rouge">/</code> – your filesystem root and extract it.</p>
+
+<p>Now, get the xen-unstable source. In my case, this was xen-4.0.0-rc3.</p>
+
+<p><code class="language-plaintext highlighter-rouge"># hg clone http://xenbits.xensource.com/xen-unstable.hg </code></p>
+
+<p>That might take just a little while. This only gets the hypervisor source. The <code class="language-plaintext highlighter-rouge">dom0</code> kernel source will be downloaded by the build script. Start the building process:</p>
+
+<p><code class="language-plaintext highlighter-rouge"># make world </code></p>
+
+<p>In the future, if you wish to rebuild the code without losing all the configuration change, just ` make dist `.</p>
+
+<p>This builds the hypervisor, downloads the associated <code class="language-plaintext highlighter-rouge">dom0</code> kernel source (which might take a lot of time), builds xen-tools and other smaller packages. Install the whole thing using:</p>
+
+<p>`</p>
+<h1 id="installsh">./install.sh</h1>
+<p>`</p>
+
+<p>After all that, you should have <code class="language-plaintext highlighter-rouge">xen.gz</code> and the kernel (which in my case was 2.6.31.6) in the /boot directory.</p>
+
+<p>It’s a good idea to create an initrd image. To do so, execute the following two commands:</p>
+
+<p>`</p>
+<h1 id="depmod--a-26316">depmod -a 2.6.31.6</h1>
+<h1 id="update-initramfs--c--k-26316">update-initramfs -c -k 2.6.31.6</h1>
+<p>`</p>
+
+<p>You now need to add the following directives to <code class="language-plaintext highlighter-rouge">/boot/grub/menu.lst</code> to enable booting into xen:</p>
+
+<p>`
+title Xen 4.0 w/ Linux 2.6.31.6
+  root (hd0,1)
+  kernel /boot/xen.gz dom0_mem=524288
+  module /boot/vmlinuz-2.6.31.6 root=/dev/hda1 ro
+  module /boot/initrd.img-2.6.31.6
+`</p>
+
+<p>Where /dev/hda1 is your linux partition. (You can get that from ` sudo fdisk -l`.)</p>
+
+<p>Reboot and you should be in Xen. Start the Xen daemon and take a look at your brand new <code class="language-plaintext highlighter-rouge">dom0</code>.</p>
+
+<p>`</p>
+<h1 id="etcinitdxend-start">/etc/init.d/xend start</h1>
+<h1 id="xm-list">xm list</h1>
+<p>`</p>
+
+<p>Next tutorial on how to create a <code class="language-plaintext highlighter-rouge">domU</code> and then move on to more exciting stuff such as DRTM!</p>
+
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> recluze | No rights reserved.</span>
+</footer>
+</body>
+</html>

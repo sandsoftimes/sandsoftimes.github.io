@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Matlab 7 under Windows 7</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Matlab 7 under Windows 7 | recluze - Nauman (recluze) on Computing, Philosophy and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Matlab 7 under Windows 7" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Update: If you are interested in getting a running start to machine learning and deep learning, I have created a course that I’m offering to my dedicated readers for just $9.99. Access it here on Udemy. If you are only here for Matlab, continue reading =]" />
+<meta property="og:description" content="Update: If you are interested in getting a running start to machine learning and deep learning, I have created a course that I’m offering to my dedicated readers for just $9.99. Access it here on Udemy. If you are only here for Matlab, continue reading =]" />
+<meta property="og:site_name" content="recluze - Nauman (recluze) on Computing, Philosophy and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2009-07-30T06:24:04+06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Matlab 7 under Windows 7" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Matlab 7 under Windows 7","dateModified":"2009-07-30T06:24:04+06:00","datePublished":"2009-07-30T06:24:04+06:00","description":"Update: If you are interested in getting a running start to machine learning and deep learning, I have created a course that I’m offering to my dedicated readers for just $9.99. Access it here on Udemy. If you are only here for Matlab, continue reading =]","url":"/2009/07/30/matlab-7-under-windows-7/","mainEntityOfPage":{"@type":"WebPage","@id":"/2009/07/30/matlab-7-under-windows-7/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Courses</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Matlab 7 under Windows 7</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Jul 30, 2009
+	</div>
+	<ul class="post-tags"><li>Articles</li><li>Tutorials</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p><strong>Update:</strong> If you are interested in getting a running start to machine learning and deep learning, I have created a course that I’m offering to my dedicated readers for just $9.99. <a href="https://www.udemy.com/practical-deep-learning-with-keras/?couponCode=RECLYBLOG">Access it here on Udemy</a>. If you are only here for Matlab, continue reading =]</p>
+
+<p>I had trouble getting Matlab 7 to work with Windows 7 RC even after setting the compatibility options. So, after a bit of search, here’s the solution (copied from ELFEHRIJ on <a href="http://bit.ly/Jt7ij">http://bit.ly/Jt7ij</a> with some minor changes).</p>
+
+<p>After installing Matlab (use Classic Windows Theme if you have problems with the installer):</p>
+
+<ol>
+  <li>To use Matlab with other windows 7 themes you have to change Java VM used by matlab.</li>
+  <li>Download latest Java version and install it.</li>
+  <li>Go to  &lt;Matlab-installation-dir&gt;\sys\java\jre\win32 you will find a folder named jre1.5.0_07 (or a similar version). Rename it to Original_&lt;whatever was originally there&gt;</li>
+  <li>Go to C:\Program Files\Java you will find file named jre6. Copy it to &lt;Matlab-installation-dir&gt;\sys\java\jre\win32 and rename it to &lt;original jre directory name&gt;</li>
+</ol>
+
+<p>This will ensure that Matlab uses the new JRE instead of the old one. Just start Matlab now!</p>
+
+<p><em>Update</em>: Thanks to “ra” and larry for the corrections.</p>
+
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> recluze | No rights reserved.</span>
+</footer>
+</body>
+</html>

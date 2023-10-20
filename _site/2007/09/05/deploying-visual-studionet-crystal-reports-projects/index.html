@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Deploying Visual Studio.net + Crystal Reports Projects</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Deploying Visual Studio.net + Crystal Reports Projects | recluze - Nauman (recluze) on Computing, Philosophy and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Deploying Visual Studio.net + Crystal Reports Projects" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="If you’ve been having trouble with deployment of Visual Studio .net 2005 (C# or VB) applications which use Crystal Reports, rest assured.  You’re not alone. You can find many posts and blogs saying you should add the merge modules but if you’re having problems getting the setup to work, here’s the solution:" />
+<meta property="og:description" content="If you’ve been having trouble with deployment of Visual Studio .net 2005 (C# or VB) applications which use Crystal Reports, rest assured.  You’re not alone. You can find many posts and blogs saying you should add the merge modules but if you’re having problems getting the setup to work, here’s the solution:" />
+<meta property="og:site_name" content="recluze - Nauman (recluze) on Computing, Philosophy and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2007-09-05T09:31:59+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Deploying Visual Studio.net + Crystal Reports Projects" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Deploying Visual Studio.net + Crystal Reports Projects","dateModified":"2007-09-05T09:31:59+05:00","datePublished":"2007-09-05T09:31:59+05:00","description":"If you’ve been having trouble with deployment of Visual Studio .net 2005 (C# or VB) applications which use Crystal Reports, rest assured.  You’re not alone. You can find many posts and blogs saying you should add the merge modules but if you’re having problems getting the setup to work, here’s the solution:","url":"/2007/09/05/deploying-visual-studionet-crystal-reports-projects/","mainEntityOfPage":{"@type":"WebPage","@id":"/2007/09/05/deploying-visual-studionet-crystal-reports-projects/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Courses</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Deploying Visual Studio.net + Crystal Reports Projects</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Sep 5, 2007
+	</div>
+	<ul class="post-tags"><li>Articles</li><li>Tutorials</li><li>VB.net</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>If you’ve been having trouble with deployment of Visual Studio .net 2005 (C# or VB) applications which use Crystal Reports, rest assured.  You’re not alone. You can find many posts and blogs saying you should add the merge modules but if you’re having problems getting the setup to work, here’s the solution:</p>
+
+<ol>
+  <li>First, search for this file (the CR.net redistributable package): <strong>cr_net_2005_mergemodules_mlb_x86.zip</strong></li>
+  <li>Extract it to get this file (merge module):<br />
+<strong>CrystalReportsRedist2005_x86.msm</strong></li>
+  <li>Create a new “Setup Project” in your solution. (I’m assuming you’re comfortable with this stuff.)</li>
+  <li>Right-click on the setup project and <strong>Add-&gt;Merge Modules.</strong></li>
+  <li>Browse to give the extracted merge module. It should be added to your setup project.</li>
+  <li>Now, right-click on setup project again and click on <strong>Properties</strong>.</li>
+  <li>In the properties dialog, click on <strong>Prerequisites</strong>.</li>
+  <li>Check <strong>.Net framework</strong> , <strong>Crystal Reports</strong> and <strong>Microsoft Data Access Components (MDAC)</strong></li>
+  <li>Also, select <strong>Download from the Same Location as Project Setup</strong> (or something to that effect…. I don’t have VS.Net in front of me right now).</li>
+  <li>Build the setup project and see the extra files there!</li>
+  <li>Any Questions?</li>
+</ol>
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> recluze | No rights reserved.</span>
+</footer>
+</body>
+</html>

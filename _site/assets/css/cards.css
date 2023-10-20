@@ -1,0 +1,232 @@
+.small-height { 
+  padding-bottom: 1em; 
+  padding-left: 0em;
+  padding-right: 0em;
+  padding-top: 4em;
+} 
+.medium-height { 
+  padding-bottom: 1em; 
+  padding-left: 0em;
+  padding-right: 0em;
+  padding-top: 4em;
+} 
+.learn-container { 
+	padding-right: 3em; 
+	padding-left: 4em;
+} 
+
+.main-area { 
+	width: 100%; 
+	margin: 0;
+	padding: 0; 
+} 
+
+
+@media (min-width: 1024px) {
+	.learn-container { 
+		padding-right: 3em; 
+		padding-left: 6em;
+	} 
+}
+
+/* 
+.main-area img {
+
+	display: block;
+	border: 0;
+	width: 200%;
+}
+
+
+.card {
+	background: #fff9f9;
+	margin-bottom: 1em;	
+        border: 1px solid #bbbbbb;
+}
+
+.card:hover { 
+	box-shadow: 3px 3px 30px hsl(0, 0%, 70%);
+	border: 1px solid rgba(50, 50, 200, 0.5);
+} 
+.card a {
+	color: black;
+	text-decoration: none;
+}
+
+.card a:hover {
+	box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
+}
+
+.card-content {
+	padding: 2em;
+        padding-top: 1em; 
+}
+
+.card-content h2 {
+	margin-top: 0;
+	margin-bottom: .5em;
+	font-weight: light;
+}
+
+.card-content p {
+	font-size: 80%;
+}
+
+/* Flexbox stuff */
+
+/* .cards {
+   display: flex;
+   flex-wrap: wrap;
+   /* justify-content: space-between; 
+   justify-content: left; 
+} 
+*/
+.navbar { 
+	margin-top: 1em;
+}
+.navbar ul li { 
+	padding-top: 0.3em !important;
+	padding-bottom: 0.3em !important;
+	border: 0px solid #ffffff !important; 
+	border-bottom: 2px solid  rgba(255, 255, 255, .25) !important ; 
+	xborder-top: 1px solid  rgba(255, 255, 255, .25) !important ; 
+} 
+.navbar ul li:hover { 
+	border-bottom: 2px solid  rgba(255, 255, 255, .75) !important ; 
+	xborder-top: 1px solid  rgba(255, 255, 255, .75) !important ; 
+} 
+
+.navbar ul a { 
+	color: #ffffff;
+} 
+
+.container h2 { 
+	padding-top: 1em;
+}
+
+
+.container a { 
+	/* color: #dd3333; */
+	color: #1155dd; 
+} 
+/* 
+
+.card span { 
+	color: #666666 !important; 
+	font-family: monospace;
+	font-size: 0.8em;
+}  */
+
+/* .card h2 { 
+	font-size: 1.2em;
+	text-shadow: 2px 2px #eeeeee;
+} 
+
+
+  */
+h2 { 
+	font-family: 'Noto Sans JP', sans-serif !important;
+	padding-bottom: 1em;
+}
+
+.text-fancy-head { 
+	font-family: 'Noto Sans JP', sans-serif !important;
+	text-shadow: 2px 2px #eeeeee;
+	color: rgb(46, 83, 114) !important;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: bold;
+} 
+
+.text-fancy-body { 
+	color: #444 !important;
+	font-size: 1rem;
+	line-height: 1.5rem;
+} 
+
+
+.course-details { 
+	padding-right: 4em;
+	width: 100%; 
+	color: rgb(46, 83, 114) !important;
+}
+	
+.course-tag { 
+	/* opacity: 0.8; */
+	background-color: #ffe799;
+	/* color: #593d00;  */
+	color: #000;
+	font-size: 0.6rem;
+	font-weight: bold;
+	box-shadow: 2px 2px 5px hsl(0, 0%, 70%);
+}
+
+.price-tag { 
+	box-shadow: 2px 2px 5px hsl(0, 0%, 15%);
+}
+
+
+/** redirect stuff */ 
+
+.redirect-container { 
+  display: flex;
+  height: 100%; 
+  justify-content: center;
+  align-items: center; 	
+  text-align: center;
+} 
+
+
+.redirect-container .redirect { 
+	margin: auto;
+	font-family: 'Helvetica', 'Verdana', sans-serif !important;
+	vertical-align: middle;
+} 
+
+.redirect h1 { 
+	font-family: 'Noto Sans JP', 'Helvetica', sans-serif; 
+	color: #666666;
+        font-size: 2em;	
+} 
+
+
+.redirect a { 
+	margin-top: 2em;
+	display: inline-block;
+	font-size: 0.9em;
+	text-decoration: none; 
+	color: rgba(50, 70, 200, 1); 
+} 
+
+
+.redirect a:hover { 
+	color: rgba(50, 150, 50, 1); 
+} 
+
+
+body { 
+        /* background: url('/assets/images/zigzag.png');  */ 
+	line-height: 1.5em;
+	font-family: 'Roboto', sans-serif;
+} 
+
+.post-container, .container { 
+	padding-bottom: 2em;
+}
+.post-container p, .container p { 
+	padding-top: 1em;
+}
+
+.post-container li { 
+	padding-top: 1em;
+	list-style-type: circle;
+	margin-left: 1em;
+}
+
+.posts { 
+	margin-top: 0;
+}
+
+.posts li { 
+	margin-bottom: 1em;
+}

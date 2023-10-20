@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Install, Configure and Execute Apache Hadoop from Source</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Install, Configure and Execute Apache Hadoop from Source | recluze - Nauman (recluze) on Computing, Philosophy and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Install, Configure and Execute Apache Hadoop from Source" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Hadoop is Apache’s implementation of the brand-spanking new programming model called MapReduce, along with some other stuff such as Hadoop Distributed Filesystem (HDFS). It can be used to parallelize (or distribute) and thus massively speedup certain kinds of data processing. This tutorial will talk about installing, configuring and running the Hadoop framework on a single node. In a future tutorial, we might create a project that actually uses Hadoop for problem solving through multiple clustered nodes. Here, we start by looking at the setup of a single node." />
+<meta property="og:description" content="Hadoop is Apache’s implementation of the brand-spanking new programming model called MapReduce, along with some other stuff such as Hadoop Distributed Filesystem (HDFS). It can be used to parallelize (or distribute) and thus massively speedup certain kinds of data processing. This tutorial will talk about installing, configuring and running the Hadoop framework on a single node. In a future tutorial, we might create a project that actually uses Hadoop for problem solving through multiple clustered nodes. Here, we start by looking at the setup of a single node." />
+<meta property="og:site_name" content="recluze - Nauman (recluze) on Computing, Philosophy and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2010-09-25T09:35:35+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Install, Configure and Execute Apache Hadoop from Source" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Install, Configure and Execute Apache Hadoop from Source","dateModified":"2010-09-25T09:35:35+05:00","datePublished":"2010-09-25T09:35:35+05:00","description":"Hadoop is Apache’s implementation of the brand-spanking new programming model called MapReduce, along with some other stuff such as Hadoop Distributed Filesystem (HDFS). It can be used to parallelize (or distribute) and thus massively speedup certain kinds of data processing. This tutorial will talk about installing, configuring and running the Hadoop framework on a single node. In a future tutorial, we might create a project that actually uses Hadoop for problem solving through multiple clustered nodes. Here, we start by looking at the setup of a single node.","url":"/2010/09/25/install-configure-execute-apache-hadoop-from-source/","mainEntityOfPage":{"@type":"WebPage","@id":"/2010/09/25/install-configure-execute-apache-hadoop-from-source/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Courses</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Install, Configure and Execute Apache Hadoop from Source</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Sep 25, 2010
+	</div>
+	<ul class="post-tags"><li>Geek stuff</li><li>Linux</li><li>Tutorials</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>Hadoop is Apache’s implementation of the brand-spanking new programming model called MapReduce, along with some other stuff such as Hadoop Distributed Filesystem (HDFS). It can be used to parallelize (or distribute) and thus massively speedup certain kinds of data processing. This tutorial will talk about installing, configuring and running the Hadoop framework on a single node. In a future tutorial, we might create a project that actually uses Hadoop for problem solving through multiple clustered nodes. Here, we start by looking at the setup of a single node.</p>
+
+<p>Installing from the source is important if you want to make changes to the Hadoop framework itself. I’ve found that it’s also the easier method if you simply want to deploy Hadoop. Whichever path you want to take, going with SVN is probably the best way. So, first checkout the source of a stable branch. I used 0.20.2 because it is the ‘stable’ branch at the time and because I was having trouble with checking out 0.20.</p>
+
+<p>But before that, you need to setup the dependencies. Here they are:</p>
+
+<ol>
+  <li>JDK (I found 1.6+ to be compatible with the 0.20.2 branch)</li>
+  <li>Eclipse (SDK or ‘classic’. This is required for the building the Hadoop eclipse plugin. I used 3.6.1)</li>
+  <li>Ant (for processing the install/configuration scripts)</li>
+  <li>xerces-c (the XML parser)</li>
+  <li>SSH server</li>
+  <li>g++</li>
+</ol>
+
+<p>By the way, I used Ubuntu 10.04 as my dev box. Download binaries of Eclipse, ant and xerces-c. Extract them in your home folder and remember their folder names. We’ll be needing them later.</p>
+
+<p>Install the rest of the dependencies with:</p>
+
+<p>[sourcecode language=”bash”]<br />
+$ sudo apt-get install sun-java6-jdk ssh g++<br />
+[/sourcecode]</p>
+
+<p>Also, ssh server needs to be setup so that it doesn’t require password. You can check it with ‘ssh localhost’. If it does require a password, disable that using:</p>
+
+<p>[sourcecode language=”bash”]<br />
+$ ssh-keygen -t dsa -P ‘’ -f ~/.ssh/id_dsa<br />
+$ cat ~/.ssh/id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys<br />
+[/sourcecode]</p>
+
+<p>Now, go you your home directory, setup environment variables and checkout the Hadoop source:</p>
+
+<p>[sourcecode language=”bash”]<br />
+nam@zenbox:~$ cd ~<br />
+nam@zenbox:~$ export JAVA_HOME=/usr/lib/jvm/java-6-sun<br />
+nam@zenbox:~$ export PATH=$PATH:/usr/share/apache-ant-1.8.1<br />
+nam@zenbox:~$ svn co http://svn.apache.org/repos/asf/hadoop/common/branches/branch-0.21 hadoop<br />
+[/sourcecode]</p>
+
+<p>When you do this, you get pre-built hadoop binaries. (We’re skipping the actual build part here. We’ll come back to this shortly.) You can setup the requirements and the examples and then test the ‘pi’ example so:</p>
+
+<p>[sourcecode language=”bash”]<br />
+nam@zenbox:~$ cd hadoop<br />
+nam@zenbox:~/hadoop$ ant<br />
+nam@zenbox:~/hadoop$ ant examples<br />
+nam@zenbox:~/hadoop$ bin/hadoop<br />
+nam@zenbox:~/hadoop$ bin/hadoop jar hadoop-0.20.2-examples.jar pi 10 1000000<br />
+[/sourcecode]</p>
+
+<p>Here’s (part of) what I got as output:</p>
+
+<p>[sourcecode language=”bash”]<br />
+Number of Maps = 10<br />
+Samples per Map = 1000000<br />
+Wrote input for Map #0<br />
+Wrote input for Map #1<br />
+…<br />
+Starting Job<br />
+10/09/25 15:01:21 INFO jvm.JvmMetrics: Initializing JVM Metrics with processName=JobTracker, sessionId=<br />
+10/09/25 15:01:21 INFO mapred.FileInputFormat: Total input paths to process : 10<br />
+10/09/25 15:01:21 INFO mapred.JobClient: Running job: job_local_0001<br />
+10/09/25 15:01:21 INFO mapred.FileInputFormat: Total input paths to process : 10<br />
+10/09/25 15:01:21 INFO mapred.MapTask: numReduceTasks: 1<br />
+10/09/25 15:01:21 INFO mapred.MapTask: io.sort.mb = 100<br />
+10/09/25 15:01:21 INFO mapred.MapTask: data buffer = 79691776/99614720<br />
+10/09/25 15:01:21 INFO mapred.MapTask: record buffer = 262144/327680<br />
+10/09/25 15:01:22 INFO mapred.MapTask: Starting flush of map output<br />
+10/09/25 15:01:22 INFO mapred.MapTask: Finished spill 0<br />
+10/09/25 15:01:22 INFO mapred.TaskRunner: Task:attempt_local_0001_m_000000_0 is done. And is in the process of commiting<br />
+…<br />
+10/09/25 15:01:24 INFO mapred.LocalJobRunner:<br />
+10/09/25 15:01:24 INFO mapred.TaskRunner: Task attempt_local_0001_r_000000_0 is allowed to commit now<br />
+10/09/25 15:01:24 INFO mapred.FileOutputCommitter: Saved output of task ‘attempt_local_0001_r_000000_0’ to hdfs://localhost:9000/user/nam/PiEstimator_TMP_3_141592654/out<br />
+10/09/25 15:01:24 INFO mapred.LocalJobRunner: reduce &gt; reduce<br />
+10/09/25 15:01:24 INFO mapred.TaskRunner: Task ‘attempt_local_0001_r_000000_0’ done.<br />
+10/09/25 15:01:24 INFO mapred.JobClient: map 100% reduce 100%<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Job complete: job_local_0001<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Counters: 15<br />
+10/09/25 15:01:24 INFO mapred.JobClient: FileSystemCounters<br />
+10/09/25 15:01:24 INFO mapred.JobClient: FILE_BYTES_READ=1567406<br />
+10/09/25 15:01:24 INFO mapred.JobClient: HDFS_BYTES_READ=192987<br />
+10/09/25 15:01:24 INFO mapred.JobClient: FILE_BYTES_WRITTEN=199597<br />
+10/09/25 15:01:24 INFO mapred.JobClient: HDFS_BYTES_WRITTEN=1781093<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Map-Reduce Framework<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Reduce input groups=20<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Combine output records=0<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Map input records=10<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Reduce shuffle bytes=0<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Reduce output records=0<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Spilled Records=40<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Map output bytes=180<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Map input bytes=240<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Combine input records=0<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Map output records=20<br />
+10/09/25 15:01:24 INFO mapred.JobClient: Reduce input records=20<br />
+Job Finished in 3.58 seconds<br />
+Estimated value of Pi is 3.14158440000000000000<br />
+[/sourcecode]</p>
+
+<p>So, now that you know that Hadoop is actually running and working as it should, it’s time to setup the server. First, you need to define the node configurations in the conf/core-site.xml</p>
+
+<p>[sourcecode language=”bash”]<br />
+&lt;!– Put site-specific property overrides in this file. –&gt;<br />
+&lt;configuration&gt;<br />
+ &lt;property&gt;<br />
+ &lt;name&gt;fs.default.name&lt;/name&gt;<br />
+ &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;<br />
+ &lt;/property&gt;<br />
+ &lt;property&gt;<br />
+ &lt;name&gt;mapred.job.tracker&lt;/name&gt;<br />
+ &lt;value&gt;hdfs://localhost:9001&lt;/value&gt;<br />
+ &lt;/property&gt;<br />
+ &lt;property&gt;<br />
+ &lt;name&gt;dfs.replication&lt;/name&gt;<br />
+ &lt;value&gt;1&lt;/value&gt;<br />
+ &lt;!– set to 1 to reduce warnings when running on a single node –&gt;<br />
+ &lt;/property&gt;<br />
+&lt;/configuration&gt;<br />
+[/sourcecode]</p>
+
+<p>Also, setting the JAVA_HOME environment variable does not work when starting the hadoop service. So, you need to set it up in conf/hadoop-env.sh:</p>
+
+<p>[sourcecode language=”bash”]</p>
+<h1 id="the-java-implementation-to-use-required">The java implementation to use. Required.</h1>
+<p>export JAVA_HOME=/usr/lib/jvm/java-6-sun<br />
+[/sourcecode]</p>
+
+<p>Then format the namenode specified in the configuration file above. See help for more details.</p>
+
+<p>[sourcecode language=”bash”]<br />
+nam@zenbox:~/hadoop$ bin/hadoop namenode help<br />
+10/09/25 15:17:18 INFO namenode.NameNode: STARTUP_MSG:<br />
+/************************************************************<br />
+STARTUP_MSG: Starting NameNode<br />
+STARTUP_MSG: host = zenbox/127.0.1.1<br />
+STARTUP_MSG: args = [help]<br />
+STARTUP_MSG: version = 0.20.3-dev<br />
+STARTUP_MSG: build = -r ; compiled by ‘nam’ on Sat Sep 25 11:41:00 PKT 2010<br />
+************************************************************/<br />
+Usage: java NameNode [-format] | [-upgrade] | [-rollback] | [-finalize] | [-importCheckpoint]<br />
+10/09/25 15:17:18 INFO namenode.NameNode: SHUTDOWN_MSG:<br />
+/************************************************************<br />
+SHUTDOWN_MSG: Shutting down NameNode at zenbox/127.0.1.1<br />
+************************************************************/</p>
+
+<p>nam@zenbox:~/hadoop$ bin/hadoop namenode -format<br />
+[/sourcecode]</p>
+
+<p>Now you can start the service with the start-all.sh script and hopefully see the output as follows:</p>
+
+<p>[sourcecode language=”bash”]<br />
+nam@zenbox:~/hadoop$ bin/start-all.sh<br />
+starting namenode, logging to /home/nam/hadoop/hadoop-0.20.2/bin/../logs/hadoop-nam-namenode-zenbox.out<br />
+localhost: starting datanode, logging to /home/nam/hadoop/hadoop-0.20.2/bin/../logs/hadoop-nam-datanode-zenbox.out<br />
+localhost: starting secondarynamenode, logging to /home/nam/hadoop/hadoop-0.20.2/bin/../logs/hadoop-nam-secondarynamenode-zenbox.out<br />
+starting jobtracker, logging to /home/nam/hadoop/hadoop-0.20.2/bin/../logs/hadoop-nam-jobtracker-zenbox.out<br />
+localhost: starting tasktracker, logging to /home/nam/hadoop/hadoop-0.20.2/bin/../logs/hadoop-nam-tasktracker-zenbox.out<br />
+[/sourcecode]</p>
+
+<p>Finally, you can put a file in the hadoop filesystem, get the file listing and cat a file in the HDFS.</p>
+
+<p>[sourcecode language=”bash”]<br />
+nam@zenbox:~/hadoop$ bin/hadoop dfs -put ~/a.txt a.txt<br />
+nam@zenbox:~/hadoop$ bin/hadoop dfs -ls<br />
+Found 1 items<br />
+-rw-r–r– 3 nam supergroup 5 2010-09-25 15:20 /user/nam/a.txt<br />
+nam@zenbox:~/hadoop$ bin/hadoop dfs -cat a.txt<br />
+[contents of a.txt here]<br />
+nam@zenbox:~/hadoop$ bin/hadoop dfs -rm a.txt<br />
+Deleted hdfs://localhost:9000/user/nam/a.txt<br />
+[/sourcecode]</p>
+
+<p>We’ll get to the building of source in another installment of this tutorial inshaallah.</p>
+
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> recluze | No rights reserved.</span>
+</footer>
+</body>
+</html>
