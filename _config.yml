@@ -1,4 +1,4 @@
-title: SandsOfTime - Sharjeel (SandsOfTime) on Computing, Philosophy and More ... 
+title: SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More ... 
 author: SandsOfTime
 email: janeebee1092@gmail.com 
 description: > # this means to ignore newlines until "show_exerpts:"
@@ -16,7 +16,7 @@ permalink: /posts/:year/:month/:day/:title/
 
 texture:
   title: SandsOfTime
-  tagline: Sharjeel (SandsOfTime) on Computing, Philosophy and more ...
+  tagline: Sharjeel (SandsOfTime) on Computing, Learning and more...
   date_format: "%b %-d, %Y"
   style: blue 
   showNav: true 
