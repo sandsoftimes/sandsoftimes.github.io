@@ -1,0 +1,21 @@
+I"ù<p>Selenium is also one of the most famous tool used for web scrapping. It works on the basis of web driver. It‚Äôs one of the widely used web scarapping and automation tool.</p>
+
+<p>Selenium is a bit complex as compared to Beautiful Soup but is alot more easier than Scrappy.</p>
+
+<p>In terms of Performance, Selenium is quite slower than Scrappy</p>
+
+<p>-Selinum:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	-web driver
+	
+	-used for web scrapping
+	
+	-seliunium is one of the best library
+	
+	-easier to learn as comp to scrapy
+	
+	-its slower 
+	
+	-webscrapping with it is slower
+</code></pre></div></div>
+:ET
