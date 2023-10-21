@@ -1,69 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
-<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
-
-<link rel="stylesheet" href="/assets/css/tailwind.css">
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/cards.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
-<title>About</title>
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-125808593-1');
-</script>
-
-
-
-<!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>About | SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …</title>
-<meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="About" />
-<meta name="author" content="SandsOfTime" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:site_name" content="SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="About" />
-<script type="application/ld+json">
-{"author":{"@type":"Person","name":"SandsOfTime"},"@type":"WebPage","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","url":"/about","headline":"About","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-</head>
-<body>
-	<header class="texture-blue medium-height">
-		<div class="container"><div class="navbar">
-	<ul>
-		
-		<a href="/"><li  >Home</li></a>
-		
-		<a href="/about"><li class="active" >About</li></a>
-		
-		<a href="/learn"><li  >Contact</li></a>
-		
-	</ul>
-</div></div><div class="container">
-	<h1>SandsOfTime</h1>
-	<h2>Sharjeel (SandsOfTime) on Computing, Learning and more...</h2>
-	<ul class="social"><a href="https://github.com/bluebutterflied"><li><i class="icon-github-circled"></i></li></a><a href="https://linkedin.com/in/bluebutterflied"><li><i class="icon-linkedin-squared"></i></li></a><a href="https://twitter.com/bluebutterflied"><li><i class="icon-twitter-squared"></i></li></a><a href="https://youtube.com/c/sultan_black"><li><i class="icon-youtube-squared"></i></li></a></ul>
-</div>
-</header>
-	<main>
-		<div class="container">
-			<h2 id="about-me">About Me</h2>
+I"<h2 id="about-me">About Me</h2>
 
 <p>My name is Muhammad  Sharjeel Akhtar and I am, foremost, a Muslim. I am also a student of bachelors, a graphic designer in my free time and a common learner.</p>
 
@@ -111,10 +46,4 @@
 
 You can take a look at my [publications here](/publications). -->
 
-
-		</div>
-	</main><footer class="footer">
-  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
-</footer>
-</body>
-</html>
+:ET

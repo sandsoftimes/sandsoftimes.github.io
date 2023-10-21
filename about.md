@@ -8,7 +8,7 @@ permalink: /about
 
 My name is Muhammad  Sharjeel Akhtar and I am, foremost, a Muslim. I am also a student of bachelors, a graphic designer in my free time and a common learner.
 
-You can download my resume from here: [Muhammad Sharjeel Akhtar (CV)](/nam-cv.pdf)
+You can download my resume from here: [Muhammad Sharjeel Akhtar (CV)](/re-cv.pdf)
 
 ## Research Statement
 
