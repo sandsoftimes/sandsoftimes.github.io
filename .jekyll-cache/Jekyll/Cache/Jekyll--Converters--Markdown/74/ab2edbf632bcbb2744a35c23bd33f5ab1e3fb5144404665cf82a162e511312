@@ -1,0 +1,41 @@
+I"�<p>I wanted to share a case study on how open source can help solve mundane, every day, personal, real world issues.</p>
+
+<p>I have limited screen time set for my kids. They are usually interested in watching documentaries in this time but I don’t want to open YouTube up for three reasons: ads, lack of control and background music.</p>
+
+<!-- more -->
+
+<p>So, I decided to solve the issue by downloading specific YouTube videos to a local linux machine (using Youtube-DL – which is open source).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>youtube-dl 
+youtube-dl <span class="o">[</span>url of video to download]
+</code></pre></div></div>
+
+<p>Since removing music from videos is a difficult task especially since they are overlaid on top of narration in documentaries, I extract the audio track from the downloaded video (using FFMPEG, also open source).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># -vn means don't include video, -an means remove audio</span>
+ffmpeg <span class="nt">-i</span> <span class="o">[</span>video_src] <span class="nt">-c</span>:v copy <span class="nt">-vn</span> audio-file.wav 
+ffmpeg <span class="nt">-i</span> <span class="o">[</span>video_src] <span class="nt">-c</span>:v copy <span class="nt">-an</span> video-file.mp4
+</code></pre></div></div>
+
+<p>I then use another open source tool called Spleeter to do source separation (aka music removal) from the audio track.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 2stems means use the model that separates vocals from instrumentals</span>
+<span class="c"># -o is the output directory and -f is the naming scheme for output </span>
+
+spleeter separate <span class="nt">-p</span> spleeter:2stems <span class="nt">-o</span> temp/ <span class="nt">-f</span> <span class="s2">"{instrument}.{codec}"</span> audio-file.wav
+</code></pre></div></div>
+
+<p>Spleeter, by default, can only do source separation for 10 minute audios. You can change it but it requires a lot of resources. The solution to this problem was fairly straight-forward: split the videos in parts of 10 minutes each. This can be done easily with ffmpeg.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">!</span>ffmpeg <span class="nt">-i</span> downloaded-video.mp4 <span class="nt">-c</span> copy <span class="nt">-map</span> 0 <span class="nt">-segment_time</span> 00:10:00 <span class="nt">-f</span> segment <span class="nt">-reset_timestamps</span> 1 video-Part-%02d.mkv
+</code></pre></div></div>
+
+<p>I then merge the cleaned audio track with the video using FFMPEG again.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg <span class="nt">-i</span> video-file.mp4 <span class="nt">-i</span> temp/vocals.wav <span class="nt">-c</span> copy output_video.mkv 
+</code></pre></div></div>
+
+<p>This new, pre-processed video is then copied over to a local library which is served to local machines using the Plex media server. Plex is mostly open source but there are fully open source variations for local media hosting available as well. The kids can then watch using a browser and that solves all three issues I had with YouTube.</p>
+
+<p>All of this is done using the Linux command line and takes me no more than a couple of commands and a few minutes. If anyone is interested, you can checkout the simple script to do all this here. <a href="https://github.com/recluze/tinimir">github.com/recluze/tinimir</a></p>
+:ET

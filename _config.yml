@@ -1,15 +1,13 @@
-title: recluze - Nauman (recluze) on Computing, Philosophy and More ... 
-author: recluze
-email: recluze@gmail.com 
+title: SandsOfTime - Sharjeel (SandsOfTime) on Computing, Philosophy and More ... 
+author: SandsOfTime
+email: janeebee1092@gmail.com 
 description: > # this means to ignore newlines until "show_exerpts:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 show_excerpts: true # set to true to show excerpts on the homepage
-# baseurl: /
 
-# Minima date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
+
 sass:
   sass_dir: _sass
 
@@ -17,8 +15,8 @@ sass:
 permalink: /posts/:year/:month/:day/:title/
 
 texture:
-  title: recluze
-  tagline: Nauman (recluze) on Computing, Philosophy and more ...
+  title: SandsOfTime
+  tagline: Sharjeel (SandsOfTime) on Computing, Philosophy and more ...
   date_format: "%b %-d, %Y"
   style: blue 
   showNav: true 
@@ -29,28 +27,18 @@ texture:
       url: "/"
     - title: About
       url: "/about"
-    - title: Courses 
+    - title: Contact 
       url: "/learn"
 
-  # generate social links in footer
   social_links:
-    twitter: recluze 
-    github:  recluze
-    linkedIn: in/recluze  
-    youtube: c/recluze
+    twitter: bluebutterflied 
+    github:  bluebutterflied
+    linkedIn: in/bluebutterflied 
+    youtube: c/sultan_black
  
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
 header_pages:
  - about.md
 
-# Build settings
-# theme: texture
 
 plugins:
   - jekyll-seo-tag
-#  - jekyll-feed
-#
-#
-#
