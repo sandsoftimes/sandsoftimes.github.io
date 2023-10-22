@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Key Facts About Selenium
+title: Key Facts about Selenium
 date: 2023-10-03 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'

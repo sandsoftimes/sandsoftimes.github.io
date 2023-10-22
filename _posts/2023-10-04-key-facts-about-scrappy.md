@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Key Facts About Scrappy
+title: Key Facts about Scrappy
 date: 2023-10-04 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'

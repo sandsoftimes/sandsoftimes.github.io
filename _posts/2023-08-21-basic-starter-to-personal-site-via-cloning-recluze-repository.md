@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Kick Off with Jekyll Static Site via Cloning Recluze Repository
-date: 2023-10-21 20:52:55.000000000 +05:00
+title: Basic Starter to personal Site via Cloning Recluze Repository
+date: 2023-08-21 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'
 published: true
@@ -21,7 +21,7 @@ author:
   display_name: SandsOfTime
   first_name: Muhammad
   last_name: Sharjeel Akhtar
-permalink: "/2023/10/21/kick-off-with-jekyll"
+permalink: "/2023/08/21/basic-starter-to-personal-site-via-cloning-recluze-repository"
 ---
 Today, i used the site of my Professor **Muhammad Nauman (recluze)**. I used his github repository. After reducing its content, i've created my clone for my work sharing and portfolio platform. I hope, it will go well.
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Key Facts About Beautiful Soup Library
+title: Key Facts about Beautiful Soup Library
 date: 2023-10-02 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'
