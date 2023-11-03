@@ -74,7 +74,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (> 1.16)
-  rake (~> 12.0)
+  rake (= 12.3.3)
   texture!
   webrick
 

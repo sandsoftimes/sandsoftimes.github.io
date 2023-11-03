@@ -1,0 +1,7 @@
+I"×<p>Skkk</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>times2 = lambda var: var * 2
+result = times2(6)  # This will give you 12
+
+</code></pre></div></div>
+:ET

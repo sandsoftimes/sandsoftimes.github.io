@@ -1,0 +1,4 @@
+I"<p>BeautifulSoup library work on html/xml files. Also keep in mind, that it is totally recommended for beginners. It’s one of the easiest way to start web scrapping.It just requires few lines of code to start web scarapping.</p>
+
+<p>Apart from it, it’s easy to setup. We just have to install the library. One key-point about is that it don’t have any support for javascript sites. Also it is less efficient as compared to <strong>Selenium</strong> and <strong>Scrappy</strong>. Also it has some dependencies.</p>
+:ET
