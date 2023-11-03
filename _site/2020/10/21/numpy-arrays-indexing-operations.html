@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Numpy Arrays, Indexing and Operations in Python</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Numpy Arrays, Indexing and Operations in Python | SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Numpy Arrays, Indexing and Operations in Python" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Today, we’ll explore some essential concepts related to NumPy arrays, which is a fundamental library for numerical computations in Python. NumPy, short for Numerical Python, is an indispensable tool for data scientists, engineers, and anyone dealing with large datasets." />
+<meta property="og:description" content="Today, we’ll explore some essential concepts related to NumPy arrays, which is a fundamental library for numerical computations in Python. NumPy, short for Numerical Python, is an indispensable tool for data scientists, engineers, and anyone dealing with large datasets." />
+<meta property="og:site_name" content="SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-21T20:52:55+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Numpy Arrays, Indexing and Operations in Python" />
+<script type="application/ld+json">
+{"datePublished":"2020-10-21T20:52:55+05:00","@type":"BlogPosting","dateModified":"2020-10-21T20:52:55+05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2020/10/21/numpy-arrays-indexing-operations"},"url":"/2020/10/21/numpy-arrays-indexing-operations","description":"Today, we’ll explore some essential concepts related to NumPy arrays, which is a fundamental library for numerical computations in Python. NumPy, short for Numerical Python, is an indispensable tool for data scientists, engineers, and anyone dealing with large datasets.","headline":"Numpy Arrays, Indexing and Operations in Python","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Contact</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Numpy Arrays, Indexing and Operations in Python</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Oct 21, 2020
+	</div>
+	<ul class="post-tags"><li>Python</li><li>Basics</li><li>Programming</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>Today, we’ll explore some essential concepts related to NumPy arrays, which is a fundamental library for numerical computations in Python. NumPy, short for Numerical Python, is an indispensable tool for data scientists, engineers, and anyone dealing with large datasets.</p>
+
+<p>NumPy, imported as <code class="language-plaintext highlighter-rouge">np</code>, allows you to cast a regular Python list as an array. Moreover, it provides several methods for creating arrays with different properties. You can use <code class="language-plaintext highlighter-rouge">np.eye</code> to create an identity matrix, <code class="language-plaintext highlighter-rouge">np.linspace()</code> to generate evenly spaced values, and <code class="language-plaintext highlighter-rouge">np.arange</code> to create a range of values. NumPy also offers functions like <code class="language-plaintext highlighter-rouge">np.ones()</code> and <code class="language-plaintext highlighter-rouge">np.zeros()</code> to create arrays filled with ones or zeros, respectively. For generating random values, <code class="language-plaintext highlighter-rouge">np.random.rand()</code> produces values from a uniform distribution, while <code class="language-plaintext highlighter-rouge">np.random.randn()</code> generates values from a standard normal distribution. If you prefer integers, <code class="language-plaintext highlighter-rouge">np.random.randint()</code> is your go-to function. You can also reshape arrays using the <code class="language-plaintext highlighter-rouge">arr.reshape()</code> method and find the maximum, minimum, index of maximum, and index of minimum values using functions like <code class="language-plaintext highlighter-rouge">ranarr.max()</code>, <code class="language-plaintext highlighter-rouge">ranarr.min()</code>, <code class="language-plaintext highlighter-rouge">ranarr.argmax()</code>, and <code class="language-plaintext highlighter-rouge">ranarr.argmin()</code>. Additionally, you can check the shape and data type of an array using <code class="language-plaintext highlighter-rouge">arr.shape()</code> and <code class="language-plaintext highlighter-rouge">arr.dtype</code>.</p>
+
+<p>Now moving to NumPy array indexing. One crucial point to note is that NumPy doesn’t automatically make copies of arrays to save memory. Instead, it creates views or references to the original data when indexing. To create a proper copy of an array, you can use <code class="language-plaintext highlighter-rouge">arr_copy = arr.copy()</code>. The video also explains the concept of broadcasting, which allows you to perform operations on arrays of different shapes without explicitly creating copies. You’ll explore the double bracket and single bracket formats for grabbing values from a matrix, which can be immensely helpful when working with multi-dimensional arrays.</p>
+
+<p>NumPy operations are also of great importance. These operations include arithmetic operations, element-wise operations, and aggregation functions for summarizing data within arrays. NumPy simplifies mathematical computations and statistical analyses, making it a powerful tool for data manipulation and analysis.</p>
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
+</footer>
+</body>
+</html>
