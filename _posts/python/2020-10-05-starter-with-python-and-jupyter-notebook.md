@@ -34,4 +34,10 @@ In order to execute a cell in jupyter notebook. You have to use short-cut of Shi
 
 To save a jupyter notebook, use the shortcute of Ctrl+S.
 
+i.e, adding this point as well that if u donot want to get into anaconda and stuff you, can also install jupyter notebook by using a single command on linux terminal, which is below.
+
+```
+Python -m pip install jupyter
+```
+
 This was a basic get to know about python and jupyter notebook. I'll also add some posts later on covering these both in more detail. Stay tuned.

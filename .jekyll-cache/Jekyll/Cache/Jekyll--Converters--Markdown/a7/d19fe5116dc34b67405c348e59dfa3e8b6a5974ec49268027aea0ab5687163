@@ -1,0 +1,12 @@
+I"B<p>Today, i’m going to talk about an intresting debate on <code class="language-plaintext highlighter-rouge">Load Balancing</code> and <code class="language-plaintext highlighter-rouge">Scalability</code>. Both of these terms are used widely in terms of Cloud Computing. When it comes to the implementation of these two, they almost feel the same but in depth, they are different from each other.</p>
+
+<h2 id="load-balancing">Load Balancing:</h2>
+
+<p>Load balancing is actually distributing the load among the servers by using another server known as <code class="language-plaintext highlighter-rouge">Load Balancer</code>. In load balancing, the number of instances (EC2, Servers) remains the same.</p>
+
+<h2 id="scalability">Scalability:</h2>
+
+<p>Scalability is increasing or decreasing the number of instances (EC2, Servers) according to the number of requests. In scalability, the number of instances are not fixed.</p>
+
+<p>Both of these terms accounts very much in Cloud Computing. Specifically when working with cloud platforms like Microsoft Azure or Amazon Web Services (AWS).</p>
+:ET

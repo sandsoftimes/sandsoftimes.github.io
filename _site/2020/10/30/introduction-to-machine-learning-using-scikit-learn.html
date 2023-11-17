@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Introduction to Machine Learning using Scikit Learn</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Introduction to Machine Learning using Scikit Learn | SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Introduction to Machine Learning using Scikit Learn" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="When it comes to machine learning, Scikit Learn is the most widely used library. Today, we are going to practice the very basic machine learning model. We are going to use scikit learn to split our data into train and test subsets. Then we are going to create the Linear Regression model and afterwards, we train and test it by using the subsets." />
+<meta property="og:description" content="When it comes to machine learning, Scikit Learn is the most widely used library. Today, we are going to practice the very basic machine learning model. We are going to use scikit learn to split our data into train and test subsets. Then we are going to create the Linear Regression model and afterwards, we train and test it by using the subsets." />
+<meta property="og:site_name" content="SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-30T20:52:55+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Introduction to Machine Learning using Scikit Learn" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"/2020/10/30/introduction-to-machine-learning-using-scikit-learn","headline":"Introduction to Machine Learning using Scikit Learn","dateModified":"2020-10-30T20:52:55+05:00","datePublished":"2020-10-30T20:52:55+05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2020/10/30/introduction-to-machine-learning-using-scikit-learn"},"description":"When it comes to machine learning, Scikit Learn is the most widely used library. Today, we are going to practice the very basic machine learning model. We are going to use scikit learn to split our data into train and test subsets. Then we are going to create the Linear Regression model and afterwards, we train and test it by using the subsets.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Contact</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Introduction to Machine Learning using Scikit Learn</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Oct 30, 2020
+	</div>
+	<ul class="post-tags"><li>Python</li><li>Basics</li><li>Programming</li><li>Machine Learning</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>When it comes to machine learning, <code class="language-plaintext highlighter-rouge">Scikit Learn</code> is the most widely used library. Today, we are going to practice the very basic machine learning model. We are going to use scikit learn to split our data into <code class="language-plaintext highlighter-rouge">train</code> and <code class="language-plaintext highlighter-rouge">test</code> subsets. Then we are going to create the <code class="language-plaintext highlighter-rouge">Linear Regression</code> model and afterwards, we train and test it by using the subsets.</p>
+
+<p>Initially import all the necessary libraries including <code class="language-plaintext highlighter-rouge">pandas</code>, <code class="language-plaintext highlighter-rouge">numpy</code>, <code class="language-plaintext highlighter-rouge">matplotlib</code> and <code class="language-plaintext highlighter-rouge">seaborn</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+</code></pre></div></div>
+
+<p>then read the data from the dataset, in this case we are using data from a self-generate csv file with the name ‘USA_Housing.csv’</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>USAhousing=pd.read_csv('USA_Housing.csv')
+</code></pre></div></div>
+
+<p>Now have a look at the imported dataset,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>USAhousing.head()
+</code></pre></div></div>
+
+<p>Then check some info of the imported dataset,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>USAhousing.info()
+</code></pre></div></div>
+
+<p>After it, apply the <code class="language-plaintext highlighter-rouge">describe()</code> method to extract some valuable information,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>USAhousing.describe()
+</code></pre></div></div>
+
+<p>Then, specifically extract the columns of the datasets,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>USAhousing.columns
+</code></pre></div></div>
+
+<p>After it, we will visualize the imported data in the form of plots. We are going to use seaborn library for this purpose which we’ve imported at the start. First we’ll look the data in the form of pairplot</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sns.pairplot(USAhousing)
+</code></pre></div></div>
+
+<p>Then visualize the data in the form of distplot,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sns.distplot(USAhousing['Price'])
+</code></pre></div></div>
+
+<p>Similarly, check heat plot as well for the given data,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sns.heatmap(USAhousing.corr())
+</code></pre></div></div>
+
+<p>After visualization, we are going to train our first linear regression model. We will need to first split up our data into an X array that contains the features to train on, and a y array with the target variable, in this case the Price column. We will toss out the Address column because it only has text info that the linear regression model can’t use.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X = USAhousing[['Avg. Area Income', 'Avg. Area House Age', 'Avg. Area Number of Rooms',
+               'Avg. Area Number of Bedrooms', 'Area Population']]
+y = USAhousing['Price']
+</code></pre></div></div>
+
+<p>Now let’s split the data into a training set and a testing set. We will train out model on the training set and then use the test set to evaluate the model.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.model_selection import train_test_split
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=101)
+</code></pre></div></div>
+
+<p>Now we will create and train the model,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.linear_model import LinearRegression
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lm = LinearRegression()
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lm.fit(X_train,y_train)
+</code></pre></div></div>
+
+<p>Let’s evaluate the model by checking out it’s coefficients and how we can interpret them.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># print the intercept
+print(lm.intercept_)
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>coeff_df = pd.DataFrame(lm.coef_,X.columns,columns=['Coefficient'])
+coeff_df
+</code></pre></div></div>
+
+<h2 id="interpreting-the-coefficients">Interpreting the coefficients:</h2>
+
+<ul>
+  <li>Holding all other features fixed, a 1 unit increase in Avg. Area Income is associated with an *increase of $21.52 *.</li>
+  <li>Holding all other features fixed, a 1 unit increase in Avg. Area House Age is associated with an *increase of $164883.28 *.</li>
+  <li>Holding all other features fixed, a 1 unit increase in Avg. Area Number of Rooms is associated with an *increase of $122368.67 *.</li>
+  <li>Holding all other features fixed, a 1 unit increase in Avg. Area Number of Bedrooms is associated with an *increase of $2233.80 *.</li>
+  <li>Holding all other features fixed, a 1 unit increase in Area Population is associated with an *increase of $15.15 *.</li>
+</ul>
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
+</footer>
+</body>
+</html>

@@ -1,9 +1,0 @@
-I"�<p>Today, i’m going to introduce you to python’s Tupple Unpacking, Lambda function and Filter function. We are also going to discuss some Methods in python. These are widely used when working with python. I’m going to discuss each one by one.</p>
-
-<p>First of all, when it comes to lambda expressions, they are one of the powerful feature in python. They are basically a functions that can be defined in single line, making code more concise and clean. Below is the example of lamba function in python, to double a variable.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>times2 = lambda var: var * 2
-result = times2(6)  # This will give you 12
-
-</code></pre></div></div>
-:ET

@@ -1,0 +1,19 @@
+I"&<p>You all might have some know-how of what is Python. If u are not unaware, then let me add this information to your knowledge. Python is basically a high-level-programming language, which can be used in a variety of ways. You can work with python is a number of environment/ide.</p>
+
+<p>The environment that i’m using now a days is Jupyter Notebook. Jupyter notebook is a simplified notebook. That executes the python code line by line or you can say cell by cell. Also, you should know that python is a interpreted language. Its code run line by line.</p>
+
+<p>If you are a beginner, you should install Anaconda. Anaconda will install python as well as jupyter notebook.</p>
+
+<p>Apart from code, we can also write text in jupyter notebook. Jupyter notebook have a type of cell known as Markdown Cell. By using these markdown cells, you can also create presentations. Markdown cells are also usied to give headings e.t.c.</p>
+
+<p>In order to execute a cell in jupyter notebook. You have to use short-cut of Shift+Enter. Also, in order to execute a cell and create a new cell below the current one, use the shortcute of Alt+ENTER. Third way is of Ctrl+Enter, this one is used when you want to execute the current cell and want to stay on the same cell.</p>
+
+<p>To save a jupyter notebook, use the shortcute of Ctrl+S.</p>
+
+<p>i.e, adding this point as well that if u donot want to get into anaconda and stuff you, can also install jupyter notebook by using a single command on linux terminal, which is below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Python -m pip install jupyter
+</code></pre></div></div>
+
+<p>This was a basic get to know about python and jupyter notebook. I’ll also add some posts later on covering these both in more detail. Stay tuned.</p>
+:ET

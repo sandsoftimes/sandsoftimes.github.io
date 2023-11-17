@@ -1,8 +1,0 @@
-I")<p>You all might have some know-how of what is Python. If u are not unaware, then let me add this information to your knowledge. Python is basically a high-level-programming language, which can be used in a variety of ways. You can work with python is a number of environment/ide.</p>
-
-<p>The environment that i’m using now a days is Jupyter Notebook. Jupyter notebook is a simplified notebook. That executes the python code line by line or you can say cell by cell. Also, you should know that python is a Interpreted language. Its code run line by line.</p>
-
-<p>If you are a beginner, you should install anaconda. Anaconda will install python as well as jupyter notebook.</p>
-
-<p>Apart from code, we can also write text in jupyter notebook. Jupyter notebook have a type of cell known as Markdown Cell.</p>
-:ET

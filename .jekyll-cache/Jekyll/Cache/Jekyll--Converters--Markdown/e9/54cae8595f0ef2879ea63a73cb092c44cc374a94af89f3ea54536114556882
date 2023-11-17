@@ -1,4 +1,0 @@
-I"u<p>Today we’ll be taking a closer look at the Python for Data Analysis. I will show you some data manipulation and analysis capabilities in Python . First thing that you should know is Pandas. Pandas is a fundamental library in Python for data analysis and manipulation. It provides powerful tools for data cleaning, transformation, and exploration.</p>
-
-<p>Pandas is an open-source library built on top of NumPy. It’s designed to handle structured data efficiently. One of the key features of pandas is its ability to perform data cleaning and operations quickly. It also boasts data visualization capabilities, making it a versatile tool for data scientists and analysts. You can easily install pandas using either <code class="language-plaintext highlighter-rouge">conda install pandas</code> or <code class="language-plaintext highlighter-rouge">pip install pandas</code>.</p>
-:ET
