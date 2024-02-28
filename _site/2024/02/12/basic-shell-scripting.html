@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Basic Shell Scripting</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Basic Shell Scripting | SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Basic Shell Scripting" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Shell scripting is a powerful tool which is widely used to perform different task using the command line. Mainly it is used for the purpose of automation." />
+<meta property="og:description" content="Shell scripting is a powerful tool which is widely used to perform different task using the command line. Mainly it is used for the purpose of automation." />
+<meta property="og:site_name" content="SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-02-12T20:52:55+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Basic Shell Scripting" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"/2024/02/12/basic-shell-scripting","headline":"Basic Shell Scripting","dateModified":"2024-02-12T20:52:55+05:00","datePublished":"2024-02-12T20:52:55+05:00","description":"Shell scripting is a powerful tool which is widely used to perform different task using the command line. Mainly it is used for the purpose of automation.","mainEntityOfPage":{"@type":"WebPage","@id":"/2024/02/12/basic-shell-scripting"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Contact</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Basic Shell Scripting</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Feb 12, 2024
+	</div>
+	<ul class="post-tags"><li>Linux</li><li>Bash</li><li>Scripting</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>Shell scripting is a powerful tool which is widely used to perform different task using the command line. Mainly it is used for the purpose of automation.</p>
+
+<p>Shell scripting is a highly flexible tool and it very powerful due to high support of operating system. Mainly it is used by system administrators. They used it for the purpose of system monitoring, account creating and variety of tasks. Developers and DevOps professionals also widely use shell scripting on almost daily basis.</p>
+
+<p>Shell scripting consist of various terminologies. Mainly of which are:</p>
+
+<ol>
+  <li>Terminal: Establish connection with the server</li>
+  <li>Shell: Interpret shell scripting commands</li>
+  <li>Script: Short program that performs a specific task</li>
+  <li>Shell Script: Script which runs through command-line shell</li>
+</ol>
+
+<h2 id="types-of-shells">Types of Shells:</h2>
+
+<p>Different types of shells are used for different tasks. It totally depends upon the nature of application. Shell decides how can we execute programs and which system resources should be access. Some common tpes of shells are below:</p>
+
+<ol>
+  <li>Bourne shell</li>
+  <li>C shell</li>
+  <li>Bash shell</li>
+  <li>Korn shell</li>
+  <li>Z shell</li>
+</ol>
+
+<p>We are going to look into the bash shell mainly as i’m using linux and bash shell is widely used in it. Let’s write some basic hello world shell script by using a hello.sh file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#!/bin/bash
+echo "Hello Shell"
+</code></pre></div></div>
+
+<p>After it, we have to check the permissions of the hello.sh file so that we can execute this script. For this purpose, we will add execution permission for this <code class="language-plaintext highlighter-rouge">.sh file</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod +x hello.sh
+</code></pre></div></div>
+
+<p>Now, confirm the permissions of the file by,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls -l
+</code></pre></div></div>
+
+<p>As the file is now executable, run the file by using,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./hello.sh
+</code></pre></div></div>
+
+<p>and here you go. A message of “<code class="language-plaintext highlighter-rouge">Hello Shell"</code> is in front of you.</p>
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
+</footer>
+</body>
+</html>
