@@ -9,8 +9,6 @@ password: ''
 status: publish
 categories:
 - Python
-- Basics
-- Programming
 - Machine Learning
 tags: []
 meta:

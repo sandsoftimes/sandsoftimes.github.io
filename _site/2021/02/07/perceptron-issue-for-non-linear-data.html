@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Perceptron Issue for Non-Linear Data</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Perceptron Issue for Non-Linear Data | SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Perceptron Issue for Non-Linear Data" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Perceptron is no doubt the core-component of Deep-Learning. When it comes to single-perceptron. It is best suited for the Linear-Data. Linear-Data means which can be classified into two classes easily by a single-line or classifier." />
+<meta property="og:description" content="Perceptron is no doubt the core-component of Deep-Learning. When it comes to single-perceptron. It is best suited for the Linear-Data. Linear-Data means which can be classified into two classes easily by a single-line or classifier." />
+<meta property="og:site_name" content="SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-07T20:52:55+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Perceptron Issue for Non-Linear Data" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Perceptron Issue for Non-Linear Data","description":"Perceptron is no doubt the core-component of Deep-Learning. When it comes to single-perceptron. It is best suited for the Linear-Data. Linear-Data means which can be classified into two classes easily by a single-line or classifier.","datePublished":"2021-02-07T20:52:55+05:00","url":"/2021/02/07/perceptron-issue-for-non-linear-data","dateModified":"2021-02-07T20:52:55+05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2021/02/07/perceptron-issue-for-non-linear-data"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Contact</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Perceptron Issue for Non-Linear Data</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Feb 7, 2021
+	</div>
+	<ul class="post-tags"><li>Python</li><li>Deep Learning</li><li>Perceptron Issue</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>Perceptron is no doubt the core-component of Deep-Learning. When it comes to single-perceptron. It is best suited for the Linear-Data. Linear-Data means which can be classified into two classes easily by a single-line or classifier.</p>
+
+<p>For this purpose, showing the classification results using multiple python codes. Initially import all the necessary libraries:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns 
+
+</code></pre></div></div>
+<p>Then making 3-empty datasets using pandas-dataframe.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+or_data=pd.DataFrame()
+and_data=pd.DataFrame()
+xor_data=pd.DataFrame()
+</code></pre></div></div>
+
+<p>Then fill-in the Dataframes:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+or_data['input1']=[1,1,0,0]
+or_data['input2']=[1,0,1,0]
+or_data['output']=[1,1,1,0]
+</code></pre></div></div>
+
+<p>Then import the simple perceptron model from sklearn and make 3 instances of it:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.linear_model import Perceptron
+clf1=Perceptron()
+clf2=Perceptron()
+clf3=Perceptron()
+</code></pre></div></div>
+<p>Then fit-in the data using our datasets:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clf1.fit(and_data.iloc[:,0:2].values,and_data.iloc[:,-1].values)
+clf2.fit(or_data.iloc[:,0:2].values,or_data.iloc[:,-1].values)
+clf3.fit(xor_data.iloc[:,0:2].values,xor_data.iloc[:,-1].values)
+</code></pre></div></div>
+
+<p>If you plot the the clf1 and as it is trained on linearly separable data, it will look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plt.plot(x,y)
+sns.scatterplot(x='input1',y='input2',data=and_data,hue='output',s=200)
+</code></pre></div></div>
+
+<!-- ![A test image](/assets/images/rletters/image.png) -->
+<p><img src="/assets/images/rletters/perceptron-linear-data1.png" alt="Perceptron on linear-data image" /></p>
+
+<p>Similarly if you plot the second perceptron classifier instance, which was trained on <code class="language-plaintext highlighter-rouge">or</code> data. It will look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plt.plot(x,y)
+sns.scatterplot(x='input1',y='input2',hue='output',data=or_data,s=200)
+</code></pre></div></div>
+
+<p><img src="/assets/images/rletters/perceptron-linear-data2.png" alt="Perceptron on linear-data OR image" />
+You can also get the idea of it by a visul representation from <a href="https://playground.tensorflow.org/#activation=sigmoid&amp;batchSize=10&amp;dataset=gauss&amp;regDataset=reg-plane&amp;learningRate=0.01&amp;regularizationRate=0&amp;noise=10&amp;networkShape=&amp;seed=0.71127&amp;showTestData=false&amp;discretize=false&amp;percTrainData=50&amp;x=true&amp;y=true&amp;xTimesY=false&amp;xSquared=false&amp;ySquared=false&amp;cosX=false&amp;sinX=false&amp;cosY=false&amp;sinY=false&amp;collectStats=false&amp;problem=classification&amp;initZero=false&amp;hideText=false">PlayGround.Tensorflow</a>
+<img src="/assets/images/rletters/playgrountensorflow.png" alt="playgroundtensorflow" /></p>
+
+<p>Now if you apply the same single perceptron model on non-linearly separable data. It will look like this:</p>
+
+<p><img src="/assets/images/rletters/perceptron-non-linear-data3.png" alt="Perceptron-non-linear-issue" /></p>
+
+<p><img src="/assets/images/rletters/perceptron-linear-data4.png" alt="Per-non-linear-issue-2nd-image" /></p>
+
+<p>Here you can see that our <code class="language-plaintext highlighter-rouge">Perceptron-Model</code> doesnot work for non-linear data. This was the issue with the use of single-perceptron.</p>
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
+</footer>
+</body>
+</html>

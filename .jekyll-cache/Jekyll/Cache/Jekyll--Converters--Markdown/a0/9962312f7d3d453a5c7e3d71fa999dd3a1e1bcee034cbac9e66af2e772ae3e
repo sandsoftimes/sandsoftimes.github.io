@@ -1,0 +1,11 @@
+I"X<p>Perceptron is no doubt the core-component of Deep-Learning. When it comes to single-perceptron. It is best suited for the Linear-Data. Linear-Data means which can be classified into two classes easily by a single-line or classifier.</p>
+
+<p>For this purpose, showing the classification results using multiple python codes. Initially import all the necessary libraries:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns 
+</code></pre></div></div>
+
+:ET
