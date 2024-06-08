@@ -15,8 +15,8 @@ sass:
 permalink: /posts/:year/:month/:day/:title/
 
 texture:
-  title: SandsOfTimes
-  tagline: SANDY (SandsOfTimes) on Computing, Learning and more...
+  title: SandsOfTime
+  tagline: SANDY (SandsOfTime) on Computing, Learning and more...
   date_format: "%b %-d, %Y"
   style: blue 
   showNav: true 
