@@ -8,9 +8,9 @@ published: true
 password: ''
 status: publish
 categories:
-- php
-- web
-- server
+- Python
+- Deep Learning
+- Multi Layer Perceptron
 tags: []
 meta:
   _wpas_done_all: '1'
