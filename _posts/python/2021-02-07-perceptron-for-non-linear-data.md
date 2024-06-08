@@ -72,8 +72,8 @@ plt.plot(x,y)
 sns.scatterplot(x='input1',y='input2',data=and_data,hue='output',s=200)
 ```
 
-<!-- ![A test image](/assets/images/rletters/image.png) -->
-![Perceptron on linear-data image](/assets/images/rletters/perceptron-linear-data1.png)
+<!-- ![A test image](/assets/images/clt/image.png) -->
+![Perceptron on linear-data image](/assets/images/clt/perceptron-for-non-linear-data/perceptron-linear-data1.png)
 
 Similarly if you plot the second perceptron classifier instance, which was trained on ```or``` data. It will look like this:
 
@@ -82,14 +82,15 @@ plt.plot(x,y)
 sns.scatterplot(x='input1',y='input2',hue='output',data=or_data,s=200)
 ```
 
-![Perceptron on linear-data OR image](/assets/images/rletters/perceptron-linear-data2.png)
+![Perceptron on linear-data OR image](/assets/images/clt/perceptron-for-non-linear-data/perceptron-linear-data2.png)
 You can also get the idea of it by a visul representation from [PlayGround.Tensorflow](https://playground.tensorflow.org/#activation=sigmoid&batchSize=10&dataset=gauss&regDataset=reg-plane&learningRate=0.01&regularizationRate=0&noise=10&networkShape=&seed=0.71127&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
-![playgroundtensorflow](/assets/images/rletters/playgrountensorflow.png)
+
+![playgroundtensorflow](/assets/images/clt/perceptron-for-non-linear-data/playgrountensorflow.png)
 
 Now if you apply the same single perceptron model on non-linearly separable data. It will look like this:
 
-![Perceptron-non-linear-issue](/assets/images/rletters/perceptron-non-linear-data3.png)
+![Perceptron-non-linear-issue](/assets/images/clt/perceptron-for-non-linear-data/perceptron-non-linear-data3.png)
 
-![Per-non-linear-issue-2nd-image](/assets/images/rletters/perceptron-linear-data4.png)
+![Per-non-linear-issue-2nd-image](/assets/images/clt/perceptron-for-non-linear-data/perceptron-linear-data4.png)
 
 Here you can see that our `Perceptron-Model` doesnot work for non-linear data. This was the issue with the use of single-perceptron.

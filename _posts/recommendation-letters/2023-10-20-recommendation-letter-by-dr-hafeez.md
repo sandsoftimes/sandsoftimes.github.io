@@ -31,4 +31,4 @@ Alhamdulillah this letter will not only explain my performance but also keep me 
 
 Below is the attached recommendation letter.
 
-![A test image](/assets/images/rletters/dr_hafeez.png)
+![A test image](/assets/images/clt/recommendation-letters/dr_hafeez.png)

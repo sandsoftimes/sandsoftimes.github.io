@@ -107,5 +107,5 @@ npm run dev
 
 This will be appear in front of you.
 
-![A test image](/assets/images/rletters/image.png)
+![A test image](/assets/images/clt/react-tea/1.png)
 

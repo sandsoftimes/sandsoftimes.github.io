@@ -8,9 +8,9 @@ published: true
 password: ''
 status: publish
 categories:
-- php
-- web
-- server
+- Php
+- Web
+- Server
 tags: []
 meta:
   _wpas_done_all: '1'
@@ -60,5 +60,5 @@ echo "SANDSOFTIMES";
 
 This code will print the php variables inside the html tags. P.S you've to use `<?php?>` in order to write php code and also `$` is used to declare a variable in php. Also, go to localhost/test/index.php on your browser to view the php code running.
 
-![php first image](/assets/images/rletters/php-first.png)
+![php first image](/assets/images/clt/php-hello-world/php-first.png)
 
