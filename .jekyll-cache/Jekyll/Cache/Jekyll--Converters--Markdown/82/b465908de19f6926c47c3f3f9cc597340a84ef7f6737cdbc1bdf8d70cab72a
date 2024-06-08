@@ -1,0 +1,20 @@
+I"Æ<p>As we know that a single perceptron is not able to classify non-linear data, you can check out my blog on this <a href="/2021/02/07/perceptron-issue-for-non-linear-data">Perceptron Issue</a>. So how we can classify non-linear data using <code class="language-plaintext highlighter-rouge">Multi-Layer-Perceptron</code>.</p>
+
+<p>We all know that a single-perceptron cannot converge on non-linear data. This means that it cannot draw the Decision Boundaries in the data. This is where multi-layer-percetpron comes into play. Multi-Layer-Perceptron uses smoothing and super-imposition concepts to draw the decision boundaries. The output of one layer of perceptron becomes the input for the next hidden layer and thus your classification results are ore and more accurate. Here is a basic MLP architecture:</p>
+
+<p><img src="/assets/images/rletters/deep-learning/mlp-1.jpeg" alt="basic mlp network" /></p>
+
+<h2 id="layers-breakdown">Layers Breakdown:</h2>
+<p>You can see here, we have multiple layers, each layer with multiple perceptrons. The initial layer labelled as 1 is the input layer, the middle layers with label 2 and 3 are the hidden layers and the layer 4 is called the output layer.</p>
+
+<p>In a MLP-architecture,youâ€™ve to calculate three things:</p>
+<ul>
+  <li>Weight</li>
+  <li>Bias</li>
+  <li>Output</li>
+</ul>
+
+<p>Also at the end we combine the multiple perceptron outputs,</p>
+
+<p><img src="/assets/images/rletters/deep-learning/mlp-2.jpeg" alt="mlp-2" /></p>
+:ET

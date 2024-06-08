@@ -1,0 +1,4 @@
+I"Ë<p>As we know that a single perceptron is not able to classify non-linear data, you can check out my blog on this <img src="" alt="" />. So how we can classify non-linear data using <code class="language-plaintext highlighter-rouge">Multi-Layer-Perceptron</code>.</p>
+
+<p>We all know that a single-perceptron cannot converge on non-linear data. This means that it cannot draw the Decision Boundaries in the data. This is where multi-layer-percetpron comes into play. Multi-Layer-Perceptron uses smoothing and super-imposition concepts to draw the decision boundaries. The output of one layer of perceptron becomes the input for the next hidden layer and thus your classification results more and more accurate.</p>
+:ET

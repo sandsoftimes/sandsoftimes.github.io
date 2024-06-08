@@ -1,0 +1,36 @@
+I"�<p>Php is one of the famous server-side scripting language. In common websites, it is used to handle the backend portion. No doubt, many new frameworks are now introduced in the market but still PHP is used in a wide number of websites.</p>
+
+<p>In order to use PHP, you simply have to install the xamp on your system. I’m using linux so i’m attaching a linux installation tutorial of xamp. Here is <a href="https://www.youtube.com/watch?v=R5CUn5wGQGg">XAMP INSTALLATION</a></p>
+
+<p>After installation go this directory and create a folder test in it,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /opt/lampp/htdocs/
+mkdir test
+cd test
+</code></pre></div></div>
+
+<p>In here, you’ve to create an index.php file in order to visualize the php code on your localhost. So,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>touch index.php
+</code></pre></div></div>
+
+<p>Open up this file and write some basic php code in it like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+$name='SANDSOFTIMES';
+
+$color='green';
+echo $name;
+echo "SANDSOFTIMES";
+
+?&gt;
+&lt;h1&gt;&lt;?php echo $name;?&gt;&lt;/h1&gt;
+
+&lt;h1 style="color:red"&gt;&lt;?php echo $name;?&gt;&lt;/h1&gt;
+
+&lt;h1 style="color:&lt;?php echo $color; ?&gt;"&gt;&lt;?php echo $name;?&gt;&lt;/h1&gt;
+</code></pre></div></div>
+
+<p>This code will print the php variables inside the html tags. P.S you’ve to use <code class="language-plaintext highlighter-rouge">&lt;?php?&gt;</code> in order to write php code. Also, go to localhost/test/index.php on your browser to view the php code running.</p>
+
+:ET

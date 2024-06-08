@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Multi Layer Perceptron Intuition</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Multi Layer Perceptron Intuition | SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Multi Layer Perceptron Intuition" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="As we know that a single perceptron is not able to classify non-linear data, you can check out my blog on this Perceptron Issue. So how we can classify non-linear data using Multi-Layer-Perceptron." />
+<meta property="og:description" content="As we know that a single perceptron is not able to classify non-linear data, you can check out my blog on this Perceptron Issue. So how we can classify non-linear data using Multi-Layer-Perceptron." />
+<meta property="og:site_name" content="SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-08T20:52:55+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Multi Layer Perceptron Intuition" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Multi Layer Perceptron Intuition","description":"As we know that a single perceptron is not able to classify non-linear data, you can check out my blog on this Perceptron Issue. So how we can classify non-linear data using Multi-Layer-Perceptron.","datePublished":"2021-02-08T20:52:55+05:00","url":"/2021/02/08/multi-layer-perceptron","dateModified":"2021-02-08T20:52:55+05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2021/02/08/multi-layer-perceptron"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Contact</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Multi Layer Perceptron Intuition</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Feb 8, 2021
+	</div>
+	<ul class="post-tags"><li>php</li><li>web</li><li>server</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>As we know that a single perceptron is not able to classify non-linear data, you can check out my blog on this <a href="/2021/02/07/perceptron-issue-for-non-linear-data">Perceptron Issue</a>. So how we can classify non-linear data using <code class="language-plaintext highlighter-rouge">Multi-Layer-Perceptron</code>.</p>
+
+<p>We all know that a single-perceptron cannot converge on non-linear data. This means that it cannot draw the Decision Boundaries in the data. This is where multi-layer-percetpron comes into play. Multi-Layer-Perceptron uses smoothing and super-imposition concepts to draw the decision boundaries. The output of one layer of perceptron becomes the input for the next hidden layer and thus your classification results are ore and more accurate. Here is a basic MLP architecture:</p>
+
+<p><img src="/assets/images/rletters/deep-learning/mlp-1.jpeg" alt="basic mlp network" /></p>
+
+<h2 id="layers-breakdown">Layers Breakdown:</h2>
+<p>You can see here, we have multiple layers, each layer with multiple perceptrons. The initial layer labelled as 1 is the input layer, the middle layers with label 2 and 3 are the hidden layers and the layer 4 is called the output layer.</p>
+
+<p>In a MLP-architecture,you’ve to calculate three things:</p>
+<ul>
+  <li>Weight</li>
+  <li>Bias</li>
+  <li>Output</li>
+</ul>
+
+<p><img src="/assets/images/rletters/deep-learning/mlp-2.jpeg" alt="mlp-2" /></p>
+
+<p>Also at the end we combine the multiple perceptron outputs and pass them through the activation function. While in the case of single perceptron, the output z was passed through the activation function. But here in MLP, there are multiple hidden layers. Keep in mind that you can change the architecture of MLP using 4 methods:</p>
+
+<ul>
+  <li>Increase the nodes in hidden layers</li>
+  <li>Increase the nodes in input layer</li>
+  <li>Increase the nodes in output layer</li>
+  <li>Increase the number of hidden layers</li>
+</ul>
+
+<p>Here you can see the basic training flow and the first two architecture changes.</p>
+
+<p><img src="/assets/images/rletters/deep-learning/mlp-3.jpeg" alt="mlp-3" /></p>
+
+<p>Also the examples of the 3rd and 4th way to change the mlp architecture can be demonstrated by below note snippet,</p>
+
+<p><img src="/assets/images/rletters/deep-learning/mlp-4.jpeg" alt="mlp-4" /></p>
+
+<p>Now, i’m going show some demonstrations of how well MLP performs on a non-linear data. Initially i’m taking a single hidden layer with 2 perceptrons in it. Let’s see the results.</p>
+
+<p><img src="/assets/images/rletters/deep-learning/mlp-5.png" alt="mlp-5" /></p>
+
+<p>Let’s test it out on a more complex non-linear dataset but we’ve increased a perceptron in the hidden layer. Here is the demonstration,</p>
+
+<p><img src="/assets/images/rletters/deep-learning/mlp-6.png" alt="mlp-6" /></p>
+
+<p>In the final-example, we are taking the most complex dataset among these. For this we’ll use two hidden layers, each with 4 perceptrons in. Let’s see how our Neural Network do the classification.</p>
+
+<p><img src="/assets/images/rletters/deep-learning/mlp-7.png" alt="mlp-7" /></p>
+
+<p>So far, this was all about the Multi-Layer-Perceptron(MLP). I hope my explaination will some abstract as well as some practical knowledge of MLP working.</p>
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
+</footer>
+</body>
+</html>
