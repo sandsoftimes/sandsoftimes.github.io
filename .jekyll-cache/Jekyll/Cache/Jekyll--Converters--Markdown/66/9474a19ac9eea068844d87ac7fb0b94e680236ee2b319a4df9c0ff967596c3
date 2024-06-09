@@ -1,0 +1,4 @@
+I"<p>The working of a Artificial Neural Network can be observed in multiple ways. One way is to solve a practical use-case on it. The problem we are going to solve today is Customer-Churn problem of a Bank<code class="language-plaintext highlighter-rouge">(will the customer stay or go)</code>.</p>
+
+<p>For this purpose, i’m going to use the available dataset on kaggle. Here is the link <a href="https://www.kaggle.com/code/campusx/notebook8ad570467f">Churn Dataset</a> to it and also i’m going to use the notebook provided by kaggle.</p>
+:ET

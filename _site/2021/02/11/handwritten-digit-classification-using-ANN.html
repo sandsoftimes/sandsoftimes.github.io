@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Handwritten Digit Classification using ANN | MNIST Dataset</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Handwritten Digit Classification using ANN MNIST Dataset | SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Handwritten Digit Classification using ANN MNIST Dataset" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Today, we are going to build anther Artificial Neural Network for one of the famous dataset known as MNIST. It is use to classify digits(0-9). Here is also colab-notebook attached for the code Python-Notebook" />
+<meta property="og:description" content="Today, we are going to build anther Artificial Neural Network for one of the famous dataset known as MNIST. It is use to classify digits(0-9). Here is also colab-notebook attached for the code Python-Notebook" />
+<meta property="og:site_name" content="SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-11T20:52:55+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Handwritten Digit Classification using ANN MNIST Dataset" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Handwritten Digit Classification using ANN MNIST Dataset","description":"Today, we are going to build anther Artificial Neural Network for one of the famous dataset known as MNIST. It is use to classify digits(0-9). Here is also colab-notebook attached for the code Python-Notebook","datePublished":"2021-02-11T20:52:55+05:00","url":"/2021/02/11/handwritten-digit-classification-using-ANN","dateModified":"2021-02-11T20:52:55+05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2021/02/11/handwritten-digit-classification-using-ANN"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Contact</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Handwritten Digit Classification using ANN | MNIST Dataset</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Feb 11, 2021
+	</div>
+	<ul class="post-tags"><li>Python</li><li>Deep Learning</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>Today, we are going to build anther Artificial Neural Network for one of the famous dataset known as <strong>MNIST</strong>. It is use to classify digits(0-9). Here is also colab-notebook attached for the code
+<a href="https://colab.research.google.com/drive/1SqETl3Zi1EEesdJfEv6_QimB-M-YjKGx?usp=sharing">Python-Notebook</a></p>
+
+<p>Initially we did all the necessary importings,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import tensorflow
+from tensorflow import keras
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Dense,Flatten
+</code></pre></div></div>
+<p>Then simply load the dataset using keras, it will automatically do the train and test split.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(X_train,y_train),(X_test,y_test)=keras.datasets.mnist.load_data()
+</code></pre></div></div>
+
+<p>Visualize the shape of train and test,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X_test.shape
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>y_test.shape
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X_train.shape
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>y_train.shape
+</code></pre></div></div>
+
+<p><strong>y_train</strong> will be the labels array.</p>
+
+<p>Then import plotting library and do some plotting of training data to acutually visualize the digits.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import matplotlib.pyplot as plt
+plt.imshow(X_train[2])
+</code></pre></div></div>
+
+<p>Now scale the data to better calculate the parameters e.g weight and bias.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X_train=X_train/255
+X_test=X_test/255
+</code></pre></div></div>
+
+<p>Lets make our ANN now with keras sequential() model,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>model = Sequential()
+
+model.add(Flatten(input_shape=(28,28)))
+model.add(Dense(128,activation='relu'))
+model.add(Dense(32,activation='relu'))
+model.add(Dense(10,activation='softmax'))
+</code></pre></div></div>
+
+<p><strong>Flatten</strong> will convert the 28x28 matrix into single long array.</p>
+
+<p>View the model summary using,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>model.summary()
+</code></pre></div></div>
+
+<p>Add the loss function to our model,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>model.compile(loss='sparse_categorical_crossentropy',optimizer='Adam',metrics=['accuracy'])
+</code></pre></div></div>
+
+<p>Now fit the model on our training data to calculate the weight and bias,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>history=model.fit(X_train,y_train,epochs=25,validation_split=0.2)
+# history = model.fit(X_train,y_train,epochs=25,validation_split=0.2)
+</code></pre></div></div>
+
+<p>The model will run for 25 epochs. It is now time to make some predictions from our model,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>y_prob=model.predict(X_test)
+y_pred = y_prob.argmax(axis=1)
+y_pred
+</code></pre></div></div>
+
+<p>Inorder to check accuracy of our model <strong>import accuracy_score</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.metrics import accuracy_score
+accuracy_score(y_test,y_pred)
+</code></pre></div></div>
+
+<p>Also we will check the overfitting by plotting the loss and validation_loss,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+</code></pre></div></div>
+<p><img src="/assets/images/clt/handwritten-digit-classification-using-ann/1.png" alt="1" /></p>
+
+<p>Now compare the accuracy with the validation_accuracy</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plt.plot(history.history['accuracy'])
+plt.plot(history.history['val_accuracy'])
+</code></pre></div></div>
+<p><img src="/assets/images/clt/handwritten-digit-classification-using-ann/2.png" alt="2" /></p>
+
+<p>Lets test our model on a random value from the testing data,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plt.imshow(X_test[9])
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>model.predict(X_test[9].reshape(1,28,28)).argmax(axis=1)
+</code></pre></div></div>
+
+<p><img src="/assets/images/clt/handwritten-digit-classification-using-ann/3.png" alt="3" /></p>
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
+</footer>
+</body>
+</html>
