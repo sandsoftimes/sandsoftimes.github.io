@@ -23,6 +23,7 @@ author:
 permalink: "/2020/10/06/php-basic-hello-world"
 ---
 Php is one of the famous server-side scripting language. In common websites, it is used to handle the backend portion. No doubt, many new frameworks are now introduced in the market but still PHP is used in a wide number of websites.
+![pngwing](/assets/images/clt/php-hello-world/pngegg.png)
 
 In order to use PHP, you simply have to install the xamp on your system. I'm using linux so i'm attaching a linux installation tutorial of xamp. Here is [XAMP INSTALLATION](https://www.youtube.com/watch?v=R5CUn5wGQGg)
 

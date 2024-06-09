@@ -21,7 +21,9 @@ author:
   last_name: Sharjeel Akhtar
 permalink: "/2021/02/10/customer-churn-prediction-using-ANN"
 ---
-The working of a Artificial Neural Network can be observed in multiple ways. One way is to solve a practical use-case on it. The problem we are going to solve today is Customer-Churn problem of a Bank`(will the customer stay or go)`. 
+![3](/assets/images/clt/customer-churn-prediction-using-ann/3.png) 
+The working of a Artificial Neural Network can be observed in multiple ways. One way is to solve a practical use-case on it. The problem we are going to solve today is Customer-Churn problem of a Bank`(will the customer stay or go)`.
+
 
 For this purpose, i'm going to use the available dataset on kaggle. Here is the link to [Churn Dataset](https://www.kaggle.com/code/campusx/notebook8ad570467f) and also i'm going to use the notebook provided by kaggle.
 
