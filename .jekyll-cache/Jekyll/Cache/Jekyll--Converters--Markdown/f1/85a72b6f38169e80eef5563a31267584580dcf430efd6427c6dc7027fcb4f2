@@ -1,0 +1,3 @@
+I"Ú<p>Generally <code class="language-plaintext highlighter-rouge">Back-Propagation</code> is the main algorithm to train the neural network but before it, we need to do a forward pass which is known as <code class="language-plaintext highlighter-rouge">Forward Propagation</code>. Inputs are given through input layer with the weights. Simple linear algebra which includes matrix multiplication is used.
+<img src="/assets/images/clt/forward-propagation/1.jpeg" alt="1" /></p>
+:ET

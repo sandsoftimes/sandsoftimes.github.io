@@ -1,0 +1,31 @@
+I"�<p>Generally <code class="language-plaintext highlighter-rouge">Back-Propagation</code> is the main algorithm to train the neural network but before it, we need to do a forward pass which is known as <code class="language-plaintext highlighter-rouge">Forward Propagation</code>. Inputs are given through input layer with the weights. Simple linear algebra which includes matrix multiplication is used.</p>
+
+<p><img src="/assets/images/clt/forward-propagation/1.jpeg" alt="1" /></p>
+
+<p>We need to know how a neural network predict. For this purpose we need to understand the flow. Initially you’ve to identify the <code class="language-plaintext highlighter-rouge">total trainable parameters</code>. Here in this case we have 4 inputs and 3 hiddens layers. Find the total connections,</p>
+
+<p><img src="/assets/images/clt/forward-propagation/2.jpeg" alt="2" /></p>
+
+<p>This forward pass will be used to check the prediction. In the back the dot product b/w the inputs and weights is taken place with addition with the bias.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>input*weights+bias
+</code></pre></div></div>
+<p>Here is the full calculations,</p>
+
+<p><img src="/assets/images/clt/forward-propagation/4.jpeg" alt="4" /></p>
+
+<p>To understand the full flow in one go. I’ve solved a complete example with all mathematical calculations. You’ll get enough idea from it.</p>
+
+<p><img src="/assets/images/clt/forward-propagation/new1.jpeg" alt="new1" /></p>
+
+<p><img src="/assets/images/clt/forward-propagation/new2.jpeg" alt="new2" /></p>
+
+<p>The ouput of first hidden layer will become input for the next hidden layer,</p>
+
+<p><img src="/assets/images/clt/forward-propagation/3.jpeg" alt="3" /></p>
+
+<p>Atlast sigmoid function will be applied on the output obtained from the output layer and we’ll have a value in 1x1 matrix.</p>
+
+<p><img src="/assets/images/clt/forward-propagation/new3.jpeg" alt="new3" /></p>
+
+:ET
