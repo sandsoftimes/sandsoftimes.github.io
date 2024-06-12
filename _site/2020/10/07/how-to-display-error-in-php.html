@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>How to Display Error in php</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>How to Display Error in php | SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="How to Display Error in php" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Generally by default, php doesnot show error on the browser. It simply says page isn’t working instead. Inorder to visualize the error in code in browser. You’ve to do some basic changes." />
+<meta property="og:description" content="Generally by default, php doesnot show error on the browser. It simply says page isn’t working instead. Inorder to visualize the error in code in browser. You’ve to do some basic changes." />
+<meta property="og:site_name" content="SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-07T20:52:55+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to Display Error in php" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"How to Display Error in php","description":"Generally by default, php doesnot show error on the browser. It simply says page isn’t working instead. Inorder to visualize the error in code in browser. You’ve to do some basic changes.","datePublished":"2020-10-07T20:52:55+05:00","url":"/2020/10/07/how-to-display-error-in-php","dateModified":"2020-10-07T20:52:55+05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2020/10/07/how-to-display-error-in-php"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Contact</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>How to Display Error in php</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Oct 7, 2020
+	</div>
+	<ul class="post-tags"><li>Php</li><li>Web</li><li>Server</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>Generally by default, php doesnot show error on the browser. It simply says <strong>page isn’t working</strong> instead. Inorder to visualize the error in code in browser. You’ve to do some basic changes.</p>
+
+<p>Initially create a new file with name <code class="language-plaintext highlighter-rouge">display-error.php</code>. In this file write this php function.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo phpinfo();
+</code></pre></div></div>
+<p>It will display all the information related to php.
+<img src="/assets/images/clt/display-error-in-php/1.png" alt="1" /></p>
+
+<p>Now, find the <code class="language-plaintext highlighter-rouge">Loaded Configuration File</code> and its <strong>path</strong>. In this case, it is <code class="language-plaintext highlighter-rouge">/opt/lampp/etc/php.ini</code>. Open this file on your terminal and find the keyword <strong>display_errors</strong> it will be set <strong>off</strong> initially. Write <strong>on</strong> infront of it. Then simply restart your apache-server. After the restart, write a php code in any of your file with some syntax error. Go to browser and this time, you’ll see the actual error being displayed. I’ve a code below:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+// echo phpinfo();
+// echo "Hello";
+$num=50K
+echo $num*50
+?&gt;
+</code></pre></div></div>
+<p>The above code has a syntax error and will display error on the browser like,
+<img src="/assets/images/clt/display-error-in-php/2.png" alt="2" /></p>
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
+</footer>
+</body>
+</html>

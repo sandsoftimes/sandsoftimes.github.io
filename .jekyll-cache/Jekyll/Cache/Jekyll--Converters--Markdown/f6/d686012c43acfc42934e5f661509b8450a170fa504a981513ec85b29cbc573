@@ -1,74 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
-<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
-
-<link rel="stylesheet" href="/assets/css/tailwind.css">
-<link rel="stylesheet" href="/assets/css/style.css">
-<link rel="stylesheet" href="/assets/css/cards.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
-<title>php Installation and Initial Working</title>
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-125808593-1');
-</script>
-
-
-
-<!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>php Installation and Initial Working | SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …</title>
-<meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="php Installation and Initial Working" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Php is one of the famous server-side scripting language. In common websites, it is used to handle the backend portion. No doubt, many new frameworks are now introduced in the market but still PHP is used in a wide number of websites." />
-<meta property="og:description" content="Php is one of the famous server-side scripting language. In common websites, it is used to handle the backend portion. No doubt, many new frameworks are now introduced in the market but still PHP is used in a wide number of websites." />
-<meta property="og:site_name" content="SandsOfTime - Sharjeel (SandsOfTime) on Computing, Learning and More …" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-10-06T20:52:55+05:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="php Installation and Initial Working" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","headline":"php Installation and Initial Working","description":"Php is one of the famous server-side scripting language. In common websites, it is used to handle the backend portion. No doubt, many new frameworks are now introduced in the market but still PHP is used in a wide number of websites.","datePublished":"2020-10-06T20:52:55+05:00","url":"/2020/10/06/php-basic-hello-world","dateModified":"2020-10-06T20:52:55+05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2020/10/06/php-basic-hello-world"},"@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-</head>
-<body>
-  <header class="texture-blue">
-    <div class="container"><div class="navbar">
-	<ul>
-		
-		<a href="/"><li  >Home</li></a>
-		
-		<a href="/about"><li  >About</li></a>
-		
-		<a href="/learn"><li  >Contact</li></a>
-		
-	</ul>
-</div></div><div class="container">
-	<h1>php Installation and Initial Working</h1>
-	<h4 class="post-description"></h4>
-	<div class="post-date" style="margin-top:20px">
-		Published on Oct 6, 2020
-	</div>
-	<ul class="post-tags"><li>Php</li><li>Web</li><li>Server</li></ul>
-</div>
-</header>
-  <main>
-    <div class="container">
-      <div class="post-container">
-          <p>Php is one of the famous server-side scripting language. In common websites, it is used to handle the backend portion. No doubt, many new frameworks are now introduced in the market but still PHP is used in a wide number of websites.
+I"�"<p>Php is one of the famous server-side scripting language. In common websites, it is used to handle the backend portion. No doubt, many new frameworks are now introduced in the market but still PHP is used in a wide number of websites.
 <img src="/assets/images/clt/php-hello-world/pngegg.png" alt="pngwing" /></p>
 
 <p>In order to use PHP, you simply have to install the xamp on your system. I’m using linux so i’m attaching a linux installation tutorial of xamp. Here is <a href="https://www.youtube.com/watch?v=R5CUn5wGQGg">XAMP INSTALLATION</a></p>
@@ -336,12 +266,4 @@ echo var_dump(sandy);
 echo "How are you?";
 ?&gt;
 </code></pre></div></div>
-
-      </div>
-
-        <!-- Configure Disqus --></div>
-  </main><footer class="footer">
-  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
-</footer>
-</body>
-</html>
+:ET
