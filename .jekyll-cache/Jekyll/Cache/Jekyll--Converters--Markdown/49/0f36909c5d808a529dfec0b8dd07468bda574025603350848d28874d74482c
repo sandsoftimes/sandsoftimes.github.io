@@ -1,0 +1,19 @@
+I"�<p>I’ve already written a complete blog on php working. You can check it out by clicking on this link: <a href="/2020/10/06/php-basic-hello-world">PHP Complete Hello World</a>. Today i’ll show you the basic working of a php. As we all know that php is a server-side-scripting language. It means that your browser cannot directly understand the php. 
+<img src="/assets/images/clt/how-php-works/1.png" alt="1" /></p>
+
+<p>The browser can only understand/work with:</p>
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>Javascript</li>
+</ul>
+
+<p>By the above image you can see that your browser performs a http request to the server. The server will have php-code, it will call the <strong>php-interpretor</strong>. The interpretor solve the request and give output in the form of HTML to server. The server then sends back the HTML response to the web-browser/client.</p>
+
+<h2 id="what-about-database">What about Database?</h2>
+<p>The databases are also present on web server. Just like the previous requests. This time the web-server request the database for the data. The database returns the result to interpretor. The interpretor convert it into <strong>HTML format</strong> and give it back to web-server. The web-server send the response to the client-browser and we get the results on the browser tab.</p>
+
+<p>You can visualize this request and response procedure by going into the <strong>inspect</strong> section of the browser. Then there is a small sub-section of <strong>network</strong>. Go there, refresh your tab (in this case we’ve the comments.php file) and you see the requests to the web-server. Here is the demonstration snippet.</p>
+
+<p><img src="/assets/images/clt/how-php-works/2.png" alt="2" /></p>
+:ET

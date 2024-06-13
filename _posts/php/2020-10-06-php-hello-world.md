@@ -1,6 +1,6 @@
 ---
 layout: post
-title: php Installation and Initial Working
+title: PHP Installation and Complete Working
 date: 2020-10-06 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'

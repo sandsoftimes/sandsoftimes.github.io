@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to Display Error in php
+title: How to Display Error in PHP
 date: 2020-10-07 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'
