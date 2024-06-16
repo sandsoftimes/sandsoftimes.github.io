@@ -1,0 +1,183 @@
+I"<p>Loop are used when ever you want to repeat the same thing in your code. Mostly they are used in these cases,</p>
+
+<ul>
+  <li>Display Series Number</li>
+  <li>Display List of Users</li>
+  <li>Make Table of Data</li>
+</ul>
+
+<p>Also keep in mind that there are four types of loops in php,</p>
+
+<ul>
+  <li>for</li>
+  <li>while</li>
+  <li>do while</li>
+  <li>forEach</li>
+</ul>
+
+<p>Firstly if we talk about the for-loop. It will take 3-things,</p>
+
+<ul>
+  <li>Starting Statament</li>
+  <li>Ending Statment</li>
+  <li>Increment/Decrement</li>
+</ul>
+
+<p>Here is a basic example of <code class="language-plaintext highlighter-rouge">for</code> loop,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+
+for($start=0;$start&lt;=10;$start++){
+    echo $start;
+    echo " code step by step &lt;br&gt;";
+    echo "SANDY &lt;br&gt;";
+}
+
+?&gt;
+</code></pre></div></div>
+
+<p>It will print the count <strong>from 0 to 10</strong>. The it will print the string <strong>code step by step</strong>. At the end it will print the string the string <strong>SANDY</strong>. All these printing will be done for ten times.</p>
+
+<p>Here is another code for printing the table of numbers,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+$table=10;
+for($start=1;$start&lt;=10;$start++){
+    echo $table*$start ."&lt;br&gt;";
+}
+
+?&gt;
+
+</code></pre></div></div>
+<p>Below is an example of using <code class="language-plaintext highlighter-rouge">$i</code> as starter and printing the value of it,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+
+for ($i=0;$i&lt;10;$i++){
+    echo "current i value is $i &lt;br&gt;";
+}
+
+?&gt;
+</code></pre></div></div>
+
+<h2 id="break-and-continue-statments">Break and Continue Statments</h2>
+
+<p>If you want to break loop in the middle or any special interval during the execution, we use <strong>break</strong> statment. You can get the idea of it by an example code,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+
+for($i=0;$i&lt;10;$i++){
+  if ($i==5){
+    break;
+}
+  echo $i;
+  echo "&lt;br&gt;";
+}
+
+?&gt;
+</code></pre></div></div>
+
+<p>The loop will stop execution when the value of <code class="language-plaintext highlighter-rouge">$i</code> becomes equal to <code class="language-plaintext highlighter-rouge">5</code>;</p>
+
+<p>Now the <strong>continue</strong> statements are used when every we want to skip some portion of code to be executed.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+
+for($i=0;$i&lt;10;$i++){
+    if($i==3 || $i==7){
+        continue;
+}
+    echo $i;
+    echo "&lt;br&gt;";
+}
+
+?&gt;
+</code></pre></div></div>
+
+<p>Here when the <code class="language-plaintext highlighter-rouge">$i</code> will be equal to <code class="language-plaintext highlighter-rouge">3</code> or <code class="language-plaintext highlighter-rouge">7</code>. The rest of the portion in the code will not be executed.</p>
+
+<h2 id="nested-loop">Nested Loop</h2>
+
+<p>Loop inside a for-loop are called <strong>nested for-loop</strong>. Nested for loops are used where complex logic is required. Forexample, working with <strong>multi-dimensional-arrays</strong>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+
+for($i=1;$i&lt;=3;$i++){
+    for($j=1;$j&lt;=3;$j++){
+        echo "$i   $j &lt;br/&gt;";
+}
+}
+
+?&gt;
+</code></pre></div></div>
+
+<h2 id="while-loop">While Loop</h2>
+
+<p>Just like the <code class="language-plaintext highlighter-rouge">for</code> loop, we also have <code class="language-plaintext highlighter-rouge">while</code> loop in php. The <code class="language-plaintext highlighter-rouge">while</code> loop syntax is a bit different. You do initial declaration outside, before the loop and it has the increment/decrement statements inside the loop body. Here is a very simple example of it,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+
+$num=10; //initial value
+
+while($num&gt;0){
+    echo $num;
+    echo "&lt;br/&gt;";
+    $num--;
+}
+
+?&gt;
+</code></pre></div></div>
+
+<p>Also if you want to print values in descending order. Use this code,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+
+$num=10; //initial value
+
+while($num&gt;0){
+    echo $num;
+    echo "&lt;br/&gt;";
+    $num--;
+}
+
+?&gt;
+</code></pre></div></div>
+
+<h2 id="do-while-loop">Do-While Loop</h2>
+
+<p>Do while loop look similar to while loop but it is a bit different. In it, we write logic/code first then we write the stoping condition. So minimum this loop will excute must for the first time. Here is an example of it. Also keep in mind, we use the keyword <strong>do</strong> in this loop,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+
+$num=0;
+do{
+echo "Current loop value is $num &lt;br/&gt;";
+$num++;
+}while($num&lt;=10;);
+
+?&gt;
+
+
+</code></pre></div></div>
+
+<h1 id="go-to-statment">Go-To Statment</h1>
+
+<p>Whenever you want to skip some portion of code and jump to some point, we use go to statement. It is written in simple keywords of <code class="language-plaintext highlighter-rouge">goto</code>. The lines below the goto statments will not be executed. An example of it is,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+$x=20;
+echo "before condition &lt;br/&gt;";
+
+if($x==20){
+    goto jump
+}
+$name="SANDY &lt;br/&gt;";
+echo $name;
+
+jump:
+echo "statment is jumped on line number 15";
+
+?&gt;
+
+</code></pre></div></div>
+:ET
