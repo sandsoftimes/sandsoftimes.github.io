@@ -1,6 +1,6 @@
 ---
 layout: post
-title: React Hello World using Vite
+title: React using Vite
 date: 2021-1-16 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'
@@ -23,7 +23,7 @@ author:
   last_name: Sharjeel Akhtar
 permalink: "/2021/1/16/react-hello-world-using-vite"
 ---
-React is one of the readily used framework when it comes to `web` or `mobile` developmenmt.
+React is one of the readily used framework when it comes to `web` or `mobile`  application developmenmt.
 
 So far, i've seen two ways of working in react. The first one is the basic one with 
 node pakage execute `npx` which will give you the all react framework files and the second one
