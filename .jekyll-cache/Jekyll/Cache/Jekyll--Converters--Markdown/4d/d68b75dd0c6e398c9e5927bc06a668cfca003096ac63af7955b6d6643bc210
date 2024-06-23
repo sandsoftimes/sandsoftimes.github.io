@@ -1,0 +1,2 @@
+I"x<p>By default if you’ve multiple Disk-Drives or partitions, either in NTFS or FAT partition system, linux donot automatically mount them. You’ve to mount the partition everytime manually which is honestly way too headache for a lazy person like me. Why not solve this issue and do some configurations so that on boot the linux automatically mount all the disk-drives.</p>
+:ET

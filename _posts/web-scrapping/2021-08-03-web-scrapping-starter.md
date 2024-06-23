@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Web Scrapping Starter
+title: Web Scrapping 
 date: 2021-08-03 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'

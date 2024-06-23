@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Linux Configuration for Auto-Mounting Disk</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Linux Configuration for Auto-Mounting Disk | SandsOfTime - SANDY (SandsOfTime) on Computing, Learning and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Linux Configuration for Auto-Mounting Disk" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="By default if you’ve multiple Disk-Drives or partitions, either in NTFS or FAT partition system, linux donot automatically mount them. You’ve to mount the partition everytime manually which is honestly way too headache for a lazy person like me. Why not solve this issue and do some configurations so that on boot the linux automatically mount all the disk-drives." />
+<meta property="og:description" content="By default if you’ve multiple Disk-Drives or partitions, either in NTFS or FAT partition system, linux donot automatically mount them. You’ve to mount the partition everytime manually which is honestly way too headache for a lazy person like me. Why not solve this issue and do some configurations so that on boot the linux automatically mount all the disk-drives." />
+<meta property="og:site_name" content="SandsOfTime - SANDY (SandsOfTime) on Computing, Learning and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-06-19T20:52:55+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Linux Configuration for Auto-Mounting Disk" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Linux Configuration for Auto-Mounting Disk","description":"By default if you’ve multiple Disk-Drives or partitions, either in NTFS or FAT partition system, linux donot automatically mount them. You’ve to mount the partition everytime manually which is honestly way too headache for a lazy person like me. Why not solve this issue and do some configurations so that on boot the linux automatically mount all the disk-drives.","datePublished":"2024-06-19T20:52:55+05:00","url":"/2024/06/19/linux-configuration-on-auto-mounting-disk","dateModified":"2024-06-19T20:52:55+05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2024/06/19/linux-configuration-on-auto-mounting-disk"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Contact</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Linux Configuration for Auto-Mounting Disk</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Jun 19, 2024
+	</div>
+	<ul class="post-tags"><li>Linux</li><li>Utilities</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>By default if you’ve multiple Disk-Drives or partitions, either in NTFS or FAT partition system, linux donot automatically mount them. You’ve to mount the partition everytime manually which is honestly way too headache for a lazy person like me. Why not solve this issue and do some configurations so that on boot the linux automatically mount all the disk-drives.</p>
+
+<p>For this purpose you’ve to add your drives in the <code class="language-plaintext highlighter-rouge">fstab</code> file,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/fstab
+</code></pre></div></div>
+
+<p>Here you’ll see already added the linux drives by default. In my case i’ve 4 NTFS partitions from my Windows-Drive and i want to mount them automatically on startup. I’ll add the <code class="language-plaintext highlighter-rouge">UUID</code> of the drives in this text file.</p>
+
+<p>Simply open your disk management application on your linux (I’m using linux mint and also i’ve tried the same method on ubuntu, works totally fine for me).</p>
+
+<p><img src="/assets/images/clt/linux-auto-mount-partitions-on-startup/1.png" alt="1" /></p>
+
+<p>I’ve 4 Hard-Drives. The last one is this linux itself so ignore it and lets focus on the first 3. Click on the first Drive and you’ll see something like this,</p>
+
+<p><img src="/assets/images/clt/linux-auto-mount-partitions-on-startup/2.png" alt="2" /></p>
+
+<p>The text-file opened in your terminal, it has the following syntax to add partitions.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UUID=581EDE4F1EDE2632 /media/saleemshady/hdd2 ntfs defaults 0 2
+</code></pre></div></div>
+
+<p>First of all copy the <code class="language-plaintext highlighter-rouge">UUID</code> of this partition from the disk software. In the text-editor write a new line following the same syntax. Replace the UUID with the UUID of your partition. Next check the partition type (whether it is fat,ntfs e.t.c) and write accordingly after the path and the remaining syntax will be same.</p>
+
+<p>P.S here you can get the partition-type and UUID from the disk-software,</p>
+
+<p><img src="/assets/images/clt/linux-auto-mount-partitions-on-startup/3.png" alt="3" /></p>
+
+<p>Similarly do the same for other partitions as well. In my case it looks like this,</p>
+
+<p><img src="/assets/images/clt/linux-auto-mount-partitions-on-startup/4.png" alt="4" /></p>
+
+<p>Now save the file using the shortcut key of <code class="language-plaintext highlighter-rouge">CTRL+O</code> and exit from the editor using <code class="language-plaintext highlighter-rouge">CTRL+X</code>.</p>
+
+<p>The configuration is completed. Now whenever you linux will boot. It will automatically mount all the partitions by default.</p>
+
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
+</footer>
+</body>
+</html>

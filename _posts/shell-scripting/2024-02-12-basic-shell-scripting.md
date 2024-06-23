@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Basic Shell Scripting
+title: Shell Scripting
 date: 2024-02-12 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'

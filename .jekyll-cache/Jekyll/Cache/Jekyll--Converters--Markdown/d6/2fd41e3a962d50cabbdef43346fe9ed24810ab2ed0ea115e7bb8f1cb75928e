@@ -1,0 +1,37 @@
+I"$<p>By default if you’ve multiple Disk-Drives or partitions, either in NTFS or FAT partition system, linux donot automatically mount them. You’ve to mount the partition everytime manually which is honestly way too headache for a lazy person like me. Why not solve this issue and do some configurations so that on boot the linux automatically mount all the disk-drives.</p>
+
+<p>For this purpose you’ve to add your drives in the <code class="language-plaintext highlighter-rouge">fstab</code> file,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/fstab
+</code></pre></div></div>
+
+<p>Here you’ll see already added the linux drives by default. In my case i’ve 4 NTFS partitions from my Windows-Drive and i want to mount them automatically on startup. I’ll add the <code class="language-plaintext highlighter-rouge">UUID</code> of the drives in this text file.</p>
+
+<p>Simply open your disk management application on your linux (I’m using linux mint and also i’ve tried the same method on ubuntu, works totally fine for me).</p>
+
+<p><img src="/assets/images/clt/linux-auto-mount-partitions-on-startup/1.png" alt="1" /></p>
+
+<p>I’ve 4 Hard-Drives. The last one is this linux itself so ignore it and lets focus on the first 3. Click on the first Drive and you’ll see something like this,</p>
+
+<p><img src="/assets/images/clt/linux-auto-mount-partitions-on-startup/2.png" alt="2" /></p>
+
+<p>The text-file opened in your terminal, it has the following syntax to add partitions.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UUID=581EDE4F1EDE2632 /media/saleemshady/hdd2 ntfs defaults 0 2
+</code></pre></div></div>
+
+<p>First of all copy the <code class="language-plaintext highlighter-rouge">UUID</code> of this partition from the disk software. In the text-editor write a new line following the same syntax. Replace the UUID with the UUID of your partition. Next check the partition type (whether it is fat,ntfs e.t.c) and write accordingly after the path and the remaining syntax will be same.</p>
+
+<p>P.S here you can get the partition-type and UUID from the disk-software,</p>
+
+<p><img src="/assets/images/clt/linux-auto-mount-partitions-on-startup/3.png" alt="3" /></p>
+
+<p>Similarly do the same for other partitions as well. In my case it looks like this,</p>
+
+<p><img src="/assets/images/clt/linux-auto-mount-partitions-on-startup/4.png" alt="4" /></p>
+
+<p>Now save the file using the shortcut key of <code class="language-plaintext highlighter-rouge">CTRL+O</code> and exit from the editor using <code class="language-plaintext highlighter-rouge">CTRL+X</code>.</p>
+
+<p>The configuration is completed. Now whenever you linux will boot. It will automatically mount all the partitions by default.</p>
+
+:ET
