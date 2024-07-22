@@ -1,0 +1,41 @@
+I"9<p>Variables can be declared <strong>locally</strong> or <strong>globally</strong>. These two words basically defines the scope of a variable. It means the region upto which you can use any declared variable. In php, you can declare the variables both locally and globally. In order to use a global variable you’ve to use the keyword <code class="language-plaintext highlighter-rouge">global</code>.</p>
+
+<p>Here is a very basic example for the scope of variables,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+$name="anil";
+function getName(){
+    $name="peter";
+    global $name;
+    $name="peter";
+    echo "local var: $name";
+}
+
+
+getName();
+echo "&lt;br/&gt;";
+echo $name;
+?&gt;
+</code></pre></div></div>
+<p>Also, you can use the global variables within the nested functions. Keep in mind only the first one globally defined variable will be used within all nested functions. Take a look at it,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+$name="anil";
+function test(){
+    $name="peter";
+    echo $name;
+
+    function innerTest(){
+        global $name;
+        echo $name;
+    }
+}
+
+test();
+echo "&lt;br&gt;/";
+innerTest();
+echo "&lt;br&gt;/";
+echo $name;;
+?&gt;
+</code></pre></div></div>
+:ET

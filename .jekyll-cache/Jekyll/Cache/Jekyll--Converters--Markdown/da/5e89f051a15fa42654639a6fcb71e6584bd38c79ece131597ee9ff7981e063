@@ -1,0 +1,11 @@
+I"9<p>Include function is one of the most common function. It is used to include files which contain code which are repeatedly used e.g footers, headers e.t.c.</p>
+
+<p>In php, there are 4 ways to include a file,</p>
+
+<ul>
+  <li>include</li>
+  <li>include_once</li>
+  <li>required</li>
+  <li>required_once</li>
+</ul>
+:ET

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Type Casting in PHP</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Type Casting in PHP | SandsOfTime - SANDY (SandsOfTime) on Computing, Learning and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Type Casting in PHP" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Type casting is the conversion from one dataype to another. PHP also allow type casting. We can convert from various datatypes e.g int to float or int to string e.t.c." />
+<meta property="og:description" content="Type casting is the conversion from one dataype to another. PHP also allow type casting. We can convert from various datatypes e.g int to float or int to string e.t.c." />
+<meta property="og:site_name" content="SandsOfTime - SANDY (SandsOfTime) on Computing, Learning and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-14T20:52:55+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Type Casting in PHP" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Type Casting in PHP","description":"Type casting is the conversion from one dataype to another. PHP also allow type casting. We can convert from various datatypes e.g int to float or int to string e.t.c.","datePublished":"2020-10-14T20:52:55+05:00","url":"/2020/10/14/type-casting-in-php","dateModified":"2020-10-14T20:52:55+05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2020/10/14/type-casting-in-php"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Contact</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Type Casting in PHP</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Oct 14, 2020
+	</div>
+	<ul class="post-tags"><li>Php</li><li>Web</li><li>Server</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p><strong>Type casting is the conversion from one dataype to another.</strong> PHP also allow type casting. We can convert from various datatypes e.g int to float or int to string e.t.c.</p>
+
+<p>Here i’ve solved various examples in which i’m switching between multiple dataypes,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+$a=true;
+$a=(string) $a;
+
+$b="300";
+$b=(int) $b;
+
+$c=1;
+$c= (float) $c;
+
+$d="abc";
+$d=(boolean) $d;
+
+$e=10;
+$e=(array) $e;
+
+$f=20;
+$f=(object) $f;
+
+// $x=["30"];
+// $x=(string) $x;
+// var_dump($x);
+?&gt;
+</code></pre></div></div>
+
+<p>Also, keep in mind array to string conversion is directly not allowed in php. You’ll get an error like this,</p>
+
+<p><img src="/assets/images/clt/type-casting-in-php/1.png" alt="1" /></p>
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
+</footer>
+</body>
+</html>

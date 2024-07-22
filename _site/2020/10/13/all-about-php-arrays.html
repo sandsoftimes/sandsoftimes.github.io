@@ -40,7 +40,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="All About PHP Arrays" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"All About PHP Arrays","dateModified":"2020-10-13T20:52:55+05:00","datePublished":"2020-10-13T20:52:55+05:00","description":"What if you’ve 1000 of users and you want to store them in a programming language. One method is to create separate variable for each user but its not possible. The solution is ARRAYS. Arrays can store multiple values. You simply have to provide two things.","url":"/2020/10/13/all-about-php-arrays","mainEntityOfPage":{"@type":"WebPage","@id":"/2020/10/13/all-about-php-arrays"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"All About PHP Arrays","description":"What if you’ve 1000 of users and you want to store them in a programming language. One method is to create separate variable for each user but its not possible. The solution is ARRAYS. Arrays can store multiple values. You simply have to provide two things.","datePublished":"2020-10-13T20:52:55+05:00","url":"/2020/10/13/all-about-php-arrays","dateModified":"2020-10-13T20:52:55+05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2020/10/13/all-about-php-arrays"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -287,6 +287,29 @@ foreach($users as $user){
 <p>You can see we’ve <strong>nesting of arrays</strong> and <strong>keys</strong> attached in the above example. If you run this code on php-server, it will look like this,</p>
 
 <p><img src="/assets/images/clt/all-about-php-arrays/6.png" alt="6" /></p>
+
+<h2 id="remove-and-add-element-in-array">Remove and Add Element in Array</h2>
+
+<p>You can also <strong>add</strong> and <strong>remove</strong> elements from an array in php. There are multiple ways for it but most essayist are the use of <strong>php-functions</strong>. In order to do some extra entries in an array, use the <code class="language-plaintext highlighter-rouge">push</code> function and it will do entries at the end of the array. Similarly, if you want to remove something simply use the <code class="language-plaintext highlighter-rouge">pop</code> function and the last element of the array  will be removed. What if we want to remove multiple values from a single call? In this case, we will use <code class="language-plaintext highlighter-rouge">splice</code> function. The splice function takes a numeric value in parameter and removes the last total of that values from the array. Here is a practical code of this,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+$users=["anil","sam","bhasker","praveen"];
+
+array_push($users,"peter","bruce","tony");
+
+array_splice($users,-4);
+print_r($users);
+?&gt;
+</code></pre></div></div>
+
+<p>Before splice function call,</p>
+
+<p><img src="/assets/images/clt/all-about-php-arrays/7.png" alt="7" /></p>
+
+<p>After splice function call,</p>
+
+<p><img src="/assets/images/clt/all-about-php-arrays/8.png" alt="8" /></p>
+
 
       </div>
 

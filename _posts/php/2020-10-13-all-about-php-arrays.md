@@ -252,3 +252,27 @@ foreach($users as $user){
 You can see we've **nesting of arrays** and **keys** attached in the above example. If you run this code on php-server, it will look like this,
 
 ![6](/assets/images/clt/all-about-php-arrays/6.png)
+
+## Remove and Add Element in Array
+
+You can also **add** and **remove** elements from an array in php. There are multiple ways for it but most essayist are the use of **php-functions**. In order to do some extra entries in an array, use the `push` function and it will do entries at the end of the array. Similarly, if you want to remove something simply use the `pop` function and the last element of the array  will be removed. What if we want to remove multiple values from a single call? In this case, we will use `splice` function. The splice function takes a numeric value in parameter and removes the last total of that values from the array. Here is a practical code of this,
+
+```
+<?php
+$users=["anil","sam","bhasker","praveen"];
+
+array_push($users,"peter","bruce","tony");
+
+array_splice($users,-4);
+print_r($users);
+?>
+```
+
+Before splice function call, 
+
+![7](/assets/images/clt/all-about-php-arrays/7.png)
+
+After splice function call,
+
+![8](/assets/images/clt/all-about-php-arrays/8.png)
+

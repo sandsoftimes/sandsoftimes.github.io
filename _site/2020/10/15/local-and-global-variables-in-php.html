@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Local and Global Variables in PHP</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Local and Global Variables in PHP | SandsOfTime - SANDY (SandsOfTime) on Computing, Learning and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Local and Global Variables in PHP" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Variables can be declared locally or globally. These two words basically defines the scope of a variable. It means the region upto which you can use any declared variable. In php, you can declare the variables both locally and globally. In order to use a global variable you’ve to use the keyword global." />
+<meta property="og:description" content="Variables can be declared locally or globally. These two words basically defines the scope of a variable. It means the region upto which you can use any declared variable. In php, you can declare the variables both locally and globally. In order to use a global variable you’ve to use the keyword global." />
+<meta property="og:site_name" content="SandsOfTime - SANDY (SandsOfTime) on Computing, Learning and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-15T20:52:55+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Local and Global Variables in PHP" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Local and Global Variables in PHP","description":"Variables can be declared locally or globally. These two words basically defines the scope of a variable. It means the region upto which you can use any declared variable. In php, you can declare the variables both locally and globally. In order to use a global variable you’ve to use the keyword global.","datePublished":"2020-10-15T20:52:55+05:00","url":"/2020/10/15/local-and-global-variables-in-php","dateModified":"2020-10-15T20:52:55+05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2020/10/15/local-and-global-variables-in-php"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Contact</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Local and Global Variables in PHP</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Oct 15, 2020
+	</div>
+	<ul class="post-tags"><li>Php</li><li>Web</li><li>Server</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>Variables can be declared <strong>locally</strong> or <strong>globally</strong>. These two words basically defines the scope of a variable. It means the region upto which you can use any declared variable. In php, you can declare the variables both locally and globally. In order to use a global variable you’ve to use the keyword <code class="language-plaintext highlighter-rouge">global</code>.</p>
+
+<p>Here is a very basic example for the scope of variables,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+$name="anil";
+function getName(){
+    $name="peter";
+    global $name;
+    $name="peter";
+    echo "local var: $name";
+}
+
+
+getName();
+echo "&lt;br/&gt;";
+echo $name;
+?&gt;
+</code></pre></div></div>
+<p>Also, you can use the global variables within the nested functions. Keep in mind only the first one globally defined variable will be used within all nested functions. Take a look at it,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+$name="anil";
+function test(){
+    $name="peter";
+    echo $name;
+
+    function innerTest(){
+        global $name;
+        echo $name;
+    }
+}
+
+test();
+echo "&lt;br&gt;/";
+innerTest();
+echo "&lt;br&gt;/";
+echo $name;;
+?&gt;
+</code></pre></div></div>
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
+</footer>
+</body>
+</html>

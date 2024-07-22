@@ -1,0 +1,2 @@
+I"–<p>Variables can be declared <strong>locally</strong> or <strong>globally</strong>. These two words basically defines the scope of a variable. It means the region upto which you can use any declared variable. In php, you can declare the variables both locally and globally. In order to use a global variable youâ€™ve to use the keyword <code class="language-plaintext highlighter-rouge">global</code>.</p>
+:ET
