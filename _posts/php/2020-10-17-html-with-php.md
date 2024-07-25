@@ -1,6 +1,6 @@
 ---
 layout: post
-title: HTML with PHP
+title: HTML with PHP (GET, POST and $_REQUEST)
 date: 2020-10-17 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'
