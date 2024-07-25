@@ -24,7 +24,7 @@ permalink: "2020/10/17/html-with-php"
 ---
 PHP and HTML are totally different languages. PHP is a server-side language while the HTML is a client-side language. However the interaction between these two is very important. We make the interface in html while and we write the logic in php. The simple example of it is the sign-up boxes. They are made in html, while the username and password we enter in the fields is taken to server via the use of php. So both of them are of equal importance.
 
-Client sends request to the server. There are 2 types of requests. 
+Client sends request to the server. There are 2 main types of requests. 
 
 * get request
 * post request
@@ -226,3 +226,69 @@ also keep in mind as this is **POST** request so no information is given in the 
 but the information is present in the `payload` tab in `network` section of page `inspect`
 
 ![15](/assets/images/clt/html-with-php/15.png)
+
+
+## $_REQUEST Method
+
+There is another method of fetching data in php. It is called `$_REQUEST` method. It has an advantage over **GET** and **POST** requests. It can handle both types of requests. For using this method, we will also create two files, one will be html file and the other will be the php file.
+
+Initially write a basic form code in `register.html` file,
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request</title>
+</head>
+<body>
+    <form action="./register.php" method="get">
+        <input type="text" name="user_name" placeholder="enter name">
+        <br>
+        <br>
+        <input type="password" name="user_password" placeholder="enter password">
+        <br>
+        <br>
+        <input type="text" name="user_email" placeholder="enter email">
+        <br>
+        <br>
+        <input type="text" name="user_address" placeholder="enter address">
+        <button>Register</button>
+    </form>
+    
+</body>
+</html>
+```
+
+The form will look like this, 
+
+![16](/assets/images/clt/html-with-php/16.png)
+
+Then go to the `register.php` file and this time write `$_REQUEST` for this new method. It will handle both the **GET** and **POST** requests. Also if you want to forcefully add a new entry to the php file, you can do it aswell like i'm doing it as 
+
+```
+$_REQUEST['dummy']='test';
+```
+
+Also i'm using foreach loop so that if the number of input field increases, then the foreach loop work on all by itself. Here is the complete code of `register.php` file,
+
+```
+<?php
+// print_r($_REQUEST);
+$_REQUEST['dummy']='test';
+if($_REQUEST){
+foreach($_REQUEST as $key =>$data){
+    echo $key ." is ". $data;
+    echo "<br>";
+}
+}
+?>
+```
+Here you can see i'm sending **GET** request, 
+
+![17](/assets/images/clt/html-with-php/17.png)
+
+And now i'm sending a post request to it,
+
+![18](/assets/images/clt/html-with-php/18.png)

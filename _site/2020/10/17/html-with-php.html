@@ -70,7 +70,7 @@
       <div class="post-container">
           <p>PHP and HTML are totally different languages. PHP is a server-side language while the HTML is a client-side language. However the interaction between these two is very important. We make the interface in html while and we write the logic in php. The simple example of it is the sign-up boxes. They are made in html, while the username and password we enter in the fields is taken to server via the use of php. So both of them are of equal importance.</p>
 
-<p>Client sends request to the server. There are 2 types of requests.</p>
+<p>Client sends request to the server. There are 2 main types of requests.</p>
 
 <ul>
   <li>get request</li>
@@ -275,6 +275,68 @@ if($_POST){
 <p>but the information is present in the <code class="language-plaintext highlighter-rouge">payload</code> tab in <code class="language-plaintext highlighter-rouge">network</code> section of page <code class="language-plaintext highlighter-rouge">inspect</code></p>
 
 <p><img src="/assets/images/clt/html-with-php/15.png" alt="15" /></p>
+
+<h2 id="_request-method">$_REQUEST Method</h2>
+
+<p>There is another method of fetching data in php. It is called <code class="language-plaintext highlighter-rouge">$_REQUEST</code> method. It has an advantage over <strong>GET</strong> and <strong>POST</strong> requests. It can handle both types of requests. For using this method, we will also create two files, one will be html file and the other will be the php file.</p>
+
+<p>Initially write a basic form code in <code class="language-plaintext highlighter-rouge">register.html</code> file,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Request&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form action="./register.php" method="get"&gt;
+        &lt;input type="text" name="user_name" placeholder="enter name"&gt;
+        &lt;br&gt;
+        &lt;br&gt;
+        &lt;input type="password" name="user_password" placeholder="enter password"&gt;
+        &lt;br&gt;
+        &lt;br&gt;
+        &lt;input type="text" name="user_email" placeholder="enter email"&gt;
+        &lt;br&gt;
+        &lt;br&gt;
+        &lt;input type="text" name="user_address" placeholder="enter address"&gt;
+        &lt;button&gt;Register&lt;/button&gt;
+    &lt;/form&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<p>The form will look like this,</p>
+
+<p><img src="/assets/images/clt/html-with-php/16.png" alt="16" /></p>
+
+<p>Then go to the <code class="language-plaintext highlighter-rouge">register.php</code> file and this time write <code class="language-plaintext highlighter-rouge">$_REQUEST</code> for this new method. It will handle both the <strong>GET</strong> and <strong>POST</strong> requests. Also if you want to forcefully add a new entry to the php file, you can do it aswell like i’m doing it as</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$_REQUEST['dummy']='test';
+</code></pre></div></div>
+
+<p>Also i’m using foreach loop so that if the number of input field increases, then the foreach loop work on all by itself. Here is the complete code of <code class="language-plaintext highlighter-rouge">register.php</code> file,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+// print_r($_REQUEST);
+$_REQUEST['dummy']='test';
+if($_REQUEST){
+foreach($_REQUEST as $key =&gt;$data){
+    echo $key ." is ". $data;
+    echo "&lt;br&gt;";
+}
+}
+?&gt;
+</code></pre></div></div>
+<p>Here you can see i’m sending <strong>GET</strong> request,</p>
+
+<p><img src="/assets/images/clt/html-with-php/17.png" alt="17" /></p>
+
+<p>And now i’m sending a post request to it,</p>
+
+<p><img src="/assets/images/clt/html-with-php/18.png" alt="18" /></p>
 
       </div>
 
