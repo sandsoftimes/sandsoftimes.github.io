@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Introduction to Machine Learning using Scikit Learn
-date: 2020-10-30 20:52:55.000000000 +05:00
+date: 2020-12-30 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'
 published: true
@@ -19,7 +19,7 @@ author:
   display_name: SandsOfTime
   first_name: Muhammad
   last_name: Sharjeel Akhtar
-permalink: "/2020/10/30/introduction-to-machine-learning-using-scikit-learn"
+permalink: "/2020/12/30/introduction-to-machine-learning-using-scikit-learn"
 ---
 When it comes to machine learning, `Scikit Learn` is the most widely used library. Today, we are going to practice the very basic machine learning model. We are going to use scikit learn to split our data into `train` and `test` subsets. Then we are going to create the `Linear Regression` model and afterwards, we train and test it by using the subsets.
 

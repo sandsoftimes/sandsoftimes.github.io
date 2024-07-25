@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Filter Function, Dictionaries And Tupple Unpacking in Python
-date: 2020-10-14 20:52:55.000000000 +05:00
+date: 2020-12-14 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'
 published: true
@@ -20,7 +20,7 @@ author:
   display_name: SandsOfTime
   first_name: Muhammad
   last_name: Sharjeel Akhtar
-permalink: "/2020/10/14/python-filter-function-tupple-unpacking"
+permalink: "/2020/12/14/python-filter-function-tupple-unpacking"
 ---
 Today, i'm going to introduce you to python's Tupple Unpacking, Lambda function and Filter function. We are also going to discuss some Methods in python. These are widely used when working with python. I'm going to discuss each one by one.
 

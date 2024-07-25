@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Numpy Arrays, Indexing and Operations in Python
-date: 2020-10-21 20:52:55.000000000 +05:00
+date: 2020-12-21 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'
 published: true
@@ -20,7 +20,7 @@ author:
   display_name: SandsOfTime
   first_name: Muhammad
   last_name: Sharjeel Akhtar
-permalink: "/2020/10/21/numpy-arrays-indexing-operations"
+permalink: "/2020/12/21/numpy-arrays-indexing-operations"
 ---
 Today, we'll explore some essential concepts related to NumPy arrays, which is a fundamental library for numerical computations in Python. NumPy, short for Numerical Python, is an indispensable tool for data scientists, engineers, and anyone dealing with large datasets. 
 

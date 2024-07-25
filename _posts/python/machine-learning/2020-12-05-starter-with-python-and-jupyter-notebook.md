@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Starter with Python and Jupyter Notebook
-date: 2020-10-05 20:52:55.000000000 +05:00
+date: 2020-12-05 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'
 published: true
@@ -20,7 +20,7 @@ author:
   display_name: SandsOfTime
   first_name: Muhammad
   last_name: Sharjeel Akhtar
-permalink: "/2020/10/05-starter-with-python-and-jupyter-notebook"
+permalink: "/2020/12/05-starter-with-python-and-jupyter-notebook"
 ---
 You all might have some know-how of what is Python. If u are not unaware, then let me add this information to your knowledge. Python is basically a high-level-programming language, which can be used in a variety of ways. You can work with python is a number of environment/ide.
 

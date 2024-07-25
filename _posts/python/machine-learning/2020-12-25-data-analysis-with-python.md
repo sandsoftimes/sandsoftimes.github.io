@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Data Analysis with Python
-date: 2020-10-25 20:52:55.000000000 +05:00
+date: 2020-12-25 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'
 published: true
@@ -19,7 +19,7 @@ author:
   display_name: SandsOfTime
   first_name: Muhammad
   last_name: Sharjeel Akhtar
-permalink: "/2020/10/25/data-analysis-with-python"
+permalink: "/2020/12/25/data-analysis-with-python"
 ---
 Today we'll be taking a closer look at the Python for Data Analysis. I will show you some data manipulation and analysis capabilities in Python . First thing that you should know is Pandas. Pandas is a fundamental library in Python for data analysis and manipulation. It provides powerful tools for data cleaning, transformation, and exploration.
 
