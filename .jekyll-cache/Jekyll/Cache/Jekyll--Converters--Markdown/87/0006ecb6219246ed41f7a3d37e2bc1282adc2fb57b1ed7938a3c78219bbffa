@@ -1,0 +1,63 @@
+I"(<p>PHP and HTML are totally different languages. PHP is a server-side language while the HTML is a client-side language. However the interaction between these two is very important. We make the interface in html while and we write the logic in php. The simple example of it is the sign-up boxes. They are made in html, while the username and password we enter in the fields is taken to server via the use of php. So both of them are of equal importance.</p>
+
+<p>Client sends request to the server. There are 2 types of requests.</p>
+
+<ul>
+  <li>get request</li>
+  <li>post request</li>
+</ul>
+
+<p>In get request, the address is visible in the address bar, while post request is much more secure and the address is not shown in the address bar.</p>
+
+<p>You can also check the working of php by checking out this blog <a href="/2020/10/08/how-php-works">How PHP Works??</a></p>
+
+<h2 id="get-request-method">GET Request Method</h2>
+
+<p>One way of getting data in php is <strong>GET</strong> request method. Simply you’ve to do 4 steps for this purpose,</p>
+
+<ul>
+  <li>Make HTML file</li>
+  <li>Make PHP file</li>
+  <li>Make input field in HTML file</li>
+  <li>Recieve data in PHP file</li>
+</ul>
+
+<p>First of all let’s make an html file, name it <code class="language-plaintext highlighter-rouge">login.html</code>. Create a basic form in this file with two input fields and 1 button. Also keep in mind, you’ve to write <code class="language-plaintext highlighter-rouge">form method="get"</code> for the <code class="language-plaintext highlighter-rouge">get</code> request and <code class="language-plaintext highlighter-rouge">action="./login.php"</code> for the redirection. At the end of form make a button as well. Here is the code,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Login&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form method="get" action="./login.php"&gt;
+        &lt;input type="text" name="user_name" placeholder="Enter User Name"/&gt;
+        &lt;br /&gt;
+        &lt;br /&gt;
+        &lt;input type="text" name="user_password" placeholder="Enter User Password"/&gt;
+        &lt;br/&gt;
+        &lt;br/&gt;
+        &lt;button type="submit"&gt;Login&lt;/button&gt;
+    &lt;/form&gt;
+    
+    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<p><img src="/assets/images/clt/html-with-php/1.png" alt="1" /></p>
+
+<p>Now make the php file with the name <code class="language-plaintext highlighter-rouge">login.php</code>. Write a simple <code class="language-plaintext highlighter-rouge">echo</code> with a text in it,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+echo "this is a php login file";
+?&gt;
+</code></pre></div></div>
+
+<p>Now write a username and password on the webpage,</p>
+
+<p><img src="/assets/images/clt/html-with-php/2.png" alt="2" /></p>
+
+:ET
