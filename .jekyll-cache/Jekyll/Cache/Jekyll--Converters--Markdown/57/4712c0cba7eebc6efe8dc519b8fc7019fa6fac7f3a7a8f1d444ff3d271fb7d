@@ -1,0 +1,2 @@
+I"Ÿ<p>Incase you are using a Linux Operating system and using OBS (Open Broadcasting Software), sometimes this error come which is known by the title of <strong>Not Shutdown Properly Last Time</strong> aka <strong>segmentation fault (on the terminal)</strong>. In this issue, the obs run and crash on launch. Iâ€™ve tried multiple ways to solve it but none of them was useful until i found this specific solution.</p>
+:ET

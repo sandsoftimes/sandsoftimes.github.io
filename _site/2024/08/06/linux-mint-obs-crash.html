@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>OBS (Open Broadcasting Software) Crash Launching Fix in Linux</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>OBS (Open Broadcasting Software) Crash Launching Fix in Linux | SandsOfTime - SANDY (SandsOfTime) on Computing, Learning and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="OBS (Open Broadcasting Software) Crash Launching Fix in Linux" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Incase you are using a Linux Operating system and using OBS (Open Broadcasting Software), sometimes this error come which is known by the title of Not Shutdown Properly Last Time also known as segmentation fault(on the terminal). In this issue, the obs run and crash on launch. I’ve tried multiple ways to solve it but none of them was useful until i found this specific solution." />
+<meta property="og:description" content="Incase you are using a Linux Operating system and using OBS (Open Broadcasting Software), sometimes this error come which is known by the title of Not Shutdown Properly Last Time also known as segmentation fault(on the terminal). In this issue, the obs run and crash on launch. I’ve tried multiple ways to solve it but none of them was useful until i found this specific solution." />
+<meta property="og:site_name" content="SandsOfTime - SANDY (SandsOfTime) on Computing, Learning and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-08-06T20:52:55+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="OBS (Open Broadcasting Software) Crash Launching Fix in Linux" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"OBS (Open Broadcasting Software) Crash Launching Fix in Linux","dateModified":"2024-08-06T20:52:55+05:00","datePublished":"2024-08-06T20:52:55+05:00","description":"Incase you are using a Linux Operating system and using OBS (Open Broadcasting Software), sometimes this error come which is known by the title of Not Shutdown Properly Last Time also known as segmentation fault(on the terminal). In this issue, the obs run and crash on launch. I’ve tried multiple ways to solve it but none of them was useful until i found this specific solution.","url":"/2024/08/06/linux-mint-obs-crash","mainEntityOfPage":{"@type":"WebPage","@id":"/2024/08/06/linux-mint-obs-crash"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Contact</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>OBS (Open Broadcasting Software) Crash Launching Fix in Linux</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Aug 6, 2024
+	</div>
+	<ul class="post-tags"><li>Linux</li><li>Utilities</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>Incase you are using a Linux Operating system and using OBS (Open Broadcasting Software), sometimes this error come which is known by the title of <strong>Not Shutdown Properly Last Time</strong> also known as segmentation fault(on the terminal). In this issue, the obs run and crash on launch. I’ve tried multiple ways to solve it but none of them was useful until i found this specific solution.</p>
+
+<p>Simply you’ve to edit a file. Here is the full command to open the file <code class="language-plaintext highlighter-rouge">global.ini</code>,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano ~/.config/obs-studio/global.ini
+</code></pre></div></div>
+
+<p>The file will look like this,</p>
+
+<p><img src="/assets/images/clt/linux-mint-obs-crash/1.png" alt="1" /></p>
+
+<p>In here, you’ve to find a keyword <code class="language-plaintext highlighter-rouge">DockState</code>, here it is,</p>
+
+<p><img src="/assets/images/clt/linux-mint-obs-crash/2.png" alt="2" /></p>
+
+<p>It will be a long text in front of <code class="language-plaintext highlighter-rouge">DockState=</code> as you can see from the above snippet. You simply have to remove everything on the right side of the equal <code class="language-plaintext highlighter-rouge">(=)</code> sign like this,</p>
+
+<p><img src="/assets/images/clt/linux-mint-obs-crash/3.png" alt="3" /></p>
+
+<p>Now save the file using the shortcut key of <code class="language-plaintext highlighter-rouge">CTRL+O</code> and exit the prompt using <code class="language-plaintext highlighter-rouge">CTRL+X</code>. Launch the OBS and it will launch smoothly without an error.</p>
+
+<p><img src="/assets/images/clt/linux-mint-obs-crash/4.png" alt="4" /></p>
+
+<p>For more information, you can also checkout this thread,</p>
+
+<p><a href="https://obsproject.com/forum/threads/segmentation-fault.171763/">https://obsproject.com/forum/threads/segmentation-fault.171763/</a></p>
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
+</footer>
+</body>
+</html>

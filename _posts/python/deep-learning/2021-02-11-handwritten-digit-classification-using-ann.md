@@ -22,7 +22,7 @@ author:
 permalink: "/2021/02/11/handwritten-digit-classification-using-ANN"
 ---
 Today, we are going to build anther Artificial Neural Network for one of the famous dataset known as **MNIST**. It is use to classify digits(0-9). Here is also colab-notebook attached for the code:
-[Python-Notebook](https://colab.research.google.com/drive/1SqETl3Zi1EEesdJfEv6_QimB-M-YjKGx?usp=sharing)
+[NOTEBOOK](https://colab.research.google.com/drive/1SqETl3Zi1EEesdJfEv6_QimB-M-YjKGx?usp=sharing)
 ![4](/assets/images/clt/handwritten-digit-classification-using-ann/4.png)
 
 Initially we did all the necessary importings,
