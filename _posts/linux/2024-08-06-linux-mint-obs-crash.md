@@ -21,6 +21,7 @@ author:
   last_name: Sharjeel Akhtar
 permalink: "/2024/08/06/linux-mint-obs-crash"
 ---
+![5](/assets/images/clt/linux-mint-obs-crash/5.png)
 Incase you are using a Linux Operating system and using OBS (Open Broadcasting Software), sometimes this error come which is known by the title of **Not Shutdown Properly Last Time** also known as segmentation fault(on the terminal). In this issue, the obs run and crash on launch. I've tried multiple ways to solve it but none of them was useful until i found this specific solution. 
 
 Simply you've to edit a file. Here is the full command to open the file `global.ini`,
