@@ -9,7 +9,6 @@ password: ''
 status: publish
 categories:
 - Linux
-- Utilities
 tags: []
 meta:
   _wpas_done_all: '1'

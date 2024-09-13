@@ -22,9 +22,7 @@ author:
   last_name: Sharjeel Akhtar
 permalink: "/2020/10/14/type-casting-in-php"
 ---
-**Type casting is the conversion from one dataype to another.** PHP also allow type casting. We can convert from various datatypes e.g int to float or int to string e.t.c. 
-
-Here i've solved various examples in which i'm switching between multiple dataypes, 
+**Type casting is the conversion from one dataype to another.** PHP also allow type casting. We can convert from various datatypes e.g int to float or int to string e.t.c. Here i've solved various examples in which i'm switching between multiple dataypes, 
 
 ```
 <?php

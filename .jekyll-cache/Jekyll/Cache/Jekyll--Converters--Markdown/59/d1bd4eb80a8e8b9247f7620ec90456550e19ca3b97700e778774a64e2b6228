@@ -1,0 +1,46 @@
+I"8
+<p>Include function is one of the most common function. It is used to include files which contain code which are repeatedly used e.g footers, headers e.t.c. In php, there are 4 ways to include a file,</p>
+
+<ul>
+  <li>include</li>
+  <li>include_once</li>
+  <li>required</li>
+  <li>required_once</li>
+</ul>
+
+<p>The <code class="language-plaintext highlighter-rouge">include</code> and <code class="language-plaintext highlighter-rouge">include_once</code> function both are almost same. The only difference is while using a loop, we used <code class="language-plaintext highlighter-rouge">include_once</code>. By this, the function include the file only once in a loop while if we used the <code class="language-plaintext highlighter-rouge">include</code> in a loop, the file will be included againa and again,</p>
+
+<p>Here is an outlook of <code class="language-plaintext highlighter-rouge">include</code>,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+include("./hello-world1.php");
+?&gt;
+</code></pre></div></div>
+
+<p>Here is another example of <code class="language-plaintext highlighter-rouge">include_once</code> in a for loop,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+for ($i=0;$i&lt;10;$i++){
+    include_once("./hello-world.php");
+}
+?&gt;
+</code></pre></div></div>
+
+<p>Just like the above, <code class="language-plaintext highlighter-rouge">require</code> and <code class="language-plaintext highlighter-rouge">require_once</code> are also similar to above two. The only difference between <code class="language-plaintext highlighter-rouge">require</code> and <code class="language-plaintext highlighter-rouge">include</code> is that the include function gives <strong>warning</strong> if anything goes wrong (we can hide warning in php) but require function gives <strong>fatal error</strong> in case of error (fatal error cannot be hidden).</p>
+
+<p>Here is an example code for the <code class="language-plaintext highlighter-rouge">require</code> function,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+require("./hello-world1.php");
+?&gt;
+</code></pre></div></div>
+
+<p>Below is an example of the <code class="language-plaintext highlighter-rouge">require_once</code> function,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+for($i=0;$i&lt;10;$i++){
+    require_once("./hello-world.php");
+}
+?&gt;
+</code></pre></div></div>
+:ET

@@ -1,0 +1,5 @@
+I"~<p>React is one of the readily used framework when it comes to <code class="language-plaintext highlighter-rouge">web</code> or <code class="language-plaintext highlighter-rouge">mobile</code>  application developmenmt. So far, i’ve seen two ways of working in react. The first one is the basic one with 
+node pakage execute <code class="language-plaintext highlighter-rouge">npx</code> which will give you the all react framework files and the second one
+is with <code class="language-plaintext highlighter-rouge">vite</code>. Vite provide you the light files structure by excluding all the un-necessary react 
+files at the start.</p>
+:ET

@@ -22,9 +22,8 @@ author:
   last_name: Sharjeel Akhtar
 permalink: "/2020/10/07/how-to-display-error-in-php"
 ---
-Generally by default, php doesnot show error on the browser. It simply says **page isn't working** instead. Inorder to visualize the error in code in browser. You've to do some basic changes.
+Generally by default, php doesnot show error on the browser. It simply says **page isn't working** instead. Inorder to visualize the error in code in browser. You've to do some basic changes. Initially create a new file with name `display-error.php`. In this file write this php function.
 
-Initially create a new file with name `display-error.php`. In this file write this php function.
 ```
 echo phpinfo();
 ```

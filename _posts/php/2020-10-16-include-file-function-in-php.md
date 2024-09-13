@@ -22,9 +22,7 @@ author:
   last_name: Sharjeel Akhtar
 permalink: "2020/10/16/include-file-function-in-php"
 ---
-Include function is one of the most common function. It is used to include files which contain code which are repeatedly used e.g footers, headers e.t.c. 
-
-In php, there are 4 ways to include a file,
+Include function is one of the most common function. It is used to include files which contain code which are repeatedly used e.g footers, headers e.t.c. In php, there are 4 ways to include a file,
 
 * include
 * include_once

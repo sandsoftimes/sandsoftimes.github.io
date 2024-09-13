@@ -1,0 +1,2 @@
+I"q<p>Generally by default, php doesnot show error on the browser. It simply says <strong>page isn’t working</strong> instead. Inorder to visualize the error in code in browser. You’ve to do some basic changes. Initially create a new file with name <code class="language-plaintext highlighter-rouge">display-error.php</code>. In this file write this php function.</p>
+:ET
