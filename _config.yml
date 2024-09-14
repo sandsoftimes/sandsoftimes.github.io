@@ -1,5 +1,5 @@
-title: SandsOfTime - SANDY (SandsOfTime) on Computing, Learning and More ... 
-author: SandsOfTime
+title: SandsOfTimes - SANDY (SandsOfTimes) on Computing, Learning and More ... 
+author: SandsOfTimes
 email: janeebee1092@gmail.com 
 description: > # this means to ignore newlines until "show_exerpts:"
   Write an awesome description for your new site here. You can edit this
@@ -15,8 +15,8 @@ sass:
 permalink: /posts/:year/:month/:day/:title/
 
 texture:
-  title: SandsOfTime
-  tagline: SANDY (SandsOfTime) on Computing, Learning and more...
+  title: SandsOfTimes
+  tagline: SANDY (SandsOfTimes) on Computing, Learning and more...
   date_format: "%b %-d, %Y"
   style: blue 
   showNav: true 
@@ -33,7 +33,7 @@ texture:
   social_links:
     twitter: bluebutterflied 
     github:  sandsoftimes
-    linkedIn: in/bluebutterflied 
+    linkedIn: in/muhammad-sharjeel-akhtar-sandsoftimes-sandy-52b1bb317
     youtube: c/sultan_black
  
 header_pages:

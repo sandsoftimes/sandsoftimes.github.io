@@ -10,13 +10,14 @@ permalink: /learn
 
 **Github:** [sandsoftimes](https://github.com/sandsoftimes)
 
-**Phone.No:** +92 3029719813
+**Linkedin:** [Muhammad Sharjeel Akhtar SandsOfTimes[SANDY]](https://www.linkedin.com/in/muhammad-sharjeel-akhtar-sandsoftimes-sandy-52b1bb317/)
+
+**Youtube:** [sandsoftimes](https://www.youtube.com/@Black-tq8op)
 
 **Discord:** providingadditionalinformation
 
 **Skype.ID:** live:janeebee1092
 
-**Redirecting Link To Home:** [sandsotime.github.io](https://sandsoftime.github.io/)
+**Steam.Invite.Code:** 922334697
 
-
-Feel free to contact me on any of the above platforms.
+Feel free to contact me on any of the above platforms. If i'm not responding please just be patient. I'll respond to everyone ASAP.
