@@ -9,9 +9,6 @@ password: ''
 status: publish
 categories:
 - Recomendation Letter
-- Achievements
-- Appreciation Vouch
-- General
 tags: []
 meta:
   _wpas_done_all: '1'
@@ -23,12 +20,6 @@ author:
   last_name: Sharjeel Akhtar
 permalink: "/2023/10/20/recommendation-letter-by-dr-hafeez"
 ---
-Well, today i'm uploading the recomendation letter which i recieved just few hours back from my Professor `Dr Hafeez Ur Rehman`.
+Well, today i'm uploading the recomendation letter i recieved just few hours back from my Professor `Dr Hafeez Ur Rehman`. He is the Head of Computer Science Department in **FAST-NUCES PESHAWAR**. I completed my course of Artifical Intelligence last semester(**6th**) and secured an **A** in his course. Due to my performance, he provided me one yesterday.
 
-Dr Hafeez Ur Rehman is the Head Of Department of Computer Science in our university (**FAST NUCES PESHAWAR**). I've completed my course of Artifical Intelligence with him last semester(**6th**). I've defended an **A** in his course. Due to my performance in the course and on my request of recomendation letter to him, he provided me one yesterday.
-
-Alhamdulillah this letter will not only explain my performance but also keep me motivated to learn new skills.
-
-Below is the attached recommendation letter.
-
-![A test image](/assets/images/clt/recommendation-letters/dr_hafeez.png)
+![1](/assets/images/clt/recommendation-letters/dr_hafeez.png)

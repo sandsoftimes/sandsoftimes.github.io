@@ -10,7 +10,6 @@ status: publish
 categories:
 - Python
 - Deep Learning
-- Perceptron Issue
 tags: []
 meta:
   _wpas_done_all: '1'

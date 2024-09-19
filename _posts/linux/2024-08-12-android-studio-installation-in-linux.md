@@ -21,9 +21,7 @@ author:
 permalink: "/2024/08/12/android-studio-installation-in-linux"
 ---
 <!-- ![4](/assets/images/clt/android-studio-installation-in-linux/4.png) -->
-It is a fast go-through for the installation procedure of Android-Studio in all linux platforms. In my case i'm using linux mint but the method works for all distributions. 
-
-First of all download the android studio from this link ["Click Here To Download."](https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2024.1.1.13/android-studio-2024.1.1.13-linux.tar.gz) By this the tar.gz file will start downloading. After the download is complete, it will look like this, 
+It is a fast go-through for the installation procedure of Android-Studio in all linux platforms. In my case i'm using linux mint but the method works for all distributions. First of all download the android studio from this link ["Click Here To Download."](https://redirector.gvt1.com/edgedl/android/studio/ide-zips/2024.1.1.13/android-studio-2024.1.1.13-linux.tar.gz) By this the tar.gz file will start downloading. After the download is complete, it will look like this, 
 
 ![1](/assets/images/clt/android-studio-installation-in-linux/1.png)
 

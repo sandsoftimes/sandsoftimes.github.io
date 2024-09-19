@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:600,600i,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+<link rel="stylesheet" href="/assets/css/tailwind.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/cards.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+<title>Bubble Sort Algorithm in NASM 16-bit</title>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125808593-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125808593-1');
+</script>
+
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Bubble Sort Algorithm in NASM 16-bit | SandsOfTimes - SANDY (SandsOfTimes) on Computing, Learning and More …</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Bubble Sort Algorithm in NASM 16-bit" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Bubble sort is a very famous algorithm for sorting numbers. It is commonly used to sort numbers in ascending order. It works totally same here just like the other high level programming languages. Althought coding in 16-bit seems quite difficult but witha a little practice and understanding you can write any code in it. Here is the code," />
+<meta property="og:description" content="Bubble sort is a very famous algorithm for sorting numbers. It is commonly used to sort numbers in ascending order. It works totally same here just like the other high level programming languages. Althought coding in 16-bit seems quite difficult but witha a little practice and understanding you can write any code in it. Here is the code," />
+<meta property="og:site_name" content="SandsOfTimes - SANDY (SandsOfTimes) on Computing, Learning and More …" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-24T20:52:55+05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bubble Sort Algorithm in NASM 16-bit" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Bubble Sort Algorithm in NASM 16-bit","dateModified":"2020-06-24T20:52:55+05:00","datePublished":"2020-06-24T20:52:55+05:00","description":"Bubble sort is a very famous algorithm for sorting numbers. It is commonly used to sort numbers in ascending order. It works totally same here just like the other high level programming languages. Althought coding in 16-bit seems quite difficult but witha a little practice and understanding you can write any code in it. Here is the code,","url":"/2020/06/24/bubble-sort-algorithm-in-nasm-16-bit","mainEntityOfPage":{"@type":"WebPage","@id":"/2020/06/24/bubble-sort-algorithm-in-nasm-16-bit"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <header class="texture-blue">
+    <div class="container"><div class="navbar">
+	<ul>
+		
+		<a href="/"><li  >Home</li></a>
+		
+		<a href="/about"><li  >About</li></a>
+		
+		<a href="/learn"><li  >Contact</li></a>
+		
+	</ul>
+</div></div><div class="container">
+	<h1>Bubble Sort Algorithm in NASM 16-bit</h1>
+	<h4 class="post-description"></h4>
+	<div class="post-date" style="margin-top:20px">
+		Published on Jun 24, 2020
+	</div>
+	<ul class="post-tags"><li>Misc</li></ul>
+</div>
+</header>
+  <main>
+    <div class="container">
+      <div class="post-container">
+          <p>Bubble sort is a very famous algorithm for sorting numbers. It is commonly used to sort numbers in ascending order. It works totally same here just like the other high level programming languages. Althought coding in 16-bit seems quite difficult but witha a little practice and understanding you can write any code in it. Here is the code,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[org 0x0100]
+
+jmp start
+
+data:dw 60,55,45,50
+
+swap:db 0
+
+bubblesort:
+    dec cx
+    shl cx,1
+
+    mainloop:
+        mov si,0
+        mov byte[swap],0
+
+        innerloop:
+            mov ax,[bx+si]
+            cmp ax,[bx+si+2]
+            jbe noswap
+
+                mov dx,[bx+si+2]
+                mov [bx+si],dx
+                mov [bx+si+2],ax
+                mov byte[swap],1
+
+                noswap:
+                add si,2
+                cmp si,cx
+                jne innerloop
+
+            cmp byte[swap],1
+            je mainloop
+            ret ;notice this
+</code></pre></div></div>
+
+<p>Here is the initialization and function call,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>start:
+    mov bx,data
+    mov cx,4
+
+    ;make a function call
+    call bubblesort
+
+    ;data is sorted now!
+
+    mov ax,0x4c00
+    int 0x21
+</code></pre></div></div>
+
+<p>Before running, write the complete code in a single file.</p>
+
+      </div>
+
+        <!-- Configure Disqus --></div>
+  </main><footer class="footer">
+  <span class="text-muted"> SandsOfTime | No rights reserved.</span>
+</footer>
+</body>
+</html>

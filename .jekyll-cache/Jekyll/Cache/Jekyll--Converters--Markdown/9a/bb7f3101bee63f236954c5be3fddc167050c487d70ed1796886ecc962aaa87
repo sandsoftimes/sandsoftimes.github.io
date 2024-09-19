@@ -1,0 +1,53 @@
+I"ù<p>Bubble sort is a very famous algorithm for sorting numbers. It is commonly used to sort numbers in ascending order. It works totally same here just like the other high level programming languages. Althought coding in 16-bit seems quite difficult but witha a little practice and understanding you can write any code in it. Here is the code,</p>
+
+<p>```
+[org 0x0100]</p>
+
+<p>jmp start</p>
+
+<p>data:dw 60,55,45,50</p>
+
+<p>swap:db 0</p>
+
+<p>bubblesort:
+    dec cx
+    shl cx,1</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mainloop:
+    mov si,0
+    mov byte[swap],0
+
+    innerloop:
+        mov ax,[bx+si]
+        cmp ax,[bx+si+2]
+        jbe noswap
+
+            mov dx,[bx+si+2]
+            mov [bx+si],dx
+            mov [bx+si+2],ax
+            mov byte[swap],1
+
+            noswap:
+            add si,2
+            cmp si,cx
+            jne innerloop
+
+        cmp byte[swap],1
+        je mainloop
+        ret ;notice this
+</code></pre></div></div>
+
+<p>start:
+    mov bx,data
+    mov cx,4</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>;make a function call
+call bubblesort
+
+;data is sorted now!
+
+mov ax,0x4c00
+int 0x21
+```
+</code></pre></div></div>
+:ET

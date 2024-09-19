@@ -9,8 +9,6 @@ password: ''
 status: publish
 categories:
 - Cloud Computing
-- Scalability
-- Load Balancing
 tags: []
 meta:
   _wpas_done_all: '1'

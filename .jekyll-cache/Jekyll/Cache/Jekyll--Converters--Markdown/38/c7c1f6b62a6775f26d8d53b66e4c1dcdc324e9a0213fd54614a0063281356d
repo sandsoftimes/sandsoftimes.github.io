@@ -1,0 +1,270 @@
+I"�"<p>Php is one of the famous server-side scripting language. In common websites, it is used to handle the backend portion. No doubt, many new frameworks are now introduced in the market but still PHP is used in a wide number of websites.</p>
+
+<p><img src="/assets/images/clt/php-hello-world/pngegg.png" alt="pngwing" /></p>
+
+<p>In order to use PHP, you simply have to install the xamp on your system. I’m using linux so i’m attaching a linux installation tutorial of xamp. Here is <a href="https://www.youtube.com/watch?v=R5CUn5wGQGg">XAMP INSTALLATION</a></p>
+
+<p>After installation go this directory and create a folder test in it,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /opt/lampp/htdocs/
+mkdir test
+cd test
+</code></pre></div></div>
+
+<p>In here, you’ve to create an index.php file in order to visualize the php code on your localhost. So,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>touch index.php
+</code></pre></div></div>
+
+<p>Open up this file and write some basic php code in it like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+$name='SANDSOFTIMES';
+
+$color='green';
+echo $name;
+echo "SANDSOFTIMES";
+
+?&gt;
+&lt;h1&gt;&lt;?php echo $name;?&gt;&lt;/h1&gt;
+
+&lt;h1 style="color:red"&gt;&lt;?php echo $name;?&gt;&lt;/h1&gt;
+
+&lt;h1 style="color:&lt;?php echo $color; ?&gt;"&gt;&lt;?php echo $name;?&gt;&lt;/h1&gt;
+</code></pre></div></div>
+
+<p>This code will print the php variables inside the html tags. P.S you’ve to use <code class="language-plaintext highlighter-rouge">&lt;?php?&gt;</code> in order to write php code and also <code class="language-plaintext highlighter-rouge">$</code> is used to declare a variable in php. Also, go to localhost/test/index.php on your browser to view the php code running.</p>
+
+<p><img src="/assets/images/clt/php-hello-world/php-first.png" alt="php first image" /></p>
+
+<p>If you want breakline or you can say go to next line you’ve to use <code class="language-plaintext highlighter-rouge">"&lt;br /&gt;"</code> in your string or in empty echo.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "&lt;br /&gt;";
+</code></pre></div></div>
+<p>or</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo "What's up &lt;br /&gt;";
+</code></pre></div></div>
+<h2 id="variables-in-php">Variables in PHP</h2>
+<p>Just like all other programming languages, php also use variables to store any sort of data. The variable is declared by <code class="language-plaintext highlighter-rouge">$</code> symbol. Also, we don’t have to specify any <strong>data-type</strong>. Variables make our life easier. We don’t have to do things again and again, below is the example of it,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+echo "matrix &lt;br/&gt;";
+echo "maxwell &lt;br/&gt;";
+echo "hazel &lt;br/&gt;";
+echo "simonn &lt;br/&gt;";
+
+$name="SANDY Soft";
+
+echo $name;
+echo "&lt;br&gt;";
+echo $name;
+echo "&lt;br&gt;";
+echo $name;
+echo "&lt;br&gt;";
+
+echo 5*3;
+echo "&lt;br&gt;";
+echo 5*9;
+echo "&lt;br&gt;";
+echo 5*11;
+echo "&lt;br&gt;";
+
+$num=200;
+echo "&lt;br&gt;";
+echo $num*3;
+echo "&lt;br&gt;";
+echo $num*9;
+echo "&lt;br&gt;";
+echo $num*11;
+echo "&lt;br&gt;";
+echo $num;
+echo "&lt;br&gt;";
+$name="What is up";
+echo $name;
+?&gt;
+</code></pre></div></div>
+<p>Also keep in mind that variables with same names but with different upper and lower case letters are treated separately,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+// echo "Hello";
+$Name="peter";
+echo $Name;
+echo "&lt;br&gt;";
+$NAME="john";
+echo $NAME;
+echo "&lt;br&gt;";
+$namE="tony";
+echo $namE;
+echo "&lt;br&gt;";
+$a=$b=3;
+echo $a;
+echo "&lt;br&gt;";
+echo $b;
+echo "&lt;br&gt;";
+?&gt;
+</code></pre></div></div>
+<h2 id="using-php-and-html-together">Using PHP and HTML Together</h2>
+
+<p>You can use both ways,</p>
+
+<ul>
+  <li>Php inside the HTML</li>
+  <li>HTML inside the PHP</li>
+</ul>
+
+<p>Below is the attached example of both,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+echo "&lt;h1&gt;php with html&lt;/h1&gt;";
+echo "&lt;h3 style='color:blue'&gt;php with html&lt;/h3&gt;";
+?&gt;
+
+&lt;!-- HTML in php --&gt;
+&lt;?php
+$name="SANDY";
+$color='blue';
+echo "&lt;h1 style='color:orange'&gt;$name&lt;/h1&gt;";
+?&gt;
+
+
+&lt;!-- php in HTML --&gt;
+
+
+
+&lt;h2 style='color:green'&gt;&lt;?php echo "this is h2 tag&lt;br&gt;";?&gt;&lt;/h2&gt;
+&lt;h2 style='color:&lt;?php echo $color;?&gt;'&gt;&lt;?php echo "this is h2 tag&lt;br&gt;";?&gt;&lt;/h2&gt;
+&lt;h2&gt;Here &lt;?php echo "this is h2 tag "; echo $name;  ?&gt;&lt;/h2&gt;
+&lt;h2 style='color:&lt;?php echo $color;?&gt;'&gt;Here is another tag &lt;br&gt; &lt;?php echo "&lt;br&gt; and the color is "; echo $color;?&gt;&lt;/h2&gt;
+
+</code></pre></div></div>
+
+<p>The output of it will look like,</p>
+
+<p><img src="/assets/images/clt/php-hello-world/html-in-php.png" alt="html-in-png" /></p>
+
+<h2 id="constants-in-php">Constants in PHP</h2>
+<p>In php you can also declare constants just like the variables they are two way to declare constants. The first one is simply by writing the keywords <strong>const</strong> and variable name along with the value assigned to it. The second one is by using the <code class="language-plaintext highlighter-rouge">define()</code>. Here is the below code for the understanding of both methods,</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+// $data="abc";
+// const data="peter";
+// echo data;
+?&gt; 
+
+
+&lt;!-- First way to declare a variable in php --&gt; 
+&lt;?php
+$name="bruce";
+// $name="tony";
+// echo $name;
+?&gt; 
+
+&lt;!-- Second way to declare a constant in php --&gt;
+&lt;?php
+// define("data","peter");
+define("data","SandsOfTimes");
+echo data;
+echo "&lt;br&gt;";
+echo $name;
+echo "&lt;br&gt;";
+define("DATA","EDZIO");
+echo DATA;
+const __Hello="Mikel";
+echo "&lt;br&gt;";
+echo __Hello;
+?&gt;
+</code></pre></div></div>
+<h2 id="php-datatypes">Php Datatypes</h2>
+<p>Just like other programming languages, php also have several datatypes. Some of them are mentioned as follow:</p>
+<ul>
+  <li>String</li>
+  <li>Integer</li>
+  <li>Float</li>
+  <li>Boolean</li>
+  <li>Null</li>
+  <li>Array</li>
+  <li>Object</li>
+  <li>Recourse</li>
+</ul>
+
+<p>Php has a built in function known as <code class="language-plaintext highlighter-rouge">var_dump</code>. Use it with the variable name and you can check the variable type from it. Below is a complete code, in which i’m declaring each datatype and then check it using the <code class="language-plaintext highlighter-rouge">var_dump</code> function of php.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?php
+
+// String
+
+$name="Anil sidhu";
+echo var_dump($name);
+
+// Integer
+
+$num=10;
+echo "&lt;br&gt;";
+echo var_dump($num);
+
+// Float
+
+$numFloat=10.10;
+echo "&lt;br&gt;";
+echo var_dump($numFloat);
+
+// Bool
+
+$bool=true;
+echo "&lt;br&gt;";
+echo var_dump($bool);
+
+// Array
+
+$arr=["anil","sam","ali",2];
+echo "&lt;br&gt;";
+echo var_dump($arr);
+
+// Null
+
+echo "&lt;br&gt;";
+$empty=null;
+echo var_dump($empty);
+
+// Object
+
+// $user=new className();
+echo "&lt;br&gt;";
+$connection=ftp_connect("127.0.0.1") or die("local host not found");
+echo var_dump($connection);
+?&gt;
+</code></pre></div></div>
+<h2 id="comments-in-php">Comments in php</h2>
+
+<p>In php, you can also do comments for the purpose of better understanding or if you want to comment out the extra portion of the code. There are two types of comments in php as well.</p>
+<ul>
+  <li>Single-line comments</li>
+  <li>Multi-line comments</li>
+</ul>
+
+<p>There is very little difference b/w the syntax of these two. If you want to do a single-line comment, simply write <code class="language-plaintext highlighter-rouge">//</code> in the start of the line and if you want to do multi-line comment simple write <code class="language-plaintext highlighter-rouge">/*</code> at the start and <code class="language-plaintext highlighter-rouge">*/</code> where you want to end the comment. Both of these types can be demonstrated by the example code written by me below:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- Single line comments --&gt;
+
+&lt;?php
+$name="Ali";
+$name2="Sandsoftime";
+define("sandy","what is up");
+?&gt;
+
+&lt;!-- Multi line comments --&gt;
+
+
+&lt;?php
+/*
+echo $name;
+echo "&lt;br&gt;";
+echo var_dump(sandy);
+*/
+?&gt;
+
+
+&lt;?php
+echo "How are you?";
+?&gt;
+</code></pre></div></div>
+:ET

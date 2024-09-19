@@ -1,0 +1,115 @@
+I"�<p>Queue is also one of the famous data structure. Although it is pretty similar to stack but it has its own applications. You might know the working law of Queue “THE FIFO Principal”. Here i’ve defined some rules of queue alongside with its implementaion in <code class="language-plaintext highlighter-rouge">c++</code>/</p>
+
+<p>Initial imports are,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include&lt;iostream&gt;
+using namespace std;
+#define size 100
+</code></pre></div></div>
+
+<p>Create a user-defined class with the name of <code class="language-plaintext highlighter-rouge">Stack</code> will the data-members and member-functions in it,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Stack{
+    private:
+    int top;
+    int arr[size];
+    public:
+        Stack(){
+            top=-1;
+            int arr[size];
+        }
+        void push(int val){
+            if(top&gt;(size-1)){
+                cout&lt;&lt;"Stack Overflow Occured";
+            }
+            else{
+                top++;
+                arr[top]=val;
+            }
+        }
+        int pop(){
+            int item;
+            if(top&lt;0){
+                
+                cout&lt;&lt;"Stack Overflowed Occur";
+            }
+            else{
+                item=arr[top];
+                top--;
+                return item;
+            }
+        }
+        int peek(){
+            if(top&lt;(size-1) &amp;&amp; top&gt;=0){
+                int x=arr[top];
+                return x;
+            }
+            else{
+                cout&lt;&lt;"Stack is Empty";
+            }
+        }
+        void EvaluatePostFix(char postfix[]){
+            int i;
+            char ch;
+            int val;
+            int A,B;
+            for(int i=0;postfix[i]!=')';i++){
+                ch=postfix[i];
+                if(isdigit(ch)){
+                    push(ch-'0');
+                }
+                else if(ch=='+'||ch=='-'||ch=='*'||ch=='/'){
+                    A=pop();
+                    B=pop();
+                    switch(ch){
+                        case '*':
+                        val=B*A;
+                        break;
+                        case '-':
+                        val=B-A;
+                        break;
+                        case '/':
+                        val=B/A;
+                        break;
+                        case '+':
+                        val=B+A;
+                        break;
+                    }
+                    push(val);
+                }
+            }
+            cout&lt;&lt;"The result of the expression is: "&lt;&lt;pop();
+        }
+        void isEmpty(){
+            if(top==-1){
+                cout&lt;&lt;"Stack is Empty ";
+            }
+        }
+        void display(){
+            if(top!=-1){
+                for(int i=top;i&gt;-1;i--){
+                    cout&lt;&lt;arr[i]&lt;&lt;" ";
+                }
+            }
+        }
+};
+</code></pre></div></div>
+
+<p>Here is the <code class="language-plaintext highlighter-rouge">main</code> of program,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int main(){
+    Stack s1;
+    int i;
+    char ch[size];
+    cout&lt;&lt;"Enter the expression inside the character array: ";
+    for(int i=0;i&lt;=size;i++){
+        cin&gt;&gt;ch[i];
+        if(ch[i]==')'){
+            break;
+        }
+    }
+    s1.EvaluatePostFix(ch);
+    return 0;
+}
+</code></pre></div></div>
+:ET

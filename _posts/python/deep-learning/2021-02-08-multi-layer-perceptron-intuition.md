@@ -10,7 +10,6 @@ status: publish
 categories:
 - Python
 - Deep Learning
-- Multi Layer Perceptron
 tags: []
 meta:
   _wpas_done_all: '1'

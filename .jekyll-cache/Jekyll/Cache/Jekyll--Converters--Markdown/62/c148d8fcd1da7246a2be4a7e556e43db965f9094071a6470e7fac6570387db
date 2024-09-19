@@ -1,0 +1,127 @@
+I"(<p>Transferring an old blog from wordpress to here. When i was a “Freshie” in my university. We used to write some blogs on basic topics. One day i was sitting in COLAB(A sort of working environment not the literal LAB) and i was not getting any idea about what to write so i choose the simplest topic haha Computers, Hardwares and Softwares and wrote a hole blog on it. I found it on the other site which i don’t use so i thought to put it here more like a memory.</p>
+
+<h2 id="what-is-a-computer">What is a computer?</h2>
+
+<p>A computer is an electronic device for storing and processing data. It has an ability to retrieve, process, store and edit data.</p>
+
+<p><img src="/assets/images/clt/the-computers-hardware-and-software/" alt="1" /></p>
+
+<h2 id="commands-or-functions-that-a-computer-performs">Commands Or Functions That A Computer Performs:</h2>
+
+<p>A computer is being widely used now a days. Infact in every sector, every aspect of life. They have made the working of human too easy. Now a days almost 90 percent of the human tasks are completed by computers and only 10 percents are being done by humans themselves. This is showing that how much the computer has become important in the life of human. A computer performs many functions but i’m going to point out few here. These are,</p>
+
+<ul>
+  <li>Outputs(displaying results)</li>
+  <li>Inputs(getting data)</li>
+  <li>Storing</li>
+  <li>Performance of logical operations</li>
+  <li>Performance of arithematical operations</li>
+</ul>
+
+<h2 id="basic-distribution-of-a-computer">Basic Distribution Of A Computer:</h2>
+
+<p>In simple words, a computer mainly consist of two things.</p>
+
+<ul>
+  <li>Hardware</li>
+  <li>Software</li>
+</ul>
+
+<h2 id="hardware-physical-exist-we-can-touch-it"><strong><em>Hardware: Physical exist. We can touch it.</em></strong></h2>
+
+<h2 id="software-no-physical-existance-we-can-work-with-it-or-in-it-using-graphical-user-interfacegui-or-command-line-interfacecmd"><strong><em>Software: No physical existance. We can work with it or in it using Graphical User Interface(GUI) or Command Line Interface(CMD).</em></strong></h2>
+
+<h2 id="hardware">Hardware:</h2>
+
+<p>The hardware of a computer is divided into many small and large components or you can say elements. Just like all other things, a computer is also made up of elements. Infact with alot of elements. There are even micro-level elements present in a computer that are performing their function in proper running of a computer. I’m going to discuss the few main of the components here.</p>
+
+<p><img src="/assets/images/clt/the-computers-hardware-and-software/2.png" alt="2" /></p>
+
+<ul>
+  <li>CPU</li>
+  <li>RAM(main memory)</li>
+  <li>Secondary storage</li>
+  <li>Input/Output Devices</li>
+</ul>
+
+<p>We will go in the detail of each of these later on.</p>
+
+<h2 id="have-you-ever-interacted-with-a-computer-hardware"><strong><em>“Have you ever interacted with a computer hardware?”</em></strong></h2>
+
+<h2 id="software">Software:</h2>
+
+<p>A software is a set of instructions which donot have any physical existence but still they are responsible for the working of a computer. Just like the hardware, software is also very important part of computer.</p>
+
+<p><img src="/assets/images/clt/the-computers-hardware-and-software/3.png" alt="3" /></p>
+
+<h2 id="examples-of-a-software">Examples Of A Software:</h2>
+
+<p>There are countless softwares in the industry. Enlisting few of them.</p>
+
+<ul>
+  <li>MS-Word</li>
+  <li>MS-Excel</li>
+  <li>Power-Point</li>
+  <li>Adobe Photoshop</li>
+  <li>Adobe Illustrator</li>
+  <li>Types Of Softwares:</li>
+</ul>
+
+<p>A computer software is divided into two catagories. These are as follow.</p>
+
+<ul>
+  <li>System Software</li>
+  <li>Application Software</li>
+</ul>
+
+<h2 id="system-software">System Software:</h2>
+
+<p>A system software is a software that directly operates the computer hardware and provides the basic functionality to the user as well to other softwares to operate smoothly. In simple words, a system software basically controls a computer’s internal functioning and also controls hardware devices such as monitors, printers and storage devices e.t.c. It is like an interface between hardware and user applications.</p>
+
+<h2 id="properties-of-a-system-software">Properties Of A System Software:</h2>
+
+<ul>
+  <li>System software is closer to computer system</li>
+  <li>System software is written in low-level language in general</li>
+  <li>System software is difficult to design and understand</li>
+  <li>System software is fast in speed</li>
+  <li>System software is less interactive to users in comparison to application software</li>
+</ul>
+
+<h2 id="types-of-system-software">Types Of System Software:</h2>
+
+<p>The system software is further divided into two types,</p>
+
+<ul>
+  <li>Operating System</li>
+  <li>Language Process</li>
+</ul>
+
+<h2 id="application-software">Application Software:</h2>
+
+<p>Software that performs special funtions or provide functions that are much more involve than the basic operations of the computer is known as application software.Application software is designed to perform special tasks.</p>
+
+<h2 id="properties-of-an-application-software">Properties Of An Application Software:</h2>
+
+<p>Few properties of an application software are as follow:</p>
+
+<ul>
+  <li>It performs more specialized tasks like word processing, email, spreadsheet e.t.c</li>
+  <li>The size of an application software is usually less than the system software. It commonly takes less storage</li>
+  <li>Application software is much more interactive than the system software</li>
+  <li>The Application software is easy to design</li>
+  <li>Application software is written in high-level language</li>
+</ul>
+
+<h2 id="types-of-application-software">Types Of Application Software:</h2>
+
+<p>The application softwares are divided into three types.</p>
+
+<ul>
+  <li>General purpose softwares</li>
+  <li>Customized softwares</li>
+  <li>Utility softwares</li>
+</ul>
+
+<p>Also keep in mind, softwares are designed in specific languages. These languages are the core of all the programs. These programming languages will be explained in detail within the comming days.</p>
+:ET
