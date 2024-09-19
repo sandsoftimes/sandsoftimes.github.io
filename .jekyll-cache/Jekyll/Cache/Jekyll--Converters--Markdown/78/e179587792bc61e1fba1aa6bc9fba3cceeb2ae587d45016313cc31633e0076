@@ -1,0 +1,54 @@
+I"�<p>This question always come to mind. Why RNNS are needed when you have CNNs and ANNs? RNNs stand for Recurrent Neural Networks. It’s a type of neural network most suited for Natural Language Processing tasks. They are used to deal with Sequential Data that’s why they are better known as sequential models. You may ask what is sequential data. The data in which following the order is must is known as sequential data.</p>
+
+<p>Let me explain you with an example, suppose you’ve a dataset of textual sentences. Pick one sentense from the dataset, e.g</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I'll go to school.
+</code></pre></div></div>
+
+<p>You cannot write,</p>
+
+<ul>
+  <li>School to go I’ll</li>
+</ul>
+
+<p>or</p>
+
+<p>*To School go I’ll</p>
+
+<p>b/c they don’t give us any information. It means sequence is important to us and we call this type of data as Sequential Data. Other examples of Sequential Data are,</p>
+
+<ul>
+  <li>
+    <p>Time Series Data</p>
+  </li>
+  <li>
+    <p>Speech</p>
+  </li>
+  <li>
+    <p>DNA Sequence</p>
+  </li>
+</ul>
+
+<p>Now what if we use ANNs or CNN to solve sequential data problems. Assume you’ve a student dataset with input features,</p>
+
+<ul>
+  <li>iq</li>
+  <li>gender</li>
+  <li>marks</li>
+</ul>
+
+<p>and you’ve to predict the placement of student. For an ANN you cannot directly feed the textual data. We must have to vectorize the words. For this purpose we use the simplest method of 1 hot encoding with 12 numbers long vector for each number. It may look like,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I'll [1 0 0 0 0 0 0 0 0 0 0 0]
+
+go [0 1 0 0 0 0 0 0 0 0 0 0]
+
+to [0 0 1 0 0 0 0 0 0 0 0 0]
+
+school [0 0 0 1 0 0 0 0 0 0 0 0]
+</code></pre></div></div>
+
+<p>Now we’ve to arrange these vectors vertically and make a vectors stack.</p>
+
+<p><img src="/assets/images/clt/why-rnns-are-needed/1.png" alt="1" /></p>
+:ET

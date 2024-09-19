@@ -22,7 +22,7 @@ permalink: "/2020/06/22/queue-data-structure-implementation-in-c-plus-plus"
 ---
 Queue is also one of the famous data structure. Although it is pretty similar to stack but it has its own applications. You might know the working law of Queue **"THE-FIFO-Principal"**. Here i've defined some rules of queue alongside with its implementaion in `c++`/
 
-## Rules:
+## Rules
 
 The queue follow the basic rule of, 
 
@@ -37,7 +37,7 @@ The queue follow the basic rule of,
 * First by: Array data structure
 * Second by: Linked List data structure.
 
-## Implementation:
+## Implementation
 
 Below is the provided code of Linked List Implementation of queue.I have covered the 4 basic functions of the queue in ths implementation.
 
@@ -46,7 +46,7 @@ Below is the provided code of Linked List Implementation of queue.I have covered
 * isFull(): Checking whether the queue is Full or not.
 * isEmpty(): Checking whether the queue is Empty or not.
 
-## Code In C++:
+## Code In C++
 
 Here are the initial imports,
 

@@ -19,5 +19,5 @@ author:
   display_name: SandsOfTime
   first_name: Muhammad
   last_name: Sharjeel Akhtar
-permalink: "/2021/02/12/back-propagation-in-cnn"
+permalink: "/2021/02/13/back-propagation-in-cnn"
 ---

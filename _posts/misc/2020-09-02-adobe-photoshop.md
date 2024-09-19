@@ -28,7 +28,7 @@ Currently different big industries including the filming industry, gaming indust
 
 ## _“Design Anything With Ease”_
 
-## Versions of Photoshop:
+## Versions of Photoshop
 
 The 3 well-known versions of Adobe Photoshop are:
 
@@ -36,7 +36,7 @@ The 3 well-known versions of Adobe Photoshop are:
 * Photoshop CS6
 * Photoshop 7.0
 
-## Use of Photoshop:
+## Use of Photoshop
 
 Photoshop is used by:
 
@@ -49,11 +49,11 @@ Photoshop is used by:
 
 ## *Stun Your Viewers…….*
 
-## Adobe Photoshop CC:
+## Adobe Photoshop CC
 
 Photoshop cc is the most reliable and latest version of photoshop. I myself using this version nowadays. The interface of it is much user friendly and easy to use.
 
-## Intro to the interface:
+## Intro to the interface
 
 This is the main interface of Photoshop.
 
@@ -67,7 +67,7 @@ It consists of the following portions,
 * Menu Bar
 * Pannels
 
-## Document Window:
+## Document Window
 
 This is called the Document Window. You can see 1 document opened in it with the name **Untitled-1**.
 
@@ -75,7 +75,7 @@ This is called the Document Window. You can see 1 document opened in it with the
 
 Here all the documents are present on which you can work and switch from one document to the other.
 
-## Toolbar:
+## Toolbar
 
 The toolbar is the small window present on the top left of the interface. Here, all the basic tools are present that are being used widely in a work. Adobe is also introducing new tools to it from time to time. Have a look on the toolbar window.
 
@@ -83,7 +83,7 @@ The toolbar is the small window present on the top left of the interface. Here, 
 
 Here it is. This is the toolbar. All the tools of Photoshop are present here.
 
-## Option Bar:
+## Option Bar
 
 Options bar is the place where the following options are present:
 
@@ -102,7 +102,7 @@ It is present on the topmost of the interface. The picture attached below shows 
 
 Here the uppermost bar is the options bar.
 
-## Menu Bar:
+## Menu Bar
 
 Just like the options bar menu bar is also a small bar present on the topmost of the interface Photoshop window. It consists of options like:
 
@@ -119,7 +119,7 @@ Have a look at this window,
 
 ![6](/assets/images/clt/adobe-photoshop/6.png)
 
-## Pannels:
+## Pannels
 
 Pannel is the place where your work happens. Photoshop basically works on the basis of layers. These layers are present in the panels. In addition to it, we can add effects to the documents using panels. Panels can also be used to keep the record of every single step that you do on a document. Here is a preview of the Panel,
 

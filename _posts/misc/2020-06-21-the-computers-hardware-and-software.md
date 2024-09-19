@@ -28,7 +28,7 @@ A computer is an electronic device for storing and processing data. It has an ab
 
 ![1](/assets/images/clt/the-computers-hardware-and-software/1.png)
 
-## Commands Or Functions That A Computer Performs:
+## Commands Or Functions That A Computer Performs
 
 A computer is being widely used now a days. Infact in every sector, every aspect of life. They have made the working of human too easy. Now a days almost 90 percent of the human tasks are completed by computers and only 10 percents are being done by humans themselves. This is showing that how much the computer has become important in the life of human. A computer performs many functions but i’m going to point out few here. These are,
 
@@ -38,7 +38,7 @@ A computer is being widely used now a days. Infact in every sector, every aspect
 * Performance of logical operations
 * Performance of arithematical operations
 
-## Basic Distribution Of A Computer:
+## Basic Distribution Of A Computer
 
 In simple words, a computer mainly consist of two things.
 
@@ -49,7 +49,7 @@ In simple words, a computer mainly consist of two things.
 
 "_**Software**: No physical existance. We can work with it or in it using Graphical User Interface(GUI) or Command Line Interface(CMD)._"
 
-## Hardware:
+## Hardware
 
 The hardware of a computer is divided into many small and large components or you can say elements. Just like all other things, a computer is also made up of elements. Infact with alot of elements. There are even micro-level elements present in a computer that are performing their function in proper running of a computer. I’m going to discuss the few main of the components here.
 
@@ -64,13 +64,13 @@ We will go in the detail of each of these later on.
 
 ## _“Have you ever interacted with a computer hardware?”_
 
-## Software:
+## Software
 
 A software is a set of instructions which donot have any physical existence but still they are responsible for the working of a computer. Just like the hardware, software is also very important part of computer.
 
 ![3](/assets/images/clt/the-computers-hardware-and-software/3.png)
 
-## Examples Of A Software:
+## Examples Of A Software
 
 There are countless softwares in the industry. Enlisting few of them.
 
@@ -86,11 +86,11 @@ A computer software is divided into two catagories. These are as follow.
 * System Software
 * Application Software
 
-## System Software:
+## System Software
 
 A system software is a software that directly operates the computer hardware and provides the basic functionality to the user as well to other softwares to operate smoothly. In simple words, a system software basically controls a computer’s internal functioning and also controls hardware devices such as monitors, printers and storage devices e.t.c. It is like an interface between hardware and user applications.
 
-## Properties Of A System Software:
+## Properties Of A System Software
 
 * System software is closer to computer system
 * System software is written in low-level language in general
@@ -98,18 +98,18 @@ A system software is a software that directly operates the computer hardware and
 * System software is fast in speed
 * System software is less interactive to users in comparison to application software
 
-## Types Of System Software:
+## Types Of System Software
 
 The system software is further divided into two types,
 
 * Operating System
 * Language Process
 
-## Application Software:
+## Application Software
 
 Software that performs special funtions or provide functions that are much more involve than the basic operations of the computer is known as application software.Application software is designed to perform special tasks.
 
-## Properties Of An Application Software:
+## Properties Of An Application Software
 
 Few properties of an application software are as follow:
 
@@ -119,7 +119,7 @@ Few properties of an application software are as follow:
 * The Application software is easy to design
 * Application software is written in high-level language
 
-## Types Of Application Software:
+## Types Of Application Software
 
 The application softwares are divided into three types.
 
