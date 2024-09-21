@@ -1,7 +1,0 @@
-I"9<p>There are some problems which cannot be solved with a sequential model, therefore we need non-sequential model. Sequential model goes on with the assumption of single input and single output. What if you’ve to predict two things? What if linear topology doesnot solve your problem.</p>
-
-<p>In order to make non-sequential model, we use keras-functional-api. First of all import the model from keras,</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from keras.models import Model
-</code></pre></div></div>
-:ET

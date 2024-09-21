@@ -1,0 +1,17 @@
+I"Õ<p>Transfer learning gives a bit different results when done with data-augmentation and without data-augmentation. The accuracy is a bit improved with data augmentation technique. Here iâ€™ve implemented a code today for transfer learning technique with data-augmentation. You can check my previous without augmentation implementation as well from <a href="/2021/04/10/transfer-learnin-in-keras">here!</a></p>
+
+<p>First of all, do necessary importing and download dataset,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>!mkdir -p ~/.kaggle
+!cp kaggle.json ~/.kaggle/
+!kaggle datasets download -d salader/dogs-vs-cats
+</code></pre></div></div>
+
+<p>unzip the dataset,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import zipfile
+zip_ref = zipfile.ZipFile('/content/dogs-vs-cats.zip', 'r')
+zip_ref.extractall('/content')
+zip_ref.close()
+</code></pre></div></div>
+:ET

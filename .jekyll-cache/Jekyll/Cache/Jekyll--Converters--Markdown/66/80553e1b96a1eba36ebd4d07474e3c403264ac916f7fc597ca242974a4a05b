@@ -1,0 +1,116 @@
+I"¹<p>Transfer learning gives a bit different results when done with data-augmentation and without data-augmentation. The accuracy is a bit improved with data augmentation technique. Here iâ€™ve implemented a code today for transfer learning technique with data-augmentation. You can check my previous without augmentation implementation as well from <a href="/2021/04/10/transfer-learnin-in-keras">here!</a></p>
+
+<p>First of all, do necessary importing and download dataset,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>!mkdir -p ~/.kaggle
+!cp kaggle.json ~/.kaggle/
+!kaggle datasets download -d salader/dogs-vs-cats
+</code></pre></div></div>
+
+<p>unzip the dataset,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import zipfile
+zip_ref = zipfile.ZipFile('/content/dogs-vs-cats.zip', 'r')
+zip_ref.extractall('/content')
+zip_ref.close()
+</code></pre></div></div>
+
+<p>import libraries for the model,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import tensorflow
+from tensorflow import keras
+from keras import Sequential
+from keras.layers import Dense,Flatten
+from keras.applications.vgg16 import VGG16
+</code></pre></div></div>
+
+<p>use the VGG16 convolution base,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conv_base = VGG16(
+    weights='imagenet',
+    include_top = False,
+    input_shape=(150,150,3)
+)
+</code></pre></div></div>
+
+<p>create the rest of the model and connect with the base,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>model = Sequential()
+
+model.add(conv_base)
+model.add(Flatten())
+model.add(Dense(256,activation='relu'))
+model.add(Dense(1,activation='sigmoid'))
+</code></pre></div></div>
+
+<p>freeze the convolution layers training,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conv_base.trainable = False
+</code></pre></div></div>
+
+<p>import the image generators for the data augmentation,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
+</code></pre></div></div>
+
+<p>create the generators and do image augmentation,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>batch_size = 32
+
+train_datagen = ImageDataGenerator(
+        rescale=1./255,
+        shear_range=0.2,
+        zoom_range=0.2,
+        horizontal_flip=True)
+
+test_datagen = ImageDataGenerator(rescale=1./255)
+
+train_generator = train_datagen.flow_from_directory(
+        '/content/train',
+        target_size=(150, 150),
+        batch_size=batch_size,
+        class_mode='binary') 
+
+validation_generator = test_datagen.flow_from_directory(
+        '/content/test',
+        target_size=(150, 150),
+        batch_size=batch_size,
+        class_mode='binary')
+</code></pre></div></div>
+
+<p>compile the model,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
+
+</code></pre></div></div>
+
+<p>fit the model and store the history,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>history = model.fit_generator(
+        train_generator,
+        epochs=10,
+        validation_data=validation_generator)
+</code></pre></div></div>
+
+<p>do plotting of accuracy,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import matplotlib.pyplot as plt
+
+plt.plot(history.history['accuracy'],color='red',label='train')
+plt.plot(history.history['val_accuracy'],color='blue',label='validation')
+plt.legend()
+plt.show()
+</code></pre></div></div>
+
+<p><img src="/assets/images/clt/transfer-learnin-in-keras-data-augmentaion/1.png" alt="1" /></p>
+
+<p>plot the loss,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>plt.plot(history.history['loss'],color='red',label='train')
+plt.plot(history.history['val_loss'],color='blue',label='validation')
+plt.legend()
+plt.show()
+</code></pre></div></div>
+
+<p><img src="/assets/images/clt/transfer-learnin-in-keras-data-augmentaion/2.png" alt="2" /></p>
+:ET

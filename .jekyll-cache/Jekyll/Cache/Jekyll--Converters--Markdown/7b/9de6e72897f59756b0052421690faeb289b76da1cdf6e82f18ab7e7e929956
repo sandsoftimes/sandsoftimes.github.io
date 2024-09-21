@@ -1,0 +1,2 @@
+I"±<p>Transfer learning gives a bit different results when done with data-augmentation and without data-augmentation. The accuracy is a bit improved with data augmentation technique. Here iâ€™ve implemented a code today for transfer learning technique with data-augmentation. You can check my previous without augmentation implementation as well from <a href="/python/deep-learning/2021-04-10-transfer-learnin-in-keras.md">HERE</a></p>
+:ET
