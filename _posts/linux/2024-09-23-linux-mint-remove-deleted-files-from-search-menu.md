@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Remove Deleted Files from Linux Mint Search Menu
+title: Remove Deleted or Recently Accessed Files from Linux Mint Search Menu
 date: 2024-09-23 00:59:55.000000000 +05:00
 type: post
 parent_id: '0'
