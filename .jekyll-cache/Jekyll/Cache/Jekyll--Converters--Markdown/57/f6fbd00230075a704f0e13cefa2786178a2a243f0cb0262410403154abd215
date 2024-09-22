@@ -1,0 +1,18 @@
+I"�<p>Lately i was faced this issue on linux mint search menu. I personally use the Windows Key shortcut to open up the start menu and search for the applications from there, usually i pin the most used apps in the start. 
+Recently when i was using the menu, i saw this thing of recently opened files displaying there. I mean those files which you used earlier in the past 7 days appear at start and can my disturb your workflow of opening multiple applications.</p>
+
+<p>Gadly i’ve found a solution for it. Simply follow the guide-line. First of all press window button and search for system settings. It will look like this,</p>
+
+<p>1</p>
+
+<p>Then in the preferences section, go to privacy, you’ll see these options,</p>
+
+<p>2</p>
+
+<p>Simply turn off the first option of <code class="language-plaintext highlighter-rouge">remember recently accessed files</code>,</p>
+
+<p>3</p>
+
+<p>and you are done, your recently opened files will not contradict with the pre-added shortcuts via alphabet typing.</p>
+
+:ET
