@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LSTM | Word and Sentence Predictor using Supervised Learning
+title: LSTM | Text Generation using Supervised Learning
 date: 2021-04-13 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'

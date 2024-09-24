@@ -10,6 +10,7 @@ status: publish
 categories:
 - Python
 - Deep Learning
+- Project
 tags: []
 meta:
   _wpas_done_all: '1'
