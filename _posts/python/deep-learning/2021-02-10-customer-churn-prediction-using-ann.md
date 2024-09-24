@@ -27,7 +27,7 @@ The working of a Artificial Neural Network can be observed in multiple ways. One
 
 ![3](/assets/images/clt/customer-churn-prediction-using-ann/3.png) 
 
-For this purpose, i'm going to use the available dataset on kaggle.
+For this purpose, i'm going to use the available dataset on kaggle. 
 
 Initially we are importing the necessary libraries including numpy and pandas. Then we are obtaining the path to the dataset csv file.
 
