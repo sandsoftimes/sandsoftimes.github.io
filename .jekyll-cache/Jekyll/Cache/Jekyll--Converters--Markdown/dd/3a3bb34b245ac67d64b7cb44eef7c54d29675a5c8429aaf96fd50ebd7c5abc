@@ -1,0 +1,26 @@
+I"><p>Here i’ve discussed the complete Architecture of Gated Recurrent Unit. This is a type of RNN pretty similar to LSTM but a bit faster from the LSTM. Although it outperforms the LSTM in some problems while there are some cases where you still need to use LSTM’s. It is better to test out both techniques to find good results on your problem.</p>
+
+<h2 id="here-is-some-basic-intuition-and-introduction-gru">Here is some basic intuition and introduction GRU,</h2>
+
+<p><img src="/assets/images/clt/gated-recurrent-unit/1.png" alt="1" /></p>
+
+<h2 id="sentences-with-timestamps-along-update-gate-and-rest-gate">Sentences with Timestamps along UPDATE GATE and REST GATE.</h2>
+
+<p><img src="/assets/images/clt/gated-recurrent-unit/2.png" alt="2" /></p>
+
+<p>rest gate working is down below,</p>
+
+<p><img src="/assets/images/clt/gated-recurrent-unit/3.png" alt="3" /></p>
+
+<p>here is some mathematical chart representation,</p>
+
+<p><img src="/assets/images/clt/gated-recurrent-unit/4.png" alt="4" /></p>
+
+<p>a basic neural netwok representation with point-wise addition b/w rest game and previous hidden state/context</p>
+
+<p><img src="/assets/images/clt/gated-recurrent-unit/5.png" alt="5" /></p>
+
+<p>update gate working and final hidden state/context calculation,</p>
+
+<p><img src="/assets/images/clt/gated-recurrent-unit/6.png" alt="6" /></p>
+:ET
