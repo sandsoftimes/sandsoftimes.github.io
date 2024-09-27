@@ -1,0 +1,80 @@
+I"¬<p>There are some problems where ordinary RNN architectures fail b/c of uncertainty. The most common example of it is the real-time voice to text recognition, we donâ€™t know what the person is going speak next i.e the problem in which we need the future information, we need bidirection rnns for it.</p>
+
+<p>For this purpose, we will use the <code class="language-plaintext highlighter-rouge">Bidirectional</code> built in wrapper of keras. Initially import the libraries and the wrapper,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import tensorflow as tf
+from tensorflow.keras.datasets import imdb
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Embedding,Bidirectional,SimpleRNN,LSTM,GRU,Dense
+</code></pre></div></div>
+
+<p>load the dataset and do train test split</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>num_words=10000
+(x_train,y_train),(x_test,y_test)=imdb.load_data(num_words=num_words)
+</code></pre></div></div>
+
+<p>pad the training and testing data</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>maxlen=100
+x_train=pad_sequences(x_train,maxlen=maxlen,padding='post',truncating='post')
+x_test=pad_sequences(x_test,maxlen=maxlen,padding='post',truncating='post')
+</code></pre></div></div>
+
+<p>set the embedding dimensions for future use,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>embedding_dim=32
+</code></pre></div></div>
+
+<h2 id="sequential-model-for-simplernn-with-bidirectional-wrapper">Sequential Model for SimpleRNN with Bidirectional Wrapper</h2>
+
+<p>Create the sequential model for simpleRNN with all the layers,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>model=Sequential([
+    Embedding(input_dim=num_words,output_dim=embedding_dim,input_length=maxlen),
+    Bidirectional(SimpleRNN(5)),
+    Dense(1,activation='sigmoid')
+])
+</code></pre></div></div>
+
+<p>compile the model and check the summary</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
+model.summary()
+</code></pre></div></div>
+
+<h2 id="sequential-model-for-gru-with-bidirectional-wrapper">Sequential Model for GRU with Bidirectional Wrapper</h2>
+
+<p>Again make a sequential model for a GRU and wrap it in a bidirectional wrapper</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mode=Sequential([
+    Embedding(input_dim=num_words,output_dim=embedding_dim,input_length=maxlen),
+    Bidirectional(GRU(5)),
+    Dense(1,activation='sigmoid')
+])
+</code></pre></div></div>
+
+<p>compile the model and check its summary</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
+model.summary()
+</code></pre></div></div>
+
+<h2 id="sequential-model-for-lstm-with-bidirectional-wrapper">Sequential Model for LSTM with Bidirectional Wrapper</h2>
+
+<p>One last time make a sequential model for lstm and put it in bidirectional wrapper</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>model=Sequential([
+    Embedding(input_dim=num_words,output_dim=embedding_dim,input_length=maxlen),
+    Bidirectional(LSTM(5)),
+    Dense(1,activation='sigmoid')
+])
+</code></pre></div></div>
+
+<p>compiler the model and check its summary</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
+model.summary()
+</code></pre></div></div>
+:ET

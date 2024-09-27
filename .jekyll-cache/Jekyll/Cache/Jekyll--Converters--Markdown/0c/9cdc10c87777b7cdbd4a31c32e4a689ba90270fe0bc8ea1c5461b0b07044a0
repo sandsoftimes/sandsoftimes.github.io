@@ -1,0 +1,2 @@
+I"1<p>There are some problems where ordinary RNN architectures fail b/c of uncertainty. The most common example of it is the real-time voice to text recognition, we don’t know what the person is going speak next i.e the problem in which we need the future information, we need bidirection rnns for it.</p>
+:ET
