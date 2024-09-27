@@ -1,3 +1,0 @@
-I"�<p>LSTM are a pretty good replacement of RNNS’s. I’ll show the working of LSTM’s with a complete project. Our final model will take an input, whether it is a word or a phrase and predict the rest of the sentence by itself. Also you can ask any type of new query from the model and it will answer you. By some tinkering, i’ve made the model to act as a supervised learning model.</p>
-
-:ET
