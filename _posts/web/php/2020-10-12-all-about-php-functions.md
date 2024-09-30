@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PHP Functions, a Complete Guide and Implementation with Examples
+title: PHP Functions | a Complete Guide and Implementation with Examples
 date: 2020-10-12 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'

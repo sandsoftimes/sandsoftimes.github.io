@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PHP Arrays, a Complete Guide and Implementation with Examples
+title: PHP Arrays | a Complete Guide and Implementation with Examples
 date: 2020-10-13 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'

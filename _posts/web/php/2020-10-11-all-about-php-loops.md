@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PHP Loops, a Complete Guide and Implementaion with Examples
+title: PHP Loops | a Complete Guide and Implementaion with Examples
 date: 2020-10-11 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'

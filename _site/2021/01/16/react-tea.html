@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="/assets/css/cards.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
-<title>Setting Up React using Vite and a Basic Demonstration</title>
+<title>Setting up React using Vite and a Basic Demonstration</title>
 
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -28,9 +28,9 @@
 
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Setting Up React using Vite and a Basic Demonstration | SandsOfTimes - SANDY (SandsOfTimes) on Computing, Learning and More …</title>
+<title>Setting up React using Vite and a Basic Demonstration | SandsOfTimes - SANDY (SandsOfTimes) on Computing, Learning and More …</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="Setting Up React using Vite and a Basic Demonstration" />
+<meta property="og:title" content="Setting up React using Vite and a Basic Demonstration" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="React is one of the readily used framework when it comes to web or mobile application developmenmt. So far, i’ve seen two ways of working in react. The first one is the basic one with node pakage execute npx which will give you the all react framework files and the second one is with vite. Vite provide you the light files structure by excluding all the un-necessary react files at the start." />
 <meta property="og:description" content="React is one of the readily used framework when it comes to web or mobile application developmenmt. So far, i’ve seen two ways of working in react. The first one is the basic one with node pakage execute npx which will give you the all react framework files and the second one is with vite. Vite provide you the light files structure by excluding all the un-necessary react files at the start." />
@@ -38,9 +38,9 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-01-16T20:52:55+05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Setting Up React using Vite and a Basic Demonstration" />
+<meta property="twitter:title" content="Setting up React using Vite and a Basic Demonstration" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Setting Up React using Vite and a Basic Demonstration","description":"React is one of the readily used framework when it comes to web or mobile application developmenmt. So far, i’ve seen two ways of working in react. The first one is the basic one with node pakage execute npx which will give you the all react framework files and the second one is with vite. Vite provide you the light files structure by excluding all the un-necessary react files at the start.","datePublished":"2021-01-16T20:52:55+05:00","url":"/2021/01/16/react-tea","dateModified":"2021-01-16T20:52:55+05:00","mainEntityOfPage":{"@type":"WebPage","@id":"/2021/01/16/react-tea"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Setting up React using Vite and a Basic Demonstration","dateModified":"2021-01-16T20:52:55+05:00","datePublished":"2021-01-16T20:52:55+05:00","description":"React is one of the readily used framework when it comes to web or mobile application developmenmt. So far, i’ve seen two ways of working in react. The first one is the basic one with node pakage execute npx which will give you the all react framework files and the second one is with vite. Vite provide you the light files structure by excluding all the un-necessary react files at the start.","url":"/2021/01/16/react-tea","mainEntityOfPage":{"@type":"WebPage","@id":"/2021/01/16/react-tea"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -57,7 +57,7 @@
 		
 	</ul>
 </div></div><div class="container">
-	<h1>Setting Up React using Vite and a Basic Demonstration</h1>
+	<h1>Setting up React using Vite and a Basic Demonstration</h1>
 	<h4 class="post-description"></h4>
 	<div class="post-date" style="margin-top:20px">
 		Published on Jan 16, 2021
@@ -73,18 +73,38 @@ node pakage execute <code class="language-plaintext highlighter-rouge">npx</code
 is with <code class="language-plaintext highlighter-rouge">vite</code>. Vite provide you the light files structure by excluding all the un-necessary react 
 files at the start.</p>
 
-<p>We’ll focus on react via using the vite. It is much more reliable and easy to download as all
-the files are downloaded in few minutes.</p>
+<p>First of all, we’ve to install nodejs but there is one problem here if you install it using <code class="language-plaintext highlighter-rouge">apt</code> manager it will install node version 12 point something which will cause some issues in setting up the project so you’ll need a higher version of nodesjs. Here is how you can do that. First of all check the node version,</p>
 
-<p>Initially write this on terminal to create the vite project.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node -v
+</code></pre></div></div>
+
+<p>if it is not installed then first install the nvm,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+</code></pre></div></div>
+
+<p>close and reopen your terminal or write this command,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source ~/.bashrc
+</code></pre></div></div>
+
+<p>now install the latest nodejs version by writing these two commands,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvm install node
+nvm use node
+</code></pre></div></div>
+
+<p>check the node version,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>node -v
+</code></pre></div></div>
+
+<p>node is installed follow the rest of the blog to create the react project using vite. We’ll focus on react via using the vite. It is much more reliable and easy to download as all the files are downloaded in few minutes. Initially write this on terminal to create the vite project.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm create vite@latest
 </code></pre></div></div>
 
-<p>It will ask you to select b/w multiple frameworks. You’ve to select <code class="language-plaintext highlighter-rouge">react</code> among them. Then you’ve to select from the programming languages. 
-There will be multiple options e.g Javascript, Typescript. We will go with the Javascript. Then, mention the project name and you are good to go.</p>
-
-<p>You now have the vite react project in your computer. It have multiple files. Initially you have the 3 main files:</p>
+<p>It will ask you to select b/w multiple frameworks. You’ve to select <code class="language-plaintext highlighter-rouge">react</code> among them. Then you’ve to select from the programming languages. There will be multiple options e.g Javascript, Typescript. We will go with the Javascript. Then, mention the project name and you are good to go. You now have the vite react project in your computer. It have multiple files. Initially you have the 3 main files:</p>
 
 <ul>
   <li>index.html</li>

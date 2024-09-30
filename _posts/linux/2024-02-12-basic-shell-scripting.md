@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shell Scripting, a Complete Guide with Example 
+title: Shell Scripting | a Complete Guide with an Example 
 date: 2024-02-12 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'
