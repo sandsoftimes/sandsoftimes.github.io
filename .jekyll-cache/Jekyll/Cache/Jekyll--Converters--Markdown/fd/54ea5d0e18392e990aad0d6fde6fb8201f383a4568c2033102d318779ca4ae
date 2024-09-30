@@ -1,0 +1,41 @@
+I"G	<p>Softmax function is one of the most widely used activation function in deep learning. Applying it on a data with high variance and cause problems. Therefore we most provide the scaled data with low variance to this activation function. The implementation of softmax is very simple. Here is few lines code showing the implementation of softmax,</p>
+
+<p>First of all import all the necessary libraries,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import numpy as np 
+import matplotlib.pyplot as plt 
+</code></pre></div></div>
+
+<p>then here is the softmax,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def softmax(x):
+  # Ensure numerical stability by subtracting the max value from each element
+  e_x=np.exp(x-np.max(x))
+  softmax_values=e_x/e_x.sum(axis=0) # Normalize
+  percent_values=softmax_values*100 #convert to percent
+  #Format each value to a string with 2 decimal places followed by a percent sign
+  formatted_percent_values=[f"{value:.2f}%" for value in percent_values]
+  return formatted_percent_values
+</code></pre></div></div>
+
+<p>you can check it by apply on any vector of any dimension,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>softmax(np.array([1,10]))
+</code></pre></div></div>
+
+<p><img src="/assets/images/clt/softmax-and-variance/1.png" alt="1" /></p>
+
+<p>also variance is a big problem in deep learning. You’ve to make sure the vector/scalar passed to softmax function has low variance other wise, the softmax will push the values to both maximum and minimum extremes. Check the variance by using the built in function numpy function <code class="language-plaintext highlighter-rouge">var</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>np.array([10,20,30,40,50,60,70]).var()
+</code></pre></div></div>
+
+<p><img src="/assets/images/clt/softmax-and-variance/2.png" alt="2" /></p>
+
+<p>values close to each other (with less difference) have small variance,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>np.array([1,2,3,4,5,6,7]).var()
+</code></pre></div></div>
+
+<p><img src="/assets/images/clt/softmax-and-variance/3.png" alt="3" /></p>
+:ET

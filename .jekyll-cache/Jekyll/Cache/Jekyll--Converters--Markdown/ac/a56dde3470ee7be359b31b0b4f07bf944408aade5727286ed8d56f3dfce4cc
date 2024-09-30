@@ -1,0 +1,2 @@
+I"_<p>Softmax function is one of the most widely used activation function in deep learning. Applying it on a data with high variance and cause problems. Therefore we most provide the scaled data with low variance to this activation function. The implementation of softmax is very simple. Here is few lines code showing the implementation of softmax,</p>
+:ET

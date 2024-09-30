@@ -32,7 +32,7 @@ Open the file and extract the folder present within it.
 Now go to this directory and within it open the bin directory. Here open up the terminal and write this command,
 
 ```
-./studio
+./studio.sh
 ```
 
 Installer will open and you simply have to follow along by pressing the next button. Eventually the downloading of the packages will start and after it, they'll be installed automatically. Now that the installation is finished, you now have a shortcut of android-studio in the start menu. Click on it and application will launch,
