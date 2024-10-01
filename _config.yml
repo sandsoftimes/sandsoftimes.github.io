@@ -31,7 +31,7 @@ texture:
       url: "/learn"
 
   social_links:
-    twitter: bluebutterflied 
+    twitter: sandsoftimes
     github:  sandsoftimes
     linkedIn: in/muhammad-sharjeel-akhtar-sandsoftimes-sandy-52b1bb317
     youtube: c/sultan_black
@@ -42,3 +42,4 @@ header_pages:
 
 plugins:
   - jekyll-seo-tag
+

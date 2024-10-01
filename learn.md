@@ -20,4 +20,18 @@ permalink: /learn
 
 **Steam.Invite.Code:** 922334697
 
-Feel free to contact me on any of the above platforms. If i'm not responding please just be patient. I'll respond to everyone ASAP.
+Feel free to contact me on any of the above platforms. Also i talk about video games, you can add me from the given steam code. If i'm not responding please just be patient. I'll respond to everyone ASAP.
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
