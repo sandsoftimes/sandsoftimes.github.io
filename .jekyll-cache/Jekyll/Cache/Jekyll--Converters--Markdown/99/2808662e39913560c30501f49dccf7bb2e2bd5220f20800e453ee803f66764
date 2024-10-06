@@ -1,0 +1,53 @@
+I"¬<p>In simple words, natural language processing is the combination of 3 things. Linguistics, Computer Science and Artificial Intelligence. It is concerned with the interactions between computers and human language. This question came in mind what was the need of nlp? Humans are unable to communicate to computers in native languages and nlp is briding this gap.</p>
+
+<p>There are multiple real world applications of nlp,</p>
+
+<ul>
+  <li>Contextual Advertisements</li>
+  <li>Email Clients - spam filtering, smart reply</li>
+  <li>Social Media - removing adult content, opinion mining</li>
+  <li>Search Engines</li>
+  <li>Chatbots</li>
+</ul>
+
+<p>Apart of these applications, nlp is performing a wide variety of tasks like</p>
+
+<ul>
+  <li>text/document classification</li>
+  <li>sentiment  analysis</li>
+  <li>information retrieval</li>
+  <li>parts of speech tagging</li>
+  <li>language detection and machine translation</li>
+  <li>conversational agents</li>
+  <li>knowledge graph and question answer systems</li>
+  <li>text summarization</li>
+  <li>topic modelling</li>
+  <li>text generation</li>
+  <li>spell checking and grammar correction</li>
+  <li>text parsing and speech to text</li>
+</ul>
+
+<p>In general there are three approaches to NLP</p>
+
+<ul>
+  <li>Heuristic Methods</li>
+  <li>Machine Learning Based Methods</li>
+  <li>Deep Learning Based Methods</li>
+</ul>
+
+<h2 id="heuristic-approaches">Heuristic Approaches</h2>
+
+<p>Heuristic approach is the most basic approach for natural language processing. It works on the basis of regular expressions or common sense of mind. The main advantage of this approach is that it is very easy to implement but there is a disadvantage, which is that it is not open-ended. You cannot apply the same approach on different problems.</p>
+
+<h2 id="machine-learning-approach">Machine Learning Approach</h2>
+
+<p>The biggest advantage of ML approach for nlp is the workflow. It works in a way that you can solve multiple problems using the same technique thus itâ€™s easy to solve open-ended problems with it. Multiple algorithms are used in ml like,</p>
+
+<ul>
+  <li>Naive Bayes</li>
+  <li>Logistic Regression</li>
+  <li>SVM</li>
+  <li>LDA</li>
+  <li>Hidden Markov Models</li>
+</ul>
+:ET

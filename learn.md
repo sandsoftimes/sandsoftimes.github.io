@@ -3,6 +3,11 @@ layout: page
 title: Contact
 permalink: /learn
 ---
+## Disclaimer:
+
+`I do pacy typing when writing the blogs. In case of any spelling mistakes, do let me know.`
+
+---
 
 **Email-1:** [janeebee1092@gmail.com](https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRnZfcsKnHbfZJPvmnTCnZrvkSXGThjwKDpPkWskpSSFCBzlsqlTxTMVMkFLqCtwWLVQHNb)
 
@@ -20,7 +25,9 @@ permalink: /learn
 
 **Steam.Invite.Code:** 922334697
 
-Feel free to contact me on any of the above platforms. Also i talk about video games, you can add me from the given steam code. If i'm not responding please just be patient. I'll respond to everyone ASAP.
+Feel free to contact me on any of the above platforms. Also i talk about video games, you can add me from the given steam code. If i'm not responding please just be patient. I'll respond to everyone ASAP. 
+
+---
 
 <br />
 <br />

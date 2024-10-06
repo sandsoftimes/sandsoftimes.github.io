@@ -40,5 +40,3 @@ Installer will open and you simply have to follow along by pressing the next but
 ![3](/assets/images/clt/android-studio-installation-in-linux/3.png)
 
 Soon i'll post about the basic working of android-studio. stay-tuned!
-
-
