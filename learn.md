@@ -6,7 +6,7 @@ permalink: /learn
 ## Disclaimer:
 
 `I do pacy typing when writing the blogs. In case of any spelling mistakes, do let me know.`
-
+`Credits: This site is a clone of my professor's [recluze](https://recluze.github.io/) site, made some fluctuations and thus using it for myself`
 ---
 
 **Email-1:** [janeebee1092@gmail.com](https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRnZfcsKnHbfZJPvmnTCnZrvkSXGThjwKDpPkWskpSSFCBzlsqlTxTMVMkFLqCtwWLVQHNb)
