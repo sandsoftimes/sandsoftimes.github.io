@@ -1,0 +1,45 @@
+title: SandsOfTimes - SANDY (SandsOfTimes) on Computing, Learning and More ... 
+author: SandsOfTimes
+email: janeebee1092@gmail.com 
+description: > # this means to ignore newlines until "show_exerpts:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+show_excerpts: true # set to true to show excerpts on the homepage
+
+
+sass:
+  sass_dir: _sass
+
+# permalink: /posts/:title/
+permalink: /posts/:year/:month/:day/:title/
+
+texture:
+  title: SandsOfTimes
+  tagline: SANDY (SandsOfTimes) on Computing, Learning and more...
+  date_format: "%b %-d, %Y"
+  style: black
+  showNav: true 
+  showPicker: false
+
+  navigation:
+    - title: Home 
+      url: "/"
+    - title: About
+      url: "/about"
+    - title: Contact 
+      url: "/learn"
+
+  social_links:
+    twitter: sandsoftimes
+    github:  sandsoftimes
+    linkedIn: in/muhammad-sharjeel-akhtar-sandsoftimes-sandy-52b1bb317
+    youtube: c/sultan_black
+ 
+header_pages:
+ - about.md
+
+
+plugins:
+  - jekyll-seo-tag
+
