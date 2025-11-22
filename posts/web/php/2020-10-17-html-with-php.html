@@ -1,0 +1,219 @@
+<hr>
+<p>layout: post
+title: HTML with PHP (GET, POST and $_REQUEST)
+date: 2020-10-17 20:52:55.000000000 +05:00
+type: post
+parent_id: &#39;0&#39;
+published: true
+password: &#39;&#39;
+status: publish
+categories:</p>
+<ul>
+<li>Web</li>
+<li>PHP
+tags: []
+meta:
+_wpas_done_all: &#39;1&#39;
+author:
+login: SandsOfTime
+email: janeebee1092@gmail.com
+display_name: SandsOfTime
+first_name: Muhammad
+last_name: Sharjeel Akhtar
+permalink: &quot;2020/10/17/html-with-php&quot;</li>
+</ul>
+<hr>
+<p>PHP and HTML are totally different languages. PHP is a server-side language while the HTML is a client-side language. However the interaction between these two is very important. We make the interface in html while and we write the logic in php. The simple example of it is the sign-up boxes. They are made in html, while the username and password we enter in the fields is taken to server via the use of php. So both of them are of equal importance.</p>
+<p>Client sends request to the server. There are 2 main types of requests. </p>
+<ul>
+<li>get request</li>
+<li>post request</li>
+</ul>
+<p>In get request, the address is visible in the address bar, while post request is much more secure and the address is not shown in the address bar.</p>
+<p>You can also check the working of php by checking out this blog <a href="/2020/10/08/how-php-works">How PHP Works??</a></p>
+<h2 id="get-request-method">GET Request Method</h2>
+<p>One way of getting data in php is <strong>GET</strong> request method. Simply you&#39;ve to do 4 steps for this purpose,</p>
+<ul>
+<li>Make HTML file</li>
+<li>Make PHP file</li>
+<li>Make input field in HTML file</li>
+<li>Recieve data in PHP file</li>
+</ul>
+<p>First of all let&#39;s make an html file, name it <code>login.html</code>. Create a basic form in this file with two input fields and 1 button. Also keep in mind, you&#39;ve to write <code>form method=&quot;get&quot;</code> for the <code>get</code> request and <code>action=&quot;./login.php&quot;</code> for the redirection. At the end of form make a button as well. Here is the code,</p>
+<pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Login<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"get"</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"./login.php"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user_name"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Enter User Name"</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user_password"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"Enter User Password"</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Login<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre><p><img src="/assets/images/clt/html-with-php/1.png" alt="1"></p>
+<p>Now make the php file with the name <code>login.php</code>. Write a simple <code>echo</code> with a text in it,</p>
+<pre><code><span class="php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"this is a php login file"</span>;
+<span class="hljs-meta">?&gt;</span></span>
+</code></pre><p>Now write a username and password on the webpage,</p>
+<p><img src="/assets/images/clt/html-with-php/2.png" alt="2"></p>
+<p>Press the <strong>submit</strong> button and you&#39;ll get,</p>
+<p><img src="/assets/images/clt/html-with-php/3.png" alt="3"></p>
+<p><strong>GET</strong> request has three characteristics,</p>
+<ul>
+<li>Request is visible in the address bar</li>
+<li>Less secure request </li>
+<li>Mostly used to get data from the server</li>
+</ul>
+<p>As you know you get the information of the <strong>GET</strong> request in the address bar, here is how it looks.</p>
+<p><img src="/assets/images/clt/html-with-php/4.png" alt="4"></p>
+<p>You can also print these values using php. Here it is how you do it,</p>
+<pre><code><span class="php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"user name is "</span>.$_GET[<span class="hljs-string">'user_name'</span>];
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;br/&gt;"</span>;
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"user password is "</span>.$_GET[<span class="hljs-string">'user_password'</span>];
+<span class="hljs-meta">?&gt;</span></span>
+</code></pre><p><img src="/assets/images/clt/html-with-php/5.png" alt="5"></p>
+<p>The url portion after <code>?</code> represents the values of <strong>GET</strong> request. What if remove the portion after <code>?</code> in the url. What will we get? Lets check this,</p>
+<p><img src="/assets/images/clt/html-with-php/6.png" alt="6"></p>
+<p>You will get the warning about the undefined array key of <code>user name</code> and <code>user password</code>,</p>
+<p><img src="/assets/images/clt/html-with-php/7.png" alt="7"></p>
+<p>Now how to remove this warning, you simply have to write a single <code>if</code> check in order to avoid this warning. </p>
+<pre><code><span class="php"><span class="hljs-meta">&lt;?php</span>
+
+<span class="hljs-keyword">if</span>($_GET){
+    <span class="hljs-comment">// echo "this is a php login file";</span>
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"user name is "</span>.$_GET[<span class="hljs-string">'user_name'</span>];
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;br/&gt;"</span>;
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"user password is "</span>.$_GET[<span class="hljs-string">'user_password'</span>];
+}
+<span class="hljs-meta">?&gt;</span></span>
+</code></pre><p>Now if there is nothing after <code>?</code>, you&#39;ll not get any warning. Instead you&#39;ll get a simple white blank page.
+The <strong>GET</strong> request information is also available if you <code>inspect</code> the page on your browser and go to the payload of the <code>Network</code>,</p>
+<p><img src="/assets/images/clt/html-with-php/8.png" alt="8"></p>
+<p>P.S, you can check the type of the request by clicking the <code>Headers</code> tab.</p>
+<p><img src="/assets/images/clt/html-with-php/9.png" alt="9"></p>
+<h2 id="post-request-method">POST Request Method</h2>
+<p>Another way of getting data in php is <strong>POST</strong> request method. You also have to do same 4 steps for this type of request,</p>
+<ul>
+<li>Make HTML file</li>
+<li>Make PHP file</li>
+<li>Make input field in HTML file</li>
+<li>Recieve data in PHP file</li>
+</ul>
+<p>We are creating two files now, </p>
+<ul>
+<li><code>signup.html</code></li>
+<li><code>signup.php</code></li>
+</ul>
+<p>Simply create an html file with a basic form code in it. Keep in mind you&#39;ve to write <code>method=&quot;post&quot;</code> in the form tag. Here is a complete code for the <code>signup.html</code> file</p>
+<pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Sign Up<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"post"</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"./signup.php"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"enter name"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user_name"</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"enter password"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user_password"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"enter email"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user_email"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Sign Up<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre><p>Now create the other file <code>signup.php</code>. In this file simply use the if condition with <code>$_POST</code> request and simply use the <code>print_r()</code> function to print out all the values from the post request. </p>
+<pre><code><span class="php"><span class="hljs-meta">&lt;?php</span> 
+<span class="hljs-comment">//echo "signup page";</span>
+<span class="hljs-keyword">if</span>($_POST){
+    print_r($_POST);
+}
+<span class="hljs-meta">?&gt;</span></span>
+</code></pre><p>Now go to the <strong>Sign Up</strong> page and fill out the information, </p>
+<p><img src="/assets/images/clt/html-with-php/10.png" alt="10"></p>
+<p>click the <strong>Sign Up</strong> button and here is the information,</p>
+<p><img src="/assets/images/clt/html-with-php/11.png" alt="11"></p>
+<p>You can also print out the information separately, </p>
+<pre><code><span class="php"><span class="hljs-meta">&lt;?php</span> 
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"signup page"</span>;
+<span class="hljs-keyword">if</span>($_POST){
+    print_r($_POST);
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;br&gt;"</span>;
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"User Name is: "</span>.$_POST[<span class="hljs-string">'user_name'</span>].<span class="hljs-string">"&lt;br&gt;"</span>;
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"User Password is: "</span>.$_POST[<span class="hljs-string">'user_password'</span>].<span class="hljs-string">"&lt;br&gt;"</span>;
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"User Email is: "</span>.$_POST[<span class="hljs-string">'user_email'</span>].<span class="hljs-string">"&lt;br&gt;"</span>;
+}
+<span class="hljs-meta">?&gt;</span></span>
+</code></pre><p>and here is how it will look,</p>
+<p><img src="/assets/images/clt/html-with-php/12.png" alt="12"></p>
+<p>Like the <strong>GET</strong> request, you can also check out your request type from the <code>inspect</code> tab.</p>
+<p><img src="/assets/images/clt/html-with-php/13.png" alt="13"></p>
+<p>also keep in mind as this is <strong>POST</strong> request so no information is given in the url,</p>
+<p><img src="/assets/images/clt/html-with-php/14.png" alt="14"></p>
+<p>but the information is present in the <code>payload</code> tab in <code>network</code> section of page <code>inspect</code></p>
+<p><img src="/assets/images/clt/html-with-php/15.png" alt="15"></p>
+<h2 id="-_request-method">$_REQUEST Method</h2>
+<p>There is another method of fetching data in php. It is called <code>$_REQUEST</code> method. It has an advantage over <strong>GET</strong> and <strong>POST</strong> requests. It can handle both types of requests. For using this method, we will also create two files, one will be html file and the other will be the php file.</p>
+<p>Initially write a basic form code in <code>register.html</code> file,</p>
+<pre><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1.0"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Request<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"./register.php"</span> <span class="hljs-attr">method</span>=<span class="hljs-string">"get"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user_name"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"enter name"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user_password"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"enter password"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user_email"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"enter email"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"user_address"</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">"enter address"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span>Register<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre><p>The form will look like this, </p>
+<p><img src="/assets/images/clt/html-with-php/16.png" alt="16"></p>
+<p>Then go to the <code>register.php</code> file and this time write <code>$_REQUEST</code> for this new method. It will handle both the <strong>GET</strong> and <strong>POST</strong> requests. Also if you want to forcefully add a new entry to the php file, you can do it aswell like i&#39;m doing it as </p>
+<pre><code>$_REQUEST[<span class="hljs-string">'dummy'</span>]=<span class="hljs-string">'test'</span><span class="hljs-comment">;</span>
+</code></pre><p>Also i&#39;m using foreach loop so that if the number of input field increases, then the foreach loop work on all by itself. Here is the complete code of <code>register.php</code> file,</p>
+<pre><code><span class="php"><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">// print_r($_REQUEST);</span>
+$_REQUEST[<span class="hljs-string">'dummy'</span>]=<span class="hljs-string">'test'</span>;
+<span class="hljs-keyword">if</span>($_REQUEST){
+<span class="hljs-keyword">foreach</span>($_REQUEST <span class="hljs-keyword">as</span> $key =&gt;$data){
+    <span class="hljs-keyword">echo</span> $key .<span class="hljs-string">" is "</span>. $data;
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;br&gt;"</span>;
+}
+}
+<span class="hljs-meta">?&gt;</span></span>
+</code></pre><p>Here you can see i&#39;m sending <strong>GET</strong> request, </p>
+<p><img src="/assets/images/clt/html-with-php/17.png" alt="17"></p>
+<p>And now i&#39;m sending a post request to it,</p>
+<p><img src="/assets/images/clt/html-with-php/18.png" alt="18"></p>
