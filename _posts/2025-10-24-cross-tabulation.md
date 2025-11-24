@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Cross Tabulation
-date: 2025-11-24 20:52:55.000000000 +05:00
+date: 2025-10-24 20:52:55.000000000 +05:00
 type: post
 parent_id: '0'
 published: true
@@ -19,7 +19,7 @@ author:
   display_name: SandsOfTime
   first_name: Muhammad
   last_name: Sharjeel Akhtar
-permalink: "2025/11/24/cross-tabulation"
+permalink: "2025/10/24/cross-tabulation"
 ---
 Cross Tabulation is the relationship between two features using their frequency,
 
