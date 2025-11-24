@@ -23,7 +23,7 @@ permalink: "2025/10/24/cross-tabulation"
 ---
 Cross Tabulation is the relationship between two features using their frequency,
 
-![image](assets/images/clt/Screenshot_2025-11-24_00-36-07.png)
+![image](/assets/images/Screenshot_2025-11-24_00-36-07.png)
 
 There are two variables here,
 
